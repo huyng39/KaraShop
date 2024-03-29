@@ -9,7 +9,7 @@ class Dummy {
       weight: '800 gm',
       cover: 'https://i.imgur.com/6unJlSL.png',
       images: ['https://i.imgur.com/6unJlSL.png'],
-      price: 13,
+      price: 27500,
       mainPrice: 15,
     ),
     ProductModel(
@@ -17,7 +17,7 @@ class Dummy {
       weight: '500 gm',
       cover: 'https://i.imgur.com/oaCY49b.png',
       images: ['https://i.imgur.com/oaCY49b.png'],
-      price: 12,
+      price: 26500,
       mainPrice: 15,
     ),
     ProductModel(
@@ -57,7 +57,7 @@ class Dummy {
       name: 'Bundle Pack',
       cover: 'https://i.postimg.cc/k2y7Jkv9/pack-4.png',
       itemNames: ['Onion, Oil, Salt'],
-      price: 35,
+      price: 50000,
       mainPrice: 50.32,
     ),
   ];

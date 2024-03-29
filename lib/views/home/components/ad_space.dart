@@ -17,7 +17,7 @@ class AdSpace extends StatelessWidget {
         child: const AspectRatio(
           aspectRatio: 16 / 9,
           child: NetworkImageWithLoader(
-            'https://i.imgur.com/8hBIsS5.png',
+            'https://i.imgur.com/MZ0VOdy.png',
             fit: BoxFit.contain,
           ),
         ),

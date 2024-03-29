@@ -32,9 +32,13 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               floating: true,
-              title: SvgPicture.asset(
-                "assets/images/app_logo.svg",
-                height: 32,
+              title: 
+              // SvgPicture.asset(
+              //   "assets/images/app_logo.svg",
+              //   height: 32,
+              // ),
+              Text(
+                'Kara Shop',style: TextStyle(color: Colors.green.shade500,fontSize: 21,fontFamily: "Gilory"),
               ),
               actions: [
                 Padding(

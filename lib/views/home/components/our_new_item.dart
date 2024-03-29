@@ -15,7 +15,7 @@ class OurNewItem extends StatelessWidget {
     return Column(
       children: [
         TitleAndActionButton(
-          title: 'Our New Item',
+          title: 'Sản phẩm mới',
           onTap: () => Navigator.pushNamed(context, AppRoutes.newItems),
         ),
         SingleChildScrollView(

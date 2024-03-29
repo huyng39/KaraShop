@@ -15,7 +15,7 @@ class PopularPacks extends StatelessWidget {
     return Column(
       children: [
         TitleAndActionButton(
-          title: 'Popular Packs',
+          title: 'Sản phẩm nổi bật',
           onTap: () => Navigator.pushNamed(context, AppRoutes.popularItems),
         ),
         SingleChildScrollView(

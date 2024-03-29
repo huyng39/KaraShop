@@ -13,7 +13,7 @@ class PopularPackPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Popular Packs'),
+        title: const Text('Sản phẩm nổi bật'),
         leading: const AppBackButton(),
       ),
       body: SafeArea(
