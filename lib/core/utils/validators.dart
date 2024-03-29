@@ -14,7 +14,7 @@ class Validators {
 
   /// Required Validator with Optional Field Name
   static RequiredValidator requiredWithFieldName(String? fieldName) =>
-      // RequiredValidator(errorText: '${fieldName ?? 'Field'} is required'); 1
+      // RequiredValidator(errorText: '${fieldName ?? 'Field'} is required'); 12
       RequiredValidator(errorText: 'Không được bỏ trống');
 
   /// Plain Required Validator
