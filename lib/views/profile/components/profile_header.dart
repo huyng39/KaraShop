@@ -20,7 +20,7 @@ class ProfileHeader extends StatelessWidget {
         Column(
           children: [
             AppBar(
-              title: const Text('Profile'),
+              title: const Text('Tài khoản của tôi'),
               elevation: 0,
               backgroundColor: Colors.transparent,
               titleTextStyle: Theme.of(context).textTheme.titleLarge?.copyWith(
@@ -56,7 +56,7 @@ class _UserData extends StatelessWidget {
               child: AspectRatio(
                   aspectRatio: 1 / 1,
                   child: NetworkImageWithLoader(
-                      'https://images.unsplash.com/photo-1628157588553-5eeea00af15c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80')),
+                      'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/328921835_607717754522307_6081360884162714689_n.jpg?stp=dst-jpg_p320x320&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=w7mQoYa5NH8AX_xIR1t&_nc_ht=scontent.fsgn8-4.fna&oh=00_AfC_znMnCstu-d2aLdJQZxn7d2zdQWuCP_l1Qik-oJXxnA&oe=660BD39C',)),
             ),
           ),
           const SizedBox(width: AppDefaults.padding),
@@ -64,13 +64,13 @@ class _UserData extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Shakibul Islam',
+                'Nguyễn Thị Thanh Ngân',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold, color: Colors.white),
+                    fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
               ),
               const SizedBox(height: 8),
               Text(
-                'ID: 1540580',
+                'Mã KH: 1540580',
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge

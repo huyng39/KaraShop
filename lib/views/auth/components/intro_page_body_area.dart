@@ -25,7 +25,7 @@ class IntroPageBodyArea extends StatelessWidget {
                   Text(
                     'Chào mừng bạn đến với',
                     style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontWeight: FontWeight.bold, color: Colors.white),
+                        fontWeight: FontWeight.bold, color: Colors.white70),
                   ),
                   Text(
                     'Kara Shop',

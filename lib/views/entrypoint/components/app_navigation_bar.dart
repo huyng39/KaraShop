@@ -23,7 +23,7 @@ class AppBottomNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           BottomAppBarItem(
-            name: 'Home',
+            name: 'Trang chủ',
             iconLocation: AppIcons.home,
             isActive: currentIndex == 0,
             onTap: () => onNavTap(0),
@@ -41,13 +41,13 @@ class AppBottomNavigationBar extends StatelessWidget {
           /* <---- We have to leave this 3rd index (2) for the cart item -----> */
 
           BottomAppBarItem(
-            name: 'Save',
+            name: 'Đã lưu',
             iconLocation: AppIcons.save,
             isActive: currentIndex == 3,
             onTap: () => onNavTap(3),
           ),
           BottomAppBarItem(
-            name: 'Profile',
+            name: 'Tài khoản',
             iconLocation: AppIcons.profile,
             isActive: currentIndex == 4,
             onTap: () => onNavTap(4),

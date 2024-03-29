@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core/constants/constants.dart';
+import '../../../core/routes/app_routes.dart';
 
-class SignUpButton extends StatelessWidget {
-  const SignUpButton({
+class SignUpButtonNoRequired extends StatelessWidget {
+  const SignUpButtonNoRequired({
     Key? key,
-    required this.onPressed,
   }) : super(key: key);
 
-   final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +25,7 @@ class SignUpButton extends StatelessWidget {
           const Spacer(),
           ElevatedButton(
             onPressed: () {
-              onPressed;
+              Navigator.pushNamed(context, AppRoutes.numberVerification);
             },
             style: ElevatedButton.styleFrom(elevation: 1),
             child: SvgPicture.asset(

@@ -23,7 +23,7 @@ class ProfileHeaderOptions extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           ProfileSqureTile(
-            label: 'All Order',
+            label: 'Đơn hàng',
             icon: AppIcons.truckIcon,
             onTap: () {
               Navigator.pushNamed(context, AppRoutes.myOrder);
@@ -37,7 +37,7 @@ class ProfileHeaderOptions extends StatelessWidget {
             },
           ),
           ProfileSqureTile(
-            label: 'Address',
+            label: 'Địa chỉ đã lưu',
             icon: AppIcons.homeProfile,
             onTap: () {
               Navigator.pushNamed(context, AppRoutes.deliveryAddress);

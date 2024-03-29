@@ -19,7 +19,7 @@ class SocialLogins extends StatelessWidget {
             child: OutlinedButton(
               onPressed: () {},
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Colors.red),
+                side: const BorderSide(color: Colors.blue),
                 padding: const EdgeInsets.symmetric(
                   horizontal: AppDefaults.padding * 2,
                   vertical: AppDefaults.padding,
@@ -29,14 +29,14 @@ class SocialLogins extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    AppIcons.googleIconRounded,
+                    AppIcons.zaloIcon,
                     width: 24,
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    'Google',
+                    'Zalo',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          color: Colors.red,
+                          color: Colors.blue,
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -49,7 +49,7 @@ class SocialLogins extends StatelessWidget {
             child: OutlinedButton(
               onPressed: () {},
               style: OutlinedButton.styleFrom(
-                side: const BorderSide(color: Colors.black),
+                side: const BorderSide(color: Colors.blueAccent),
                 padding: const EdgeInsets.symmetric(
                   horizontal: AppDefaults.padding * 2,
                   vertical: AppDefaults.padding,
@@ -59,14 +59,14 @@ class SocialLogins extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    AppIcons.appleIconRounded,
+                    AppIcons.facebookIconFill,
                     width: 24,
                   ),
                   const SizedBox(width: 8),
                   Text(
-                    'Apple',
+                    'Facebook',
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                          color: Colors.black,
+                          color: Colors.blueAccent,
                           fontWeight: FontWeight.bold,
                         ),
                   ),

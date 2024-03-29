@@ -22,48 +22,48 @@ class DrawerPage extends StatelessWidget {
         child: Column(
           children: [
             AppSettingsListTile(
-              label: 'Invite Friend',
+              label: 'Mời bạn bè sử dụng',
               trailing: SvgPicture.asset(AppIcons.right),
             ),
             AppSettingsListTile(
-              label: 'About Us',
+              label: 'Về chúng tôi',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.aboutUs),
             ),
             AppSettingsListTile(
-              label: 'FAQs',
+              label: 'Câu hỏi thường gặp',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.faq),
             ),
             AppSettingsListTile(
-              label: 'Terms & Conditions',
+              label: 'Điều khoản & Điều kiện',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.termsAndConditions),
             ),
             AppSettingsListTile(
-              label: 'Help Center',
+              label: 'Trung tâm hỗ trợ',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.help),
             ),
             AppSettingsListTile(
-              label: 'Rate This App',
+              label: 'Đánh giá app',
               trailing: SvgPicture.asset(AppIcons.right),
               // onTap: () => Navigator.pushNamed(context, AppRoutes.help),
             ),
             AppSettingsListTile(
-              label: 'Privacy Policy',
+              label: 'Quyền riêng tư',
               trailing: SvgPicture.asset(AppIcons.right),
               // onTap: () => Navigator.pushNamed(context, AppRoutes.),
             ),
             AppSettingsListTile(
-              label: 'Contact Us',
+              label: 'Liên hệ chúng tôi',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.contactUs),
             ),
             const SizedBox(height: AppDefaults.padding * 3),
             AppSettingsListTile(
-              label: 'Logout',
+              label: 'Đăng xuất',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.introLogin),
             ),

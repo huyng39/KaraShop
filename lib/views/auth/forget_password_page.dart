@@ -14,7 +14,7 @@ class ForgetPasswordPage extends StatelessWidget {
       backgroundColor: AppColors.scaffoldWithBoxBackground,
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('Forget Password'),
+        title: const Text('Quên mật khẩu'),
         backgroundColor: AppColors.scaffoldBackground,
       ),
       body: Center(
@@ -36,7 +36,7 @@ class ForgetPasswordPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Reset your password',
+                      'Đặt lại mật khẩu',
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge
@@ -44,10 +44,10 @@ class ForgetPasswordPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDefaults.padding),
                     const Text(
-                      'Please enter your number. We will send a code\nto your phone to reset your password.',
+                      'Vui lòng nhập số điện thoại của bạn để chúng tôi xác minh bạn',
                     ),
                     const SizedBox(height: AppDefaults.padding * 3),
-                    const Text("Phone Number"),
+                    const Text("Số điện thoại"),
                     const SizedBox(height: 8),
                     TextFormField(
                       autofocus: true,
@@ -62,7 +62,7 @@ class ForgetPasswordPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, AppRoutes.passwordReset);
                         },
-                        child: const Text('Send me link'),
+                        child: const Text('Xác minh'),
                       ),
                     ),
                   ],

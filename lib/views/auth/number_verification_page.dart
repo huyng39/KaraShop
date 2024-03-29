@@ -70,7 +70,7 @@ class VerifyButton extends StatelessWidget {
             ),
           );
         },
-        child: const Text('Verify'),
+        child: const Text('Xác nhận'),
       ),
     );
   }
@@ -86,10 +86,10 @@ class ResendButton extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text('Did you don\'t get code?'),
+        const Text('Bạn chưa nhận được mã?'),
         TextButton(
           onPressed: () {},
-          child: const Text('Resend'),
+          child: const Text('Gửi lại'),
         ),
       ],
     );
@@ -107,8 +107,8 @@ class NumberVerificationHeader extends StatelessWidget {
       children: [
         const SizedBox(height: AppDefaults.padding),
         Text(
-          'Entry Your 4 digit code',
-          style: Theme.of(context).textTheme.titleLarge,
+          'Nhập mã OTP chúng tôi vừa gửi cho bạn',
+          style: Theme.of(context).textTheme.titleMedium,
         ),
         const SizedBox(height: AppDefaults.padding),
         SizedBox(

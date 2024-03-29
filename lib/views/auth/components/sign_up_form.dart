@@ -6,6 +6,7 @@ import '../../../core/constants/constants.dart';
 import '../../../core/utils/validators.dart';
 import 'already_have_accout.dart';
 import 'sign_up_button.dart';
+import 'sign_up_button_no_required.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
@@ -25,14 +26,14 @@ class SignUpForm extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Name"),
+          const Text("Họ và tên"),
           const SizedBox(height: 8),
           TextFormField(
-            validator: Validators.requiredWithFieldName('Name'),
+            validator: Validators.requiredWithFieldName('Nhập họ và tên'),
             textInputAction: TextInputAction.next,
           ),
           const SizedBox(height: AppDefaults.padding),
-          const Text("Phone Number"),
+          const Text("Số điện thoại"),
           const SizedBox(height: 8),
           TextFormField(
             textInputAction: TextInputAction.next,
@@ -41,7 +42,7 @@ class SignUpForm extends StatelessWidget {
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
           ),
           const SizedBox(height: AppDefaults.padding),
-          const Text("Password"),
+          const Text("Mật khẩu"),
           const SizedBox(height: 8),
           TextFormField(
             validator: Validators.required,
@@ -61,7 +62,7 @@ class SignUpForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: AppDefaults.padding),
-          const SignUpButton(),
+          const SignUpButtonNoRequired(),
           const AlreadyHaveAnAccount(),
           const SizedBox(height: AppDefaults.padding),
         ],

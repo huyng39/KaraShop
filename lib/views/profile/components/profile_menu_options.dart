@@ -22,33 +22,33 @@ class ProfileMenuOptions extends StatelessWidget {
       child: Column(
         children: [
           ProfileListTile(
-            title: 'My Profile',
+            title: 'Thay đổi thông tin',
             icon: AppIcons.profilePerson,
             onTap: () => Navigator.pushNamed(context, AppRoutes.profileEdit),
           ),
           const Divider(thickness: 0.1),
           ProfileListTile(
-            title: 'Notification',
+            title: 'Thông báo',
             icon: AppIcons.profileNotification,
             onTap: () => Navigator.pushNamed(context, AppRoutes.notifications),
           ),
           const Divider(thickness: 0.1),
           ProfileListTile(
-            title: 'Setting',
+            title: 'Cài đặt',
             icon: AppIcons.profileSetting,
             onTap: () => Navigator.pushNamed(context, AppRoutes.settings),
           ),
           const Divider(thickness: 0.1),
           ProfileListTile(
-            title: 'Payment',
+            title: 'Phương thức thanh toán',
             icon: AppIcons.profilePayment,
             onTap: () => Navigator.pushNamed(context, AppRoutes.paymentMethod),
           ),
           const Divider(thickness: 0.1),
           ProfileListTile(
-            title: 'Logout',
+            title: 'Đăng xuất',
             icon: AppIcons.profileLogout,
-            onTap: () => Navigator.pushNamed(context, AppRoutes.loginOrSignup),
+            onTap: () => Navigator.pushNamed(context, AppRoutes.introLogin),
           ),
         ],
       ),

@@ -13,10 +13,10 @@ class LoginPageHeader extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          width: MediaQuery.of(context).size.width * 0.3,
-          child: const AspectRatio(
+          width: MediaQuery.of(context).size.width * 0.25,
+          child: AspectRatio(
             aspectRatio: 1 / 1,
-            child: NetworkImageWithLoader(AppImages.roundedLogo),
+            child: Image.asset(AppImages.roundedLogo),
           ),
         ),
         Text(
@@ -27,7 +27,7 @@ class LoginPageHeader extends StatelessWidget {
               ?.copyWith(fontWeight: FontWeight.bold),
         ),
         Text(
-          'E-Grocery',
+          'Kara Shop',
           style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: AppColors.primary,

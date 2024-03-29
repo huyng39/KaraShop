@@ -13,7 +13,7 @@ class PasswordResetPage extends StatelessWidget {
       backgroundColor: AppColors.scaffoldWithBoxBackground,
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('New Password'),
+        title: const Text('Thiết lập mật khẩu mới'),
         backgroundColor: AppColors.scaffoldBackground,
       ),
       body: Center(
@@ -35,21 +35,21 @@ class PasswordResetPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Add New password',
+                      'Thiết lập mật khẩu mới',
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: AppDefaults.padding * 3),
-                    const Text("New Password"),
+                    const Text("Mật khẩu mới"),
                     const SizedBox(height: 8),
                     TextFormField(
                       autofocus: true,
                       textInputAction: TextInputAction.next,
                     ),
                     const SizedBox(height: AppDefaults.padding),
-                    const Text("Confirm Password"),
+                    const Text("Xác nhận mật khẩu"),
                     const SizedBox(height: 8),
                     TextFormField(
                       textInputAction: TextInputAction.next,
@@ -61,7 +61,7 @@ class PasswordResetPage extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, AppRoutes.login);
                         },
-                        child: const Text('Done'),
+                        child: const Text('Đổi mật khẩu'),
                       ),
                     ),
                   ],

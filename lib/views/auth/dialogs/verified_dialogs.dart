@@ -32,7 +32,7 @@ class VerifiedDialog extends StatelessWidget {
             ),
             const SizedBox(height: AppDefaults.padding),
             Text(
-              'Verified!',
+              'Xác nhận thành công!',
               style: Theme.of(context)
                   .textTheme
                   .headlineSmall
@@ -40,7 +40,7 @@ class VerifiedDialog extends StatelessWidget {
             ),
             const SizedBox(height: AppDefaults.padding),
             const Text(
-              'Hurrah!!  You have successfully\nverified the account.',
+              'Chúc mừng bạn! Bạn đã xác nhận tài khoản thành công',
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: AppDefaults.padding),
@@ -49,7 +49,7 @@ class VerifiedDialog extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () =>
                     Navigator.pushNamed(context, AppRoutes.entryPoint),
-                child: const Text('Browse Home'),
+                child: const Text('Về trang chủ'),
               ),
             ),
           ],

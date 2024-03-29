@@ -9,8 +9,10 @@ class AppIcons {
   static const cart = 'assets/icons/cart.svg';
   static const dashboardIcon = 'assets/icons/dashboard_icon.svg';
   static const facebookIcon = 'assets/icons/facebook_icon.svg';
+  static const facebookIconFill = 'assets/icons/facebook_icon_fill.svg';
   static const googleIconRounded = 'assets/icons/google_icon_rounded.svg';
   static const googleIcon = 'assets/icons/google_icon.svg';
+  static const zaloIcon = 'assets/icons/zalo_icon.svg';
   static const home = 'assets/icons/home.svg';
   static const location = 'assets/icons/location.svg';
   static const menu = 'assets/icons/menu.svg';
