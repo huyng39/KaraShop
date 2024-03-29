@@ -26,6 +26,7 @@
 ![Preview](/gif.gif)
 ## Logo App
 ![kara_logo_laucher](https://github.com/huyng39/KaraShop_DoAnAnrdoidNangCao/assets/104257401/ef59203c-0b55-47dd-bb4b-4ef6192b90b6)
+> [Link figma logo](https://www.figma.com/file/iQ3XjYP6sA8PdsJLPW4y83/logo-nh%E1%BA%ADn-di%E1%BB%87n-kara-Android-n%C3%A2ng-cao?type=design&node-id=0%3A1&mode=design&t=AT64jtd6TsKdlQUA-1)
 ## Profolio Template
 ![App UI](/ui.png)
 ![App UI](/g_0.png)
