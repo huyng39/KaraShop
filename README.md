@@ -1,9 +1,10 @@
-# Flutter Grocery App Template
+# Kara Shop - Đồ án môn Lập trình Android nâng cao
 
-## [Watch Video intro](https://youtu.be/-RjEULM8a4w)
 
-This Flutter app template is designed for building various e-commerce apps but mostly focuses on grocery and vegetable stores. It includes a range of screens 👇
 
+## [Video mẫu template sử dụng](https://youtu.be/-RjEULM8a4w)
+
+## Các tính năng có sẵn của template mẫu
 - **Splash Screen:** A welcoming first view.
 - **Onboarding:** Guides users through the app’s features.
 - **Login/Signup Pages:** Easy access to user accounts.
@@ -23,7 +24,9 @@ This Flutter app template is designed for building various e-commerce apps but m
 - **Order Status Page:** Track order progress.
 
 ![Preview](/gif.gif)
-
+## Logo App
+![kara_logo_laucher](https://github.com/huyng39/KaraShop_DoAnAnrdoidNangCao/assets/104257401/ef59203c-0b55-47dd-bb4b-4ef6192b90b6)
+## Profolio Template
 ![App UI](/ui.png)
 ![App UI](/g_0.png)
 ![App UI](/g_1.png)
