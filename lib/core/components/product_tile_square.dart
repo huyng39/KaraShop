@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 import '../models/dummy_product_model.dart';
 import '../routes/app_routes.dart';
+import 'package:intl/intl.dart';
 import 'network_image.dart';
 
 class ProductTileSquare extends StatelessWidget {
@@ -64,17 +65,17 @@ class ProductTileSquare extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      '\$${data.price.toInt()}',
+                      NumberFormat('###,###.###₫').format(data.price.toInt()),
                       style: Theme.of(context)
                           .textTheme
-                          .titleLarge
+                          .titleMedium
                           ?.copyWith(color: Colors.black),
                     ),
                     const SizedBox(
                       width: 4,
                     ),
                     Text(
-                      '\$${data.mainPrice}',
+                      NumberFormat('###,###.###₫').format(data.mainPrice),
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             decoration: TextDecoration.lineThrough,
                           ),

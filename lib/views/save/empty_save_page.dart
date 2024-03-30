@@ -26,14 +26,14 @@ class EmptySavePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Oppss!',
+            'Chưa lưu sản phẩm nào!',
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
                 ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const SizedBox(height: 8),
-          const Text('Sorry, you have no product in your wishlist'),
+          const Text('Bạn chưa lưu sản phẩm nào trong danh sách'),
           const Spacer(),
           SizedBox(
             width: double.infinity,
@@ -41,7 +41,7 @@ class EmptySavePage extends StatelessWidget {
               padding: const EdgeInsets.all(AppDefaults.padding * 2),
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Start Adding'),
+                child: const Text('Thêm sản phẩm vào danh sách',style: TextStyle(fontSize: 16),),
               ),
             ),
           ),

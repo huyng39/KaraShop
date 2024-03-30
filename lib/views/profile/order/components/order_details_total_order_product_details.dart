@@ -18,7 +18,7 @@ class TotalOrderProductDetails extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Product Details',
+              'Chi tiết sản phẩm',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,

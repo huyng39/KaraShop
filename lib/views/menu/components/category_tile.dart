@@ -47,10 +47,10 @@ class CategoryTile extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               label,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w500,
                   ),
-              maxLines: 1,
+              maxLines: 3,
               textAlign: TextAlign.center,
             ),
           ],

@@ -49,17 +49,17 @@ class _PriceAndQuantityRowState extends State<PriceAndQuantityRow> {
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         /* <---- Price -----> */
+        // Text(
+        //   '13.600₫',
+        //   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+        //         color: Colors.black,
+        //         fontWeight: FontWeight.bold,
+        //         decoration: TextDecoration.lineThrough,
+        //       ),
+        // ),
+        // const SizedBox(width: AppDefaults.padding),
         Text(
-          '\$30',
-          style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.lineThrough,
-              ),
-        ),
-        const SizedBox(width: AppDefaults.padding),
-        Text(
-          '\$20',
+          '13,600₫',
           style: Theme.of(context)
               .textTheme
               .headlineSmall

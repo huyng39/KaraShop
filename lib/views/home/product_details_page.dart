@@ -16,7 +16,7 @@ class ProductDetailsPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('Product Details'),
+        title: const Text('Chi tiết sản phẩm'),
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
@@ -32,9 +32,9 @@ class ProductDetailsPage extends StatelessWidget {
           children: [
             const ProductImagesSlider(
               images: [
-                'https://i.imgur.com/3o6ons9.png',
-                'https://i.imgur.com/3o6ons9.png',
-                'https://i.imgur.com/3o6ons9.png',
+                'https://cdn.tgdd.vn/Products/Images/2683/323687/bhx/nuoc-tuong-dau-nanh-nam-duong-chinh-hieu-con-meo-den-chai-280ml-clone-202403221040454651.jpg',
+                'https://cdn.tgdd.vn/Products/Images/2683/224526/bhx/nuoc-tuong-dau-nanh-nam-duong-chinh-hieu-con-meo-den-chai-280ml-202203152228032492.jpg',
+                'https://cdn.tgdd.vn/Products/Images/2683/224526/bhx/nuoc-tuong-dau-nanh-nam-duong-chai-250ml-202006201554191468.jpg',
               ],
             ),
             SizedBox(
@@ -45,13 +45,13 @@ class ProductDetailsPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Cauliflower Bangladeshi',
+                      'Nước tương đậu nành Nam Dương chính hiệu Con Mèo Đen chai 280ml',
                       style: Theme.of(context).textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                     const SizedBox(height: 8),
-                    const Text('Weight: 5Kg'),
+                    // const Text('Weight: 5Kg'),
                   ],
                 ),
               ),
@@ -73,7 +73,7 @@ class ProductDetailsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Product Details',
+                    'Mô tả sản phẩm',
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -81,7 +81,7 @@ class ProductDetailsPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    'Duis aute veniam veniam qui aliquip irure duis sint magna occaecat dolore nisi culpa do. Est nisi incididunt aliquip  commodo aliqua tempor.',
+                    'Nước tương Nam Dương được sản xuất từ nguồn nguyên liệu đảm bảo, không sử dụng phụ gia. Nước tương chính hiệu Con Mèo Đen Nam Dương chai 280ml dùng để chấm trực tiếp với thức ăn hoặc thêm tỏi, ớt vào và pha chế cho vừa khẩu vị, là nước tương quen thuộc cho mọi gia đình.',
                   ),
                 ],
               ),
