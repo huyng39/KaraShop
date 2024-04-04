@@ -16,25 +16,25 @@ class ItemTotalsAndPrice extends StatelessWidget {
       child: Column(
         children: [
           ItemRow(
-            title: 'Total Item',
-            value: '6',
+            title: 'Số lượng sản phẩm',
+            value: '1',
           ),
-          ItemRow(
-            title: 'Weight',
-            value: '33 Kg',
-          ),
-          ItemRow(
-            title: 'Price',
-            value: '\$ 82.25',
-          ),
-          ItemRow(
-            title: 'Price',
-            value: '\$ 12.25',
-          ),
+          // ItemRow(
+          //   title: 'Weight',
+          //   value: '33 Kg',
+          // ),
+          // ItemRow(
+          //   title: 'Price',
+          //   value: '\$ 82.25',
+          // ),
+          // ItemRow(
+          //   title: 'Giá',
+          //   value: '\$ 12.25',
+          // ),
           DottedDivider(),
           ItemRow(
-            title: 'Total Price',
-            value: '\$ 70.25',
+            title: 'Thành tiền',
+            value: '34.000 đ',
           ),
         ],
       ),

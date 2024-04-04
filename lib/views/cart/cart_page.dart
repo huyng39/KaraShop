@@ -42,7 +42,9 @@ class CartPage extends StatelessWidget {
                       // Navigator.pushNamed(context, AppRoutes.orderSuccessfull);
                       Navigator.pushNamed(context, AppRoutes.checkoutPage);
                     },
-                    child: const Text('Checkout'),
+                    child: const Text('Thanh toán', style: TextStyle(
+                      fontSize: 16
+                    ),),
                   ),
                 ),
               ),

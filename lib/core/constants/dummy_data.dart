@@ -5,11 +5,11 @@ class Dummy {
   /// List Of Dummy Products
   static List<ProductModel> products = [
     ProductModel(
-      name: 'Kem chuối',
-      weight: '800 gram',
-      cover: 'https://i.imgur.com/6unJlSL.png',
+      name: 'Nước tương đậu nành Nam Dương chính hiệu Con Mèo Đen chai 280ml',
+      weight: '',
+      cover: 'https://cdn.tgdd.vn/Products/Images/2683/323687/bhx/nuoc-tuong-dau-nanh-nam-duong-chinh-hieu-con-meo-den-chai-280ml-clone-202403221040454651.jpg',
       images: ['https://i.imgur.com/6unJlSL.png'],
-      price: 27500,
+      price: 13600,
       mainPrice: 0,
     ),
     ProductModel(

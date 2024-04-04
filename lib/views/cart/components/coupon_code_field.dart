@@ -47,7 +47,7 @@ class _CouponCodeFieldState extends State<CouponCodeField> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Add Coupon',
+              'Mã giảm giá',
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge
@@ -60,7 +60,7 @@ class _CouponCodeFieldState extends State<CouponCodeField> {
               Expanded(
                 child: TextField(
                   decoration: const InputDecoration(
-                    labelText: 'Entry Voucher Code',
+                    labelText: 'Nhập mã giảm giá',
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: AppDefaults.padding,
                     ),
@@ -79,7 +79,7 @@ class _CouponCodeFieldState extends State<CouponCodeField> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  child: const Text('Apply'),
+                  child: const Text('Áp dụng'),
                 ),
               ),
             ],

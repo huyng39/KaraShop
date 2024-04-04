@@ -26,7 +26,7 @@ class SingleCartItemTile extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1 / 1,
                   child: NetworkImageWithLoader(
-                    'https://i.imgur.com/4YEHvGc.png',
+                    'https://cdn.tgdd.vn/Products/Images/8788/270325/bhx/dua-hau-do-trai-tu-2kg-tro-len-202205141313531515.jpg',
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -43,14 +43,14 @@ class SingleCartItemTile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Sulphurfree Bura',
+                          'Dưa hấu đỏ trái 1.8kg trở lên',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyLarge
+                              .bodyMedium
                               ?.copyWith(color: Colors.black),
                         ),
                         Text(
-                          '570 Ml',
+                          '1.8kg',
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
@@ -94,7 +94,7 @@ class SingleCartItemTile extends StatelessWidget {
                     icon: SvgPicture.asset(AppIcons.delete),
                   ),
                   const SizedBox(height: 16),
-                  const Text('\$20'),
+                  const Text('34.000đ'),
                 ],
               )
             ],
