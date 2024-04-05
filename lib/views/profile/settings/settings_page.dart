@@ -15,7 +15,8 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Settings',
+          'Cài đặt',
+          style: TextStyle(fontSize: 16),
         ),
       ),
       backgroundColor: AppColors.cardColor,
