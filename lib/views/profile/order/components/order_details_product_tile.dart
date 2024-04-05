@@ -46,12 +46,12 @@ class OrderDetailsProductTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '\$${data.price.toInt()}',
+              '${data.price.toInt()}đ',
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 8),
             Text(
-              '3x',
+              '1sp',
               style: Theme.of(context).textTheme.bodySmall,
             )
           ],

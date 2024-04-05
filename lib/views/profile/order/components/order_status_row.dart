@@ -94,15 +94,15 @@ class OrderStatusRow extends StatelessWidget {
   String _orderStatus() {
     switch (status) {
       case OrderStatus.confirmed:
-        return 'Order Confirmed';
+        return 'Đã xác nhận';
       case OrderStatus.processing:
-        return 'Order Processing';
+        return 'Đang xử lý';
       case OrderStatus.shipped:
-        return 'Order Shipped';
+        return 'Đang giao hàng';
       case OrderStatus.delivery:
-        return 'Order Delivered';
+        return 'Đã giao hàng';
       case OrderStatus.cancelled:
-        return 'Order Cancelled';
+        return 'Đã hủy đơn hàng';
 
       default:
         return 'Order null';

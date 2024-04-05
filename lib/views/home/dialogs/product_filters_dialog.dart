@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constants/constants.dart';
 import '../components/categories_chip.dart';
+import 'package:grocery/core/utils/ui_util.dart';
 
 class ProductFiltersDialog extends StatelessWidget {
   const ProductFiltersDialog({Key? key}) : super(key: key);
@@ -31,7 +32,7 @@ class ProductFiltersDialog extends StatelessWidget {
             _RatingStar(
               totalStarsSelected: 4,
               onStarSelect: (v) {
-                debugPrint('Star selected $v');
+                debugPrint('Đã áp dụng sao $v');
               },
             ),
             SizedBox(
@@ -39,7 +40,9 @@ class ProductFiltersDialog extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(AppDefaults.padding),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                   child: const Text('Áp dụng',style: TextStyle(fontSize: 17),),
                 ),
               ),

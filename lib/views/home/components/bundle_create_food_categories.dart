@@ -19,7 +19,7 @@ class FoodCategories extends StatelessWidget {
         children: [
           AppChip(
             isActive: true,
-            label: 'Vegetables',
+            label: 'Sản phẩm',
             onPressed: () {},
           ),
           AppChip(

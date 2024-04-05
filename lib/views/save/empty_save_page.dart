@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/routes/app_routes.dart';
 
 import '../../core/components/network_image.dart';
 import '../../core/constants/app_defaults.dart';
@@ -40,7 +41,9 @@ class EmptySavePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(AppDefaults.padding * 2),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, AppRoutes.categoryDetails);
+                },
                 child: const Text('Thêm sản phẩm',style: TextStyle(fontSize: 18),),
               ),
             ),

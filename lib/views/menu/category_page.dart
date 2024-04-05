@@ -11,7 +11,7 @@ class CategoryProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Vegetables'),
+        title: const Text('Sản phẩm'),
         leading: const AppBackButton(),
       ),
       body: GridView.builder(

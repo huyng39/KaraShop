@@ -39,7 +39,7 @@ class OrderPreviewTile extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text('Order ID:'),
+                    const Text('Mã đơn hàng:'),
                     const SizedBox(width: 5),
                     Text(
                       '2324252627',
@@ -49,12 +49,12 @@ class OrderPreviewTile extends StatelessWidget {
                           ?.copyWith(color: Colors.black),
                     ),
                     const Spacer(),
-                    const Text('25 Nov'),
+                    const Text('1/4/2024'),
                   ],
                 ),
                 Row(
                   children: [
-                    const Text('Status'),
+                    const Text('Tình trạng'),
                     Expanded(
                       child: RangeSlider(
                         values: RangeValues(0, _orderSliderValue()),
@@ -76,7 +76,7 @@ class OrderPreviewTile extends StatelessWidget {
                           Opacity(
                             opacity: status == OrderStatus.confirmed ? 1 : 0,
                             child: Text(
-                              'Confirmed',
+                              'Đã xác nhận',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge
@@ -86,7 +86,7 @@ class OrderPreviewTile extends StatelessWidget {
                           Opacity(
                             opacity: status == OrderStatus.processing ? 1 : 0,
                             child: Text(
-                              'Processing',
+                              'Đang xử lý',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge
@@ -96,7 +96,7 @@ class OrderPreviewTile extends StatelessWidget {
                           Opacity(
                             opacity: status == OrderStatus.shipped ? 1 : 0,
                             child: Text(
-                              'Shipped',
+                              'Đang giao',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge
@@ -110,8 +110,8 @@ class OrderPreviewTile extends StatelessWidget {
                                 : 0,
                             child: Text(
                               status == OrderStatus.delivery
-                                  ? 'Delivery'
-                                  : 'Cancelled',
+                                  ? 'Đã giao'
+                                  : 'Đã hủy',
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyLarge

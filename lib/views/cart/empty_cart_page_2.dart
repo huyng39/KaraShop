@@ -26,14 +26,14 @@ class EmptyCartPageSecond extends StatelessWidget {
             ),
           ),
           Text(
-            'Oppss!',
+            'Giỏ hàng đang rỗng!',
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
                 ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const SizedBox(height: 8),
-          const Text('Sorry, you have no products in your cart'),
+          const Text('Bạn chưa thêm sản phẩm nào vào trong giỏ hàng!'),
           const Spacer(),
           SizedBox(
             width: double.infinity,
@@ -41,7 +41,7 @@ class EmptyCartPageSecond extends StatelessWidget {
               padding: const EdgeInsets.all(AppDefaults.padding * 2),
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Start Browsing'),
+                child: const Text('Quay lại'),
               ),
             ),
           ),

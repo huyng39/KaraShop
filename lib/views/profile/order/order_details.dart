@@ -16,7 +16,7 @@ class OrderDetailsPage extends StatelessWidget {
       backgroundColor: AppColors.cardColor,
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('Order Details'),
+        title: const Text('Chi tiết đơn hàng'),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -31,7 +31,7 @@ class OrderDetailsPage extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Order id #30398505202',
+                  'Mã đơn hàng #30398505202',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.bold, color: Colors.black),
                 ),
