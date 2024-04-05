@@ -32,6 +32,7 @@ class AppIcons {
   static const shoppingCart = 'assets/icons/shopping_cart.svg';
   static const delete = 'assets/icons/delete.svg';
   static const paypal = 'assets/icons/paypal.svg';
+  static const momo = 'assets/icons/momo_square_pinkbg.svg';
   static const cashOnDelivery = 'assets/icons/cash_on_delivery.svg';
   static const masterCard = 'assets/icons/master_card.svg';
   static const filter = 'assets/icons/filter.svg';

@@ -13,25 +13,25 @@ class AddressSelector extends StatelessWidget {
     return Column(
       children: [
         TitleAndActionButton(
-          title: 'Select Delivery Address',
-          actionLabel: 'Add New',
+          title: 'Địa chỉ giao hàng',
+          actionLabel: 'Thêm mới',
           onTap: () {},
           isHeadline: false,
         ),
         AddressCard(
-          label: 'Home Address',
-          phoneNumber: '(309) 071-9396-939',
-          address: '1749 Custom Road, Chhatak',
-          isActive: false,
-          onTap: () {},
-        ),
-        AddressCard(
-          label: 'Office Address',
-          phoneNumber: '(309) 071-9396-939',
-          address: '1749 Custom Road, Chhatak',
+          label: 'Nhà riêng',
+          phoneNumber: '0908754112',
+          address: '828, Sư Vạn Hạnh,Phường 13,Quận 10,Hồ Chí Minh',
           isActive: true,
           onTap: () {},
-        )
+        ),
+        // AddressCard(
+        //   label: 'Office Address',
+        //   phoneNumber: '(309) 071-9396-939',
+        //   address: '1749 Custom Road, Chhatak',
+        //   isActive: true,
+        //   onTap: () {},
+        // )
       ],
     );
   }

@@ -49,14 +49,14 @@ class _UserData extends StatelessWidget {
       child: Row(
         children: [
           const SizedBox(width: AppDefaults.padding),
-          const SizedBox(
+          SizedBox(
             width: 100,
             height: 100,
             child: ClipOval(
               child: AspectRatio(
                   aspectRatio: 1 / 1,
-                  child: NetworkImageWithLoader(
-                      'https://scontent.fsgn8-4.fna.fbcdn.net/v/t39.30808-1/328921835_607717754522307_6081360884162714689_n.jpg?stp=dst-jpg_p320x320&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=w7mQoYa5NH8AX_xIR1t&_nc_ht=scontent.fsgn8-4.fna&oh=00_AfC_znMnCstu-d2aLdJQZxn7d2zdQWuCP_l1Qik-oJXxnA&oe=660BD39C',)),
+                  child: Image.asset('assets/images/avatar_ngan.jpg',fit: BoxFit.cover,),
+                      ),
             ),
           ),
           const SizedBox(width: AppDefaults.padding),

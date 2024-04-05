@@ -11,7 +11,7 @@ class NewItemsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('New Item'),
+        title: const Text('Sản phẩm mới'),
         leading: const AppBackButton(),
       ),
       body: SafeArea(
@@ -24,7 +24,7 @@ class NewItemsPage extends StatelessWidget {
               childAspectRatio: 0.64,
               mainAxisSpacing: 16,
             ),
-            itemCount: 8,
+            itemCount: 1,
             itemBuilder: (context, index) {
               return ProductTileSquare(
                 data: Dummy.products.first,

@@ -41,7 +41,7 @@ class EmptySavePage extends StatelessWidget {
               padding: const EdgeInsets.all(AppDefaults.padding * 2),
               child: ElevatedButton(
                 onPressed: () {},
-                child: const Text('Thêm sản phẩm vào danh sách',style: TextStyle(fontSize: 16),),
+                child: const Text('Thêm sản phẩm',style: TextStyle(fontSize: 18),),
               ),
             ),
           ),

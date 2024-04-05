@@ -20,11 +20,11 @@ class PaymentSystem extends StatelessWidget {
           child: Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Select Payment System',
+              'Phương thức thanh toán',
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge
-                  ?.copyWith(color: Colors.black),
+                  ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
             ),
           ),
         ),
@@ -32,22 +32,22 @@ class PaymentSystem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: AppDefaults.padding),
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
+            children: [  
               PaymentCardTile(
-                label: 'Master Card',
-                icon: AppIcons.masterCard,
+                label: 'Thanh toán khi nhận hàng',
+                icon: AppIcons.cashOnDelivery,
                 onTap: () {},
                 isActive: true,
               ),
-              PaymentCardTile(
-                label: 'Paypal',
-                icon: AppIcons.paypal,
+               PaymentCardTile(
+                label: 'Momo',
+                icon: AppIcons.momo,
                 onTap: () {},
                 isActive: false,
               ),
               PaymentCardTile(
-                label: 'Cash On Delivery',
-                icon: AppIcons.cashOnDelivery,
+                label: 'Thẻ tín dụng',
+                icon: AppIcons.masterCard,
                 onTap: () {},
                 isActive: false,
               ),

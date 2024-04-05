@@ -6,6 +6,7 @@ import '../../core/components/price_and_quantity.dart';
 import '../../core/components/product_images_slider.dart';
 import '../../core/components/review_row_button.dart';
 import '../../core/constants/app_defaults.dart';
+import '../../core/routes/app_routes.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({Key? key}) : super(key: key);
@@ -22,8 +23,10 @@ class ProductDetailsPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppDefaults.padding),
           child: BuyNowRow(
-            onBuyButtonTap: () {},
-            onCartButtonTap: () {},
+            onBuyButtonTap: () {
+              Navigator.pushNamed(context, AppRoutes.cartPage);
+            },
+            // onCartButtonTap: () {},
           ),
         ),
       ),

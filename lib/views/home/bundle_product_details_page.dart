@@ -56,7 +56,7 @@ class BundleProductDetailsPage extends StatelessWidget {
                   const Divider(thickness: 0.1),
                   BuyNowRow(
                     onBuyButtonTap: () {},
-                    onCartButtonTap: () {},
+                    // onCartButtonTap: () {},
                   ),
                 ],
               ),

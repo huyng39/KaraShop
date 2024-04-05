@@ -26,12 +26,12 @@ class SingleCartItemTile extends StatelessWidget {
                 child: AspectRatio(
                   aspectRatio: 1 / 1,
                   child: NetworkImageWithLoader(
-                    'https://cdn.tgdd.vn/Products/Images/8788/270325/bhx/dua-hau-do-trai-tu-2kg-tro-len-202205141313531515.jpg',
+                    'https://cdn.tgdd.vn/Products/Images/2683/323687/bhx/nuoc-tuong-dau-nanh-nam-duong-chinh-hieu-con-meo-den-chai-280ml-clone-202403221040454651.jpg',
                     fit: BoxFit.contain,
                   ),
                 ),
               ),
-              const SizedBox(width: 16),
+              const SizedBox(width: 8),
 
               /// Quantity and Name
               Column(
@@ -43,16 +43,16 @@ class SingleCartItemTile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Dưa hấu đỏ trái 1.8kg trở lên',
+                          'Nước tương đậu nành Nam Dương\nchính hiệu Con Mèo Đen\nchai 280ml',
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium
                               ?.copyWith(color: Colors.black),
                         ),
-                        Text(
-                          '1.8kg',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
+                        // Text(
+                        //   '1.8kg',
+                        //   style: Theme.of(context).textTheme.bodySmall,
+                        // ),
                       ],
                     ),
                   ),
@@ -60,7 +60,7 @@ class SingleCartItemTile extends StatelessWidget {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: SvgPicture.asset(AppIcons.addQuantity),
+                        icon: SvgPicture.asset(AppIcons.removeQuantity),
                         constraints: const BoxConstraints(),
                       ),
                       Padding(
@@ -76,7 +76,7 @@ class SingleCartItemTile extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: SvgPicture.asset(AppIcons.removeQuantity),
+                        icon: SvgPicture.asset(AppIcons.addQuantity),
                         constraints: const BoxConstraints(),
                       ),
                     ],
@@ -94,7 +94,7 @@ class SingleCartItemTile extends StatelessWidget {
                     icon: SvgPicture.asset(AppIcons.delete),
                   ),
                   const SizedBox(height: 16),
-                  const Text('34.000đ'),
+                  const Text('13.600₫', style: TextStyle(fontWeight: FontWeight.bold),),
                 ],
               )
             ],

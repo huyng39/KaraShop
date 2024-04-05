@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import '../../core/components/app_back_button.dart';
 import '../../core/constants/constants.dart';
 
-class ProfileEditPage extends StatelessWidget {
+class ProfileEditPage extends StatefulWidget {
   const ProfileEditPage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileEditPage> createState() => _ProfileEditPageState();
+}
+
+class _ProfileEditPageState extends State<ProfileEditPage> {
+  TextEditingController _dateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,8 @@ class ProfileEditPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Profile',
+          'Thay đổi thông tin',
+          style: TextStyle(fontSize: 15),
         ),
       ),
       body: SingleChildScrollView(
@@ -32,7 +40,7 @@ class ProfileEditPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /* <----  First Name -----> */
-              const Text("First Name"),
+              const Text("Họ và tên"),
               const SizedBox(height: 8),
               TextFormField(
                 keyboardType: TextInputType.text,
@@ -41,16 +49,16 @@ class ProfileEditPage extends StatelessWidget {
               const SizedBox(height: AppDefaults.padding),
 
               /* <---- Last Name -----> */
-              const Text("Last Name"),
-              const SizedBox(height: 8),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-              ),
-              const SizedBox(height: AppDefaults.padding),
+              // const Text("Last Name"),
+              // const SizedBox(height: 8),
+              // TextFormField(
+              //   keyboardType: TextInputType.text,
+              //   textInputAction: TextInputAction.next,
+              // ),
+              // const SizedBox(height: AppDefaults.padding),
 
               /* <---- Phone Number -----> */
-              const Text("Phone Number"),
+              const Text("Số điện thoại"),
               const SizedBox(height: 8),
               TextFormField(
                 keyboardType: TextInputType.number,
@@ -59,20 +67,30 @@ class ProfileEditPage extends StatelessWidget {
               const SizedBox(height: AppDefaults.padding),
 
               /* <---- Gender -----> */
-              const Text("Gender"),
-              const SizedBox(height: 8),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-              ),
-              const SizedBox(height: AppDefaults.padding),
+              // const Text("Gender"),
+              // const SizedBox(height: 8),
+              // TextFormField(
+              //   keyboardType: TextInputType.text,
+              //   textInputAction: TextInputAction.next,
+              // ),
+              // const SizedBox(height: AppDefaults.padding),
 
               /* <---- Birthday -----> */
-              const Text("Birthday"),
+              const Text("Sinh nhật"),
               const SizedBox(height: 8),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Chọn ngày',
+                  filled: true,
+                  prefixIcon: Icon(Icons.calendar_today),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue),
+                  ),
+                ),
+                readOnly: true,
+                onTap: () {
+                  _selectDate();
+                },
               ),
               const SizedBox(height: AppDefaults.padding),
 
@@ -93,7 +111,8 @@ class ProfileEditPage extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  child: const Text('Save'),
+                  child: const Text('Lưu',
+                  style: TextStyle(fontSize: 15)),
                   onPressed: () {},
                 ),
               ),
@@ -102,5 +121,18 @@ class ProfileEditPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _selectDate() async {
+    DateTime? _picked = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100));
+    if (_picked != null) {
+      setState(() {
+        _dateController.text = _picked.toString().split(" ")[0];
+      });
+    }
   }
 }

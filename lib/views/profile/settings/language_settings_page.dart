@@ -15,7 +15,7 @@ class LanguageSettingsPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Language Settings',
+          'Đổi ngôn ngữ',style: TextStyle(fontSize: 20),
         ),
       ),
       backgroundColor: AppColors.cardColor,
@@ -32,8 +32,8 @@ class LanguageSettingsPage extends StatelessWidget {
           ),
           child: const Column(
             children: [
-              _SearchField(),
-              _SuggestedLanguage(),
+              // _SearchField(),
+              // _SuggestedLanguage(),
               _AllCountries(),
             ],
           ),
@@ -54,14 +54,17 @@ class _AllCountries extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: AppDefaults.padding),
-        Text('All Countries/Regions'),
+        // Text('All Countries/Regions'),
         SizedBox(height: AppDefaults.padding),
-        AppSettingsListTile(label: 'Bangladesh'),
-        AppSettingsListTile(label: 'Canada'),
-        AppSettingsListTile(label: 'Cuba'),
-        AppSettingsListTile(label: 'Spain'),
-        AppSettingsListTile(label: 'Australia'),
-        AppSettingsListTile(label: 'Greece'),
+        AppSettingsListTile(label: 'Tiếng Việt', trailing: Icon(
+            Icons.check,
+            color: Colors.green,
+          ),),
+        AppSettingsListTile(label: 'English'),
+        // AppSettingsListTile(label: 'Cuba'),
+        // AppSettingsListTile(label: 'Spain'),
+        // AppSettingsListTile(label: 'Australia'),
+        // AppSettingsListTile(label: 'Greece'),
       ],
     );
   }
@@ -108,8 +111,8 @@ class _SearchField extends StatelessWidget {
       ),
       child: TextField(
         decoration: InputDecoration(
-          labelText: 'Search',
-          hintText: 'Type a word',
+          labelText: 'Tìm kiếm',
+          hintText: 'Nhập từ khóa',
           suffixIcon: Padding(
             padding: const EdgeInsets.all(AppDefaults.padding),
             child: SvgPicture.asset(AppIcons.search),

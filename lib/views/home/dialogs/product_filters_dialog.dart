@@ -40,7 +40,7 @@ class ProductFiltersDialog extends StatelessWidget {
                 padding: const EdgeInsets.all(AppDefaults.padding),
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Text('Apply Filter'),
+                  child: const Text('Áp dụng',style: TextStyle(fontSize: 17),),
                 ),
               ),
             ),
@@ -71,7 +71,7 @@ class _RatingStar extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Rating Star',
+              'Đánh giá',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -123,52 +123,52 @@ class _BrandSelector extends StatelessWidget {
       padding: const EdgeInsets.all(AppDefaults.padding),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Brand',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-            ),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: double.infinity,
-            child: Wrap(
-              alignment: WrapAlignment.start,
-              spacing: 16,
-              runSpacing: 16,
-              children: [
-                CategoriesChip(
-                  isActive: true,
-                  label: 'Any',
-                  onPressed: () {},
-                ),
-                CategoriesChip(
-                  isActive: false,
-                  label: 'Square',
-                  onPressed: () {},
-                ),
-                CategoriesChip(
-                  isActive: false,
-                  label: 'Beximco Pharma',
-                  onPressed: () {},
-                ),
-                CategoriesChip(
-                  isActive: false,
-                  label: 'ACI Limited',
-                  onPressed: () {},
-                ),
-                CategoriesChip(
-                  isActive: false,
-                  label: 'See All',
-                  onPressed: () {},
-                ),
-              ],
-            ),
-          )
+          // Align(
+          //   alignment: Alignment.centerLeft,
+          //   child: Text(
+          //     'Nhãn hiệu',
+          //     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+          //           fontWeight: FontWeight.bold,
+          //           color: Colors.black,
+          //         ),
+          //   ),
+          // ),
+          // const SizedBox(height: 16),
+          // SizedBox(
+          //   width: double.infinity,
+          //   child: Wrap(
+          //     alignment: WrapAlignment.start,
+          //     spacing: 16,
+          //     runSpacing: 16,
+          //     children: [
+          //       CategoriesChip(
+          //         isActive: true,
+          //         label: 'Nhãn hiệu',
+          //         onPressed: () {},
+          //       ),
+          //       CategoriesChip(
+          //         isActive: false,
+          //         label: 'Tất cả',
+          //         onPressed: () {},
+          //       ),
+          //       CategoriesChip(
+          //         isActive: false,
+          //         label: 'Beximco Pharma',
+          //         onPressed: () {},
+          //       ),
+          //       CategoriesChip(
+          //         isActive: false,
+          //         label: 'ACI Limited',
+          //         onPressed: () {},
+          //       ),
+          //       CategoriesChip(
+          //         isActive: false,
+          //         label: 'See All',
+          //         onPressed: () {},
+          //       ),
+          //     ],
+          //   ),
+          // )
         ],
       ),
     );
@@ -189,7 +189,7 @@ class _CategoriesSelector extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Categories',
+              'Danh mục',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -208,27 +208,27 @@ class _CategoriesSelector extends StatelessWidget {
               children: [
                 CategoriesChip(
                   isActive: true,
-                  label: 'Office Supplies',
+                  label: 'Tất cả',
                   onPressed: () {},
                 ),
                 CategoriesChip(
                   isActive: false,
-                  label: 'Gardening',
+                  label: 'Rau củ quả',
                   onPressed: () {},
                 ),
                 CategoriesChip(
                   isActive: false,
-                  label: 'Vegetables',
+                  label: 'Thịt,cá,hải sản',
                   onPressed: () {},
                 ),
                 CategoriesChip(
                   isActive: false,
-                  label: 'Fish And Meat',
+                  label: 'Đồ hộp',
                   onPressed: () {},
                 ),
                 CategoriesChip(
                   isActive: false,
-                  label: 'See All',
+                  label: 'Mì,phở,miến gói',
                   onPressed: () {},
                 ),
               ],
@@ -261,7 +261,7 @@ class _PriceRangeState extends State<_PriceRange> {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Price Range',
+              'Mức giá',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -269,7 +269,7 @@ class _PriceRangeState extends State<_PriceRange> {
             ),
           ),
           RangeSlider(
-            max: 100,
+            max: 1000000,
             min: 0,
             labels: RangeLabels(
               _currentRangeValues.start.round().toString(),
@@ -289,9 +289,9 @@ class _PriceRangeState extends State<_PriceRange> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('\$0'),
-                Text('\$50'),
-                Text('\$100'),
+                Text('0 ₫'),
+                Text('100.000₫'),
+                Text('1.000.000₫'),
               ],
             ),
           )
@@ -313,7 +313,7 @@ class _SortBy extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            'Sort By',
+            'Sắp xếp theo',
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -330,11 +330,11 @@ class _SortBy extends StatelessWidget {
             items: const [
               DropdownMenuItem(
                 value: 'Popularity',
-                child: Text('Popularity'),
+                child: Text('Phổ biến'),
               ),
               DropdownMenuItem(
                 value: 'Price',
-                child: Text('Price'),
+                child: Text('Giá'),
               ),
             ],
             onChanged: (v) {},
@@ -374,19 +374,19 @@ class _FilterHeader extends StatelessWidget {
           ),
         ),
         Text(
-          'Filter',
+          'Bộ lọc tìm kiếm',
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
         ),
         SizedBox(
-          width: 56,
+          width: 60,
           child: TextButton(
             onPressed: () {},
             child: Text(
-              'Reset',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              'Hoàn tác',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: Colors.black,
                   ),
             ),

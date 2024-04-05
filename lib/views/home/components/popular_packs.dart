@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/components/product_tile_square.dart';
 
 import '../../../core/components/bundle_tile_square.dart';
 import '../../../core/components/title_and_action_button.dart';
@@ -23,10 +24,12 @@ class PopularPacks extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: List.generate(
-              Dummy.bundles.length,
+              // Dummy.bundles.length,
+              Dummy.products.length,
               (index) => Padding(
                 padding: const EdgeInsets.only(right: AppDefaults.padding),
-                child: BundleTileSquare(data: Dummy.bundles[index]),
+                // child: BundleTileSquare(data: Dummy.bundles[index]),
+                child: ProductTileSquare(data: Dummy.products[index]),
               ),
             ),
           ),

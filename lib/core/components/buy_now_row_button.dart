@@ -6,11 +6,11 @@ import '../constants/constants.dart';
 class BuyNowRow extends StatelessWidget {
   const BuyNowRow({
     Key? key,
-    required this.onCartButtonTap,
+    // required this.onCartButtonTap,
     required this.onBuyButtonTap,
   }) : super(key: key);
 
-  final void Function() onCartButtonTap;
+  // final void Function() onCartButtonTap;
   final void Function() onBuyButtonTap;
 
   @override
@@ -21,18 +21,18 @@ class BuyNowRow extends StatelessWidget {
       ),
       child: Row(
         children: [
-          OutlinedButton(
-            onPressed: onCartButtonTap,
-            child: SvgPicture.asset(AppIcons.shoppingCart),
-          ),
-          const SizedBox(width: AppDefaults.padding),
+          // OutlinedButton(
+          //   onPressed: onCartButtonTap,
+          //   child: SvgPicture.asset(AppIcons.shoppingCart),
+          // ),
+          // const SizedBox(width: AppDefaults.padding),
           Expanded(
             child: ElevatedButton(
               onPressed: onBuyButtonTap,
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(AppDefaults.padding * 1.2),
               ),
-              child: const Text('Mua ngay', style: TextStyle(fontSize: 18),),
+              child: const Text('Thêm vào giỏ hàng', style: TextStyle(fontSize: 16),),
             ),
           ),
         ],

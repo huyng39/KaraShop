@@ -22,15 +22,15 @@ class CartPage extends StatelessWidget {
           ? null
           : AppBar(
               leading: const AppBackButton(),
-              title: const Text('Cart Page'),
+              title: const Text('Giỏ hàng'),
             ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               const SingleCartItemTile(),
-              const SingleCartItemTile(),
-              const SingleCartItemTile(),
+              // const SingleCartItemTile(),
+              // const SingleCartItemTile(),
               const CouponCodeField(),
               const ItemTotalsAndPrice(),
               SizedBox(
