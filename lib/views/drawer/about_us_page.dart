@@ -11,7 +11,7 @@ class AboutUsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('About Us'),
+        title: const Text('Về chúng tôi'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(AppDefaults.padding),
@@ -19,14 +19,23 @@ class AboutUsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'About Us',
+              'Về chúng tôi',
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
             ),
             const SizedBox(height: AppDefaults.padding),
             const Text(
-                '''In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.\n\nMaecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien.\n\nAliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet.''')
+                '''Kara Shop là một cửa hàng chuyên về thực phẩm khô, nơi bạn có thể tìm thấy những sản phẩm ngon và bổ dưỡng. Chúng tôi tự hào cung cấp các loại thực phẩm khô không chất bảo quản, đảm bảo an toàn cho sức khỏe của bạn.
+
+Dưới đây là một số sản phẩm thực phẩm khô mà Kara Shop cung cấp:
+
+Chà bông heo: Giá 160.000 ₫.
+Chuối lát sấy giòn: Giá 55.000 ₫.
+Khô bò miếng: Giá 125.000 ₫.
+Khô cá chạch: Giá 530.000 ₫.
+Lạp xưởng heo tươi: Giá 205.000 ₫.
+Hãy ghé thăm Kara Shop để khám phá thêm nhiều sản phẩm thực phẩm khô hấp dẫn khác. Chúng tôi cam kết cung cấp hàng chất lượng, uy tín và đáng tin cậy cho khách hàng. Mua sắm trực tuyến tại đây với giá rẻ và dịch vụ giao hàng tận nơi!''')
           ],
         ),
       ),
