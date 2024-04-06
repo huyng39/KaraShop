@@ -49,7 +49,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
               const Text("Số điện thoại hoặc email"),
               const SizedBox(height: 8),
               TextFormField(
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 validator: Validators.requiredWithFieldName('Nhập số điện thoại hoặc email'),
                 textInputAction: TextInputAction.next,
               ),

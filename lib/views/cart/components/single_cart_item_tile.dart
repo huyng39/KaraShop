@@ -46,7 +46,7 @@ class SingleCartItemTile extends StatelessWidget {
                           'Nước tương đậu nành Nam Dương\nchính hiệu Con Mèo Đen\nchai 280ml',
                           style: Theme.of(context)
                               .textTheme
-                              .bodyMedium
+                              .bodySmall
                               ?.copyWith(color: Colors.black),
                         ),
                         // Text(

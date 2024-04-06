@@ -66,7 +66,7 @@ class _UserData extends StatelessWidget {
               Text(
                 'Nguyễn Thị Thanh Ngân',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold, color: Colors.white, fontSize: 20),
+                    fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
               ),
               const SizedBox(height: 8),
               Text(

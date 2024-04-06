@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/routes/app_routes.dart';
 
 import '../../../core/components/title_and_action_button.dart';
 import 'checkout_address_card.dart';
@@ -15,7 +16,9 @@ class AddressSelector extends StatelessWidget {
         TitleAndActionButton(
           title: 'Địa chỉ giao hàng',
           actionLabel: 'Thêm mới',
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, AppRoutes.newAddress);
+          },
           isHeadline: false,
         ),
         AddressCard(

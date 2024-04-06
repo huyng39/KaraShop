@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/components/network_image.dart';
 import '../../../../core/models/dummy_product_model.dart';
+import 'package:intl/intl.dart';
 
 class OrderDetailsProductTile extends StatelessWidget {
   const OrderDetailsProductTile({
@@ -46,12 +47,12 @@ class OrderDetailsProductTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              '${data.price.toInt()}đ',
-              style: Theme.of(context).textTheme.titleLarge,
+              NumberFormat('###,###.###₫').format(data.price.toInt()),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 8),
             Text(
-              '1sp',
+              'SL: 1',
               style: Theme.of(context).textTheme.bodySmall,
             )
           ],

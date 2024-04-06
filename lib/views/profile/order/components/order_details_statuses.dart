@@ -23,7 +23,7 @@ class OrderStatusColumn extends StatelessWidget {
           status: OrderStatus.processing,
           date: '',
           time: '',
-          isActive: false,
+          isActive: true,
         ),
         OrderStatusRow(
           status: OrderStatus.shipped,
