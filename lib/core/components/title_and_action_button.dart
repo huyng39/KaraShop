@@ -33,7 +33,7 @@ class TitleAndActionButton extends StatelessWidget {
                 : Theme.of(context)
                     .textTheme
                     .bodyLarge
-                    ?.copyWith(color: Colors.black),
+                    ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           TextButton(
             onPressed: onTap,

@@ -11,7 +11,7 @@ class CategoryProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Vegetables'),
+        title: const Text('Sản phẩm'),
         leading: const AppBackButton(),
       ),
       body: GridView.builder(
@@ -19,7 +19,7 @@ class CategoryProductPage extends StatelessWidget {
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 16,
-          childAspectRatio: 0.85,
+          childAspectRatio: 0.65,
         ),
         itemCount: 16,
         itemBuilder: (context, index) {

@@ -30,7 +30,7 @@ class PaymentCardTile extends StatelessWidget {
           onTap: onTap,
           borderRadius: AppDefaults.borderRadius,
           child: Container(
-            height: 66,
+            height: 85,
             width: 135,
             padding: const EdgeInsets.symmetric(),
             decoration: BoxDecoration(
@@ -49,8 +49,9 @@ class PaymentCardTile extends StatelessWidget {
                   label,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyLarge
+                      .bodyMedium
                       ?.copyWith(color: Colors.black),
+                      textAlign: TextAlign.center,
                 ),
               ],
             ),

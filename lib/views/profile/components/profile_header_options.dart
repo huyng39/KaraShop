@@ -29,13 +29,13 @@ class ProfileHeaderOptions extends StatelessWidget {
               Navigator.pushNamed(context, AppRoutes.myOrder);
             },
           ),
-          ProfileSqureTile(
-            label: 'Voucher',
-            icon: AppIcons.voucher,
-            onTap: () {
-              Navigator.pushNamed(context, AppRoutes.coupon);
-            },
-          ),
+          // ProfileSqureTile(
+          //   label: 'Voucher',
+          //   icon: AppIcons.voucher,
+          //   onTap: () {
+          //     Navigator.pushNamed(context, AppRoutes.coupon);
+          //   },
+          // ),
           ProfileSqureTile(
             label: 'Địa chỉ đã lưu',
             icon: AppIcons.homeProfile,

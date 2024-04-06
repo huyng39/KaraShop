@@ -4,6 +4,7 @@ import '../../core/components/network_image.dart';
 import '../../core/constants/app_defaults.dart';
 import '../../core/utils/ui_util.dart';
 import '../cart/dialogs/delivered_successfull.dart';
+import '../../../core/routes/app_routes.dart';
 
 class OrderSuccessfullPage extends StatelessWidget {
   const OrderSuccessfullPage({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class OrderSuccessfullPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Order Placed Successfully',
+                  'Đơn hàng đã đặt thành công!',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -44,7 +45,7 @@ class OrderSuccessfullPage extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: AppDefaults.padding),
                   child: Text(
-                    'Thanks for your order. Your order has placed successfully. Please continue your order.',
+                    'Cảm ơn bạn đã mua hàng tại Kara Shop.Chúng tôi sẽ liên hệ với bạn sớm nhất để xác nhận đơn hàng.',
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -62,12 +63,13 @@ class OrderSuccessfullPage extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        UiUtil.openDialog(
-                          context: context,
-                          widget: const DeliverySuccessfullDialog(),
-                        );
+                        // UiUtil.openDialog(
+                        //   context: context,
+                        //   widget: const DeliverySuccessfullDialog(),
+                        // );
+                        Navigator.pushNamed(context, AppRoutes.entryPoint);
                       },
-                      child: const Text('Continue'),
+                      child: const Text('Tiếp tục mua hàng',style: TextStyle(fontSize: 17),),
                     ),
                   ),
                 ),
@@ -79,7 +81,7 @@ class OrderSuccessfullPage extends StatelessWidget {
                     width: double.infinity,
                     child: TextButton(
                       onPressed: () {},
-                      child: const Text('Track Order'),
+                      child: const Text('Theo dõi đơn hàng',style: TextStyle(fontSize: 15),),
                     ),
                   ),
                 ),

@@ -16,13 +16,13 @@ class TotalAmountAndPaidData extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Total Amount',
+                'Tổng tiền đơn hàng',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold, color: Colors.black),
               ),
               const Spacer(),
               Text(
-                '\$120',
+                '28,600₫',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold, color: Colors.black),
               ),
@@ -32,13 +32,13 @@ class TotalAmountAndPaidData extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Paid From',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                'Phương thức thanh toán',
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.bold, color: Colors.black),
               ),
               const Spacer(),
               Text(
-                'Credit Card',
+                'COD',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold, color: Colors.black),
               ),

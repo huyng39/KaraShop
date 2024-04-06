@@ -16,7 +16,8 @@ class AddressPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Delivery Address',
+          'Địa chỉ đã lưu',
+          style: TextStyle(fontSize: 15),
         ),
       ),
       body: Container(
@@ -31,13 +32,13 @@ class AddressPage extends StatelessWidget {
             ListView.separated(
               itemBuilder: (context, index) {
                 return AddressTile(
-                  label: 'Puraton Custom, Chhatak',
-                  address: '216/c East Road',
-                  number: '+88017100710000',
+                  label: 'Nhà riêng',
+                  address: '828, Sư Vạn Hạnh,Phường 13\nQuận 10,Hồ Chí Minh',
+                  number: '0908754112',
                   isActive: index == 0,
                 );
               },
-              itemCount: 5,
+              itemCount: 1,
               separatorBuilder: (context, index) =>
                   const Divider(thickness: 0.2),
             ),
@@ -76,8 +77,9 @@ class AddressTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Align(
+      // padding: const EdgeInsets.all(8.0),
+      alignment: Alignment.centerLeft,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -85,6 +87,7 @@ class AddressTile extends StatelessWidget {
           const SizedBox(width: AppDefaults.padding),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            // mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
                 label,
@@ -93,8 +96,25 @@ class AddressTile extends StatelessWidget {
                     ),
               ),
               const SizedBox(height: 4),
-              Text(address),
-              const SizedBox(height: 4),
+              // Expanded(
+              //   child: Text(
+              //     address,
+              //     style: const TextStyle(
+              //       fontSize: 10,
+              //     ),
+              //     maxLines: 1,
+              //     softWrap: true,
+              //   ),
+              // ),
+              Text(
+                address,
+                style: const TextStyle(
+                  // fontSize: 10,
+                ),
+                maxLines: 2,
+                softWrap: true,
+              ),
+              const SizedBox(height: 10),
               Text(
                 number,
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(

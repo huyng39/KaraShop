@@ -12,7 +12,7 @@ class SearchResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Search Results'),
+        title: const Text('Kết quả tìm kiếm', style: TextStyle(fontSize: 15),),
         leading: const AppBackButton(),
       ),
       body: Column(
@@ -21,7 +21,7 @@ class SearchResultPage extends StatelessWidget {
             padding: const EdgeInsets.all(AppDefaults.padding),
             child: TextField(
               decoration: InputDecoration(
-                labelText: 'Search Field',
+                labelText: 'Tìm kiếm sản phẩm',
                 suffixIcon: Padding(
                   padding: const EdgeInsets.all(AppDefaults.padding),
                   child: SvgPicture.asset(AppIcons.search),
@@ -36,7 +36,7 @@ class SearchResultPage extends StatelessWidget {
               padding:
                   const EdgeInsets.symmetric(horizontal: AppDefaults.padding),
               child: Text(
-                '33 Products Found',
+                '1 sản phẩm tìm thấy',
                 style: Theme.of(context)
                     .textTheme
                     .bodyLarge
@@ -49,10 +49,10 @@ class SearchResultPage extends StatelessWidget {
               padding: const EdgeInsets.only(top: AppDefaults.padding),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                childAspectRatio: 0.85,
+                mainAxisSpacing: 18,
+                childAspectRatio: 0.65,
               ),
-              itemCount: 16,
+              itemCount: 1,
               itemBuilder: (context, index) {
                 return ProductTileSquare(
                   data: Dummy.products.first,

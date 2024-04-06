@@ -15,7 +15,7 @@ class NewAddressPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'New Address',
+          'Thêm địa chỉ',
         ),
       ),
       body: SingleChildScrollView(
@@ -34,7 +34,7 @@ class NewAddressPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               /* <----  Full Name -----> */
-              const Text("Full Name"),
+              const Text("Tên riêng"),
               const SizedBox(height: 8),
               TextFormField(
                 keyboardType: TextInputType.text,
@@ -43,7 +43,7 @@ class NewAddressPage extends StatelessWidget {
               const SizedBox(height: AppDefaults.padding),
 
               /* <---- Phone Number -----> */
-              const Text("Phone Number"),
+              const Text("Số điện thoại"),
               const SizedBox(height: 8),
               TextFormField(
                 keyboardType: TextInputType.number,
@@ -52,7 +52,7 @@ class NewAddressPage extends StatelessWidget {
               const SizedBox(height: AppDefaults.padding),
 
               /* <---- Address Line 1 -----> */
-              const Text("Address Line 1"),
+              const Text("Địa chỉ giao hàng"),
               const SizedBox(height: 8),
               TextFormField(
                 keyboardType: TextInputType.text,
@@ -61,71 +61,71 @@ class NewAddressPage extends StatelessWidget {
               const SizedBox(height: AppDefaults.padding),
 
               /* <---- Address Line 2 -----> */
-              const Text("Address Line 2"),
-              const SizedBox(height: 8),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-              ),
-              const SizedBox(height: AppDefaults.padding),
+              // const Text("Địa chỉ giao hàng khác"),
+              // const SizedBox(height: 8),
+              // TextFormField(
+              //   keyboardType: TextInputType.text,
+              //   textInputAction: TextInputAction.next,
+              // ),
+              // const SizedBox(height: AppDefaults.padding),
 
               /* <---- City -----> */
-              const Text("City"),
-              const SizedBox(height: 8),
-              TextFormField(
-                keyboardType: TextInputType.text,
-                textInputAction: TextInputAction.next,
-              ),
-              const SizedBox(height: AppDefaults.padding),
+              // const Text("City"),
+              // const SizedBox(height: 8),
+              // TextFormField(
+              //   keyboardType: TextInputType.text,
+              //   textInputAction: TextInputAction.next,
+              // ),
+              // const SizedBox(height: AppDefaults.padding),
 
               /* <---- State and Zip Code -----> */
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text("State"),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          keyboardType: TextInputType.text,
-                          textInputAction: TextInputAction.next,
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: AppDefaults.padding),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text("Zip Code"),
-                        const SizedBox(height: 8),
-                        TextFormField(
-                          keyboardType: TextInputType.number,
-                          textInputAction: TextInputAction.done,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(
-                padding:
-                    EdgeInsets.symmetric(vertical: AppDefaults.padding),
-                child: Row(
-                  children: [
-                    AppRadio(isActive: true),
-                    SizedBox(width: AppDefaults.padding),
-                    Text('Make Default Shipping Address'),
-                  ],
-                ),
-              ),
+              // Row(
+              //   children: [
+              //     Expanded(
+              //       child: Column(
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           const Text("State"),
+              //           const SizedBox(height: 8),
+              //           TextFormField(
+              //             keyboardType: TextInputType.text,
+              //             textInputAction: TextInputAction.next,
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //     const SizedBox(width: AppDefaults.padding),
+              //     Expanded(
+              //       child: Column(
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           const Text("Zip Code"),
+              //           const SizedBox(height: 8),
+              //           TextFormField(
+              //             keyboardType: TextInputType.number,
+              //             textInputAction: TextInputAction.done,
+              //           ),
+              //         ],
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // const Padding(
+              //   padding:
+              //       EdgeInsets.symmetric(vertical: AppDefaults.padding),
+              //   child: Row(
+              //     children: [
+              //       AppRadio(isActive: true),
+              //       SizedBox(width: AppDefaults.padding),
+              //       Text('Make Default Shipping Address'),
+              //     ],
+              //   ),
+              // ),
               const SizedBox(height: AppDefaults.padding),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  child: const Text('Save Adress'),
+                  child: const Text('Lưu',style: TextStyle(fontSize: 19),),
                   onPressed: () {},
                 ),
               ),

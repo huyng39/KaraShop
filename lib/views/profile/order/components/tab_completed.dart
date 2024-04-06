@@ -14,36 +14,36 @@ class CompletedTab extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.only(top: 8),
       children: [
-        OrderPreviewTile(
-          orderID: '232425627',
-          date: '25 Nov',
-          status: OrderStatus.confirmed,
-          onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
-        ),
-        OrderPreviewTile(
-          orderID: '232425627',
-          date: '25 Nov',
-          status: OrderStatus.processing,
-          onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
-        ),
-        OrderPreviewTile(
-          orderID: '232425627',
-          date: '25 Nov',
-          status: OrderStatus.shipped,
-          onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
-        ),
-        OrderPreviewTile(
-          orderID: '232425627',
-          date: '25 Nov',
-          status: OrderStatus.delivery,
-          onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
-        ),
-        OrderPreviewTile(
-          orderID: '232425627',
-          date: '25 Nov',
-          status: OrderStatus.cancelled,
-          onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
-        ),
+        // OrderPreviewTile(
+        //   orderID: '232425627',
+        //   date: '25 Nov',
+        //   status: OrderStatus.confirmed,
+        //   onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
+        // ),
+        // OrderPreviewTile(
+        //   orderID: '232425627',
+        //   date: '25 Nov',
+        //   status: OrderStatus.processing,
+        //   onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
+        // ),
+        // OrderPreviewTile(
+        //   orderID: '232425627',
+        //   date: '25 Nov',
+        //   status: OrderStatus.shipped,
+        //   onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
+        // ),
+        // OrderPreviewTile(
+        //   orderID: '232425627',
+        //   date: '25 Nov',
+        //   status: OrderStatus.delivery,
+        //   onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
+        // ),
+        // OrderPreviewTile(
+        //   orderID: '232425627',
+        //   date: '25 Nov',
+        //   status: OrderStatus.cancelled,
+        //   onTap: () => Navigator.pushNamed(context, AppRoutes.orderDetails),
+        // ),
       ],
     );
   }

@@ -15,7 +15,8 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Settings',
+          'Cài đặt',
+          style: TextStyle(fontSize: 16),
         ),
       ),
       backgroundColor: AppColors.cardColor,
@@ -32,47 +33,47 @@ class SettingsPage extends StatelessWidget {
         child: Column(
           children: [
             AppSettingsListTile(
-              label: 'Language',
+              label: 'Ngôn ngữ',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.settingsLanguage),
             ),
             AppSettingsListTile(
-              label: 'Notification',
+              label: 'Thông báo',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.settingsNotifications),
             ),
             AppSettingsListTile(
-              label: 'Change Password',
+              label: 'Đổi mật khẩu',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.changePassword),
             ),
             AppSettingsListTile(
-              label: 'Change Phone Number',
+              label: 'Đổi số điện thoại',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.changePhoneNumber),
             ),
             AppSettingsListTile(
-              label: 'Edit Home Address',
+              label: 'Đổi địa chỉ giao hàng',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.deliveryAddress),
             ),
+            // AppSettingsListTile(
+            //   label: 'Location',
+            //   trailing: SvgPicture.asset(AppIcons.right),
+            //   onTap: () {},
+            // ),
             AppSettingsListTile(
-              label: 'Location',
-              trailing: SvgPicture.asset(AppIcons.right),
-              onTap: () {},
-            ),
-            AppSettingsListTile(
-              label: 'Profile Setting',
+              label: 'Thay đổi thông tin cá nhân',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.profileEdit),
             ),
             AppSettingsListTile(
-              label: 'Deactivate Account',
+              label: 'Xóa tài khoản',
               trailing: SvgPicture.asset(AppIcons.right),
               onTap: () => Navigator.pushNamed(context, AppRoutes.introLogin),
             ),

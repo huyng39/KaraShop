@@ -43,11 +43,11 @@ class AddressCard extends StatelessWidget {
                 width: isActive ? 1 : 0.3,
               ),
             ),
-            child: Row(
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppRadio(isActive: isActive),
-                const SizedBox(width: 16),
+                const SizedBox(width: 18),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,8 +61,12 @@ class AddressCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 8),
                     Text(phoneNumber),
-                    const SizedBox(height: 8),
-                    Text(address)
+                    const SizedBox(height: 8,),
+                    Text(
+                  address,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
                   ],
                 ),
               ],

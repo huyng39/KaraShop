@@ -4,8 +4,8 @@ import '../../../core/components/dotted_divider.dart';
 import '../../../core/constants/constants.dart';
 import 'item_row.dart';
 
-class ItemTotalsAndPrice extends StatelessWidget {
-  const ItemTotalsAndPrice({
+class ItemTotalsAndPriceCheckOut extends StatelessWidget {
+  const ItemTotalsAndPriceCheckOut({
     Key? key,
   }) : super(key: key);
 
@@ -16,7 +16,7 @@ class ItemTotalsAndPrice extends StatelessWidget {
       child: Column(
         children: [
           ItemRow(
-            title: 'Số lượng sản phẩm',
+            title: 'Tổng số lượng',
             value: '1',
           ),
           // ItemRow(
@@ -31,10 +31,18 @@ class ItemTotalsAndPrice extends StatelessWidget {
           //   title: 'Giá',
           //   value: '\$ 12.25',
           // ),
+          ItemRow(
+            title: 'Giá',
+            value: '13.600₫',
+          ),
+          ItemRow(
+            title: 'Phí giao hàng',
+            value: '15.000₫',
+          ),
           DottedDivider(),
           ItemRow(
-            title: 'Thành tiền',
-            value: '13.600 đ',
+            title: 'Tổng đơn hàng',
+            value: '28.600 ₫',
           ),
         ],
       ),

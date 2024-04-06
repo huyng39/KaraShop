@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/constants.dart';
 import '../models/dummy_bundle_model.dart';
 import '../routes/app_routes.dart';
+import 'package:intl/intl.dart';
 import 'network_image.dart';
 
 class BundleTileSquare extends StatelessWidget {
@@ -45,6 +46,7 @@ class BundleTileSquare extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
+              //Title sản phẩm
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -52,31 +54,34 @@ class BundleTileSquare extends StatelessWidget {
                     data.name,
                     style: Theme.of(context)
                         .textTheme
-                        .titleLarge
+                        .titleMedium
                         ?.copyWith(color: Colors.black),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
-                    data.itemNames.join(','),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  //Sub title
+                  // Text(
+                  //   data.itemNames.join(','),
+                  //   maxLines: 1,
+                  //   overflow: TextOverflow.ellipsis,
+                  // ),
                 ],
               ),
               const SizedBox(height: 8),
               Row(
                 children: [
+                  //Giá đã giảm
                   Text(
-                    '${data.price.toInt()} đ',
+                    NumberFormat('###,###.###₫').format(data.price.toInt()),
                     style: Theme.of(context)
                         .textTheme
-                        .titleLarge
+                        .titleMedium
                         ?.copyWith(color: Colors.black),
                   ),
+                  //Giá chưa giảm
                   const SizedBox(width: 4),
                   Text(
-                    '${data.mainPrice} đ',
+                    NumberFormat('###,###.###₫').format(data.mainPrice.toInt()),
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           decoration: TextDecoration.lineThrough,
                         ),

@@ -17,13 +17,13 @@ class AllOrderPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           leading: const AppBackButton(),
-          title: const Text('My Order'),
+          title: const Text('Đơn hàng của tôi'),
           bottom: const TabBar(
             physics: NeverScrollableScrollPhysics(),
             tabs: [
-              CustomTabLabel(label: 'All', value: '(58)'),
-              CustomTabLabel(label: 'Running', value: '(14)'),
-              CustomTabLabel(label: 'Previous', value: '(44)'),
+              CustomTabLabel(label: 'Tất cả', value: '(1)'),
+              CustomTabLabel(label: 'Đang giao', value: '(1)'),
+              CustomTabLabel(label: 'Đã giao', value: '(0)'),
             ],
           ),
         ),

@@ -22,15 +22,15 @@ class CartPage extends StatelessWidget {
           ? null
           : AppBar(
               leading: const AppBackButton(),
-              title: const Text('Cart Page'),
+              title: const Text('Giỏ hàng'),
             ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               const SingleCartItemTile(),
-              const SingleCartItemTile(),
-              const SingleCartItemTile(),
+              // const SingleCartItemTile(),
+              // const SingleCartItemTile(),
               const CouponCodeField(),
               const ItemTotalsAndPrice(),
               SizedBox(
@@ -42,7 +42,9 @@ class CartPage extends StatelessWidget {
                       // Navigator.pushNamed(context, AppRoutes.orderSuccessfull);
                       Navigator.pushNamed(context, AppRoutes.checkoutPage);
                     },
-                    child: const Text('Checkout'),
+                    child: const Text('Thanh toán', style: TextStyle(
+                      fontSize: 16
+                    ),),
                   ),
                 ),
               ),

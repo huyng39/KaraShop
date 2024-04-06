@@ -17,7 +17,7 @@ class ReviewRowButton extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            'Review',
+            'Đánh giá',
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,

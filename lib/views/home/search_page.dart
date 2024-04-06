@@ -44,7 +44,7 @@ class _RecentSearchList extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Recent Search',
+                'Tìm kiếm gần đây',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: Colors.black,
                     ),
@@ -60,7 +60,7 @@ class _RecentSearchList extends StatelessWidget {
               separatorBuilder: (context, index) => const Divider(
                 thickness: 0.1,
               ),
-              itemCount: 16,
+              itemCount: 1,
             ),
           )
         ],
@@ -89,7 +89,7 @@ class _SearchPageHeader extends StatelessWidget {
                 Form(
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Search',
+                      hintText: 'Tìm kiếm sản phẩm',
                       prefixIcon: Padding(
                         padding: const EdgeInsets.all(AppDefaults.padding),
                         child: SvgPicture.asset(
@@ -147,7 +147,9 @@ class SearchHistoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, AppRoutes.searchResult);
+      },
       child: Padding(
         padding: const EdgeInsets.symmetric(
           vertical: 8,
@@ -156,7 +158,7 @@ class SearchHistoryTile extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              'Vegetables',
+              'Nước tương',
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             const Spacer(),

@@ -18,7 +18,7 @@ class TotalOrderProductDetails extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Product Details',
+              'Chi tiết sản phẩm',
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -28,12 +28,12 @@ class TotalOrderProductDetails extends StatelessWidget {
           const SizedBox(height: 8),
           ListView.separated(
             itemBuilder: (context, index) {
-              return OrderDetailsProductTile(data: Dummy.products[index]);
+              return OrderDetailsProductTile(data: Dummy.products[0]);
             },
             separatorBuilder: (context, index) => const Divider(
               thickness: 0.2,
             ),
-            itemCount: 3,
+            itemCount: 1,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
           ),
