@@ -17,3 +17,17 @@ class AppBackButton extends StatelessWidget {
     );
   }
 }
+class AppBackButtonCartPage extends StatelessWidget {
+  /// Custom Back labelLarge with a custom ICON for this app
+  const AppBackButtonCartPage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: SvgPicture.asset(AppIcons.arrowBackward),
+      onPressed: () => Navigator.pop(context),
+    );
+  }
+}
