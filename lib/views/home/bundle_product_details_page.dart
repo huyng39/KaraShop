@@ -37,7 +37,7 @@ class BundleProductDetailsPage extends StatelessWidget {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Bundle Pack',
+                      ' Rau củ',
                       style:
                           Theme.of(context).textTheme.headlineSmall?.copyWith(
                                 fontWeight: FontWeight.bold,
