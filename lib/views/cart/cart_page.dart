@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/components/app_back_button.dart';
+// import '../../core/components/app_back_button.dart';
 import '../../core/constants/app_defaults.dart';
 import '../../core/routes/app_routes.dart';
 import 'components/coupon_code_field.dart';
@@ -18,12 +18,15 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: isHomePage
-          ? null
-          : AppBar(
-              leading: const AppBackButton(),
-              title: const Text('Giỏ hàng'),
-            ),
+      // appBar: isHomePage
+      //     ? null
+      //     : AppBar(
+      //         leading: const AppBackButton(),
+      //         title: const Text('Giỏ hàng'),
+      //       ),
+      appBar: AppBar(
+        title: const Text('Giỏ hàng'),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -42,9 +45,10 @@ class CartPage extends StatelessWidget {
                       // Navigator.pushNamed(context, AppRoutes.orderSuccessfull);
                       Navigator.pushNamed(context, AppRoutes.checkoutPage);
                     },
-                    child: const Text('Thanh toán', style: TextStyle(
-                      fontSize: 16
-                    ),),
+                    child: const Text(
+                      'Thanh toán',
+                      style: TextStyle(fontSize: 16),
+                    ),
                   ),
                 ),
               ),

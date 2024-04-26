@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:grocery/views/onboarding/onboarding_page.dart';
-import 'package:grocery/views/auth/intro_login_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import '../../views/auth/intro_login_page.dart';
 //import 'package:page_transition/page_transition.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
               width: 1800,
               height: 1800,
               ),
-            nextScreen: IntroLoginPage(),
+            nextScreen: const IntroLoginPage(),
             splashTransition: SplashTransition.fadeTransition,
             backgroundColor: Colors.green,
             duration: 3000,

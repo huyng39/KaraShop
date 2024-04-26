@@ -14,7 +14,7 @@ class NotificationSettingsPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Change Notificaiton Settings',
+          'Thay đổi cài đặt thông báo',
         ),
       ),
       backgroundColor: AppColors.cardColor,
@@ -34,7 +34,7 @@ class NotificationSettingsPage extends StatelessWidget {
             children: [
               const SizedBox(height: AppDefaults.padding),
               AppSettingsListTile(
-                label: 'App Notification',
+                label: 'Thông báo ứng dụng',
                 trailing: Transform.scale(
                   scale: 0.7,
                   child: CupertinoSwitch(
@@ -44,7 +44,7 @@ class NotificationSettingsPage extends StatelessWidget {
                 ),
               ),
               AppSettingsListTile(
-                label: 'Phone Number Notification',
+                label: 'Thông báo số điện thoại',
                 trailing: Transform.scale(
                   scale: 0.7,
                   child: CupertinoSwitch(
@@ -54,7 +54,7 @@ class NotificationSettingsPage extends StatelessWidget {
                 ),
               ),
               AppSettingsListTile(
-                label: 'Offer Notification',
+                label: 'Thông báo ưu đãi',
                 trailing: Transform.scale(
                   scale: 0.7,
                   child: CupertinoSwitch(

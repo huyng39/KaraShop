@@ -42,12 +42,19 @@ dependencies:
   animated_splash_screen: ^1.3.0
   page_transition: ^2.1.0
   calendar_date_picker2: ^0.5.5
+<<<<<<< HEAD
   dio: ^5.4.0
   shared_preferences: ^2.2.2
   intl: ^0.17.0
   awesome_dialog: ^3.2.0
   loading_animation_widget: ^1.2.1
   
+=======
+  flutter_html: 3.0.0-beta.2
+  google_maps_flutter: ^2.0.2
+  geocoding: ^2.0.1
+  url_launcher: ^6.2.5
+>>>>>>> ea3c701d3eb9348011696e7065f7f8667bbe9f68
 
 
 dev_dependencies:

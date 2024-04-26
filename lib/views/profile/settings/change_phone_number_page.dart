@@ -12,7 +12,7 @@ class ChangePhoneNumberPage extends StatelessWidget {
       appBar: AppBar(
         leading: const AppBackButton(),
         title: const Text(
-          'Change Phone Number Page',
+          'Thay đổi số điện thoại',
         ),
       ),
       backgroundColor: AppColors.cardColor,
@@ -33,7 +33,7 @@ class ChangePhoneNumberPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 /* <----  New Phone Number -----> */
-                const Text("New Phone Number"),
+                const Text("Số điện thoại mới"),
                 const SizedBox(height: 8),
                 TextFormField(
                   keyboardType: TextInputType.number,
@@ -42,7 +42,7 @@ class ChangePhoneNumberPage extends StatelessWidget {
                 const SizedBox(height: AppDefaults.padding),
 
                 /* <---- Retype Phone Number -----> */
-                const Text("Retype Phone Number"),
+                const Text("Nhập lại số điện thoại"),
                 const SizedBox(height: 8),
                 TextFormField(
                   keyboardType: TextInputType.number,
@@ -55,7 +55,7 @@ class ChangePhoneNumberPage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    child: const Text('Update Phone Number'),
+                    child: const Text('Lưu thay đổi'),
                     onPressed: () {},
                   ),
                 ),

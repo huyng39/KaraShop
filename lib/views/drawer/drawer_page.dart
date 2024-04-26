@@ -42,11 +42,11 @@ class DrawerPage extends StatelessWidget {
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.termsAndConditions),
             ),
-            AppSettingsListTile(
-              label: 'Trung tâm hỗ trợ',
-              trailing: SvgPicture.asset(AppIcons.right),
-              onTap: () => Navigator.pushNamed(context, AppRoutes.help),
-            ),
+            // AppSettingsListTile(
+            //   label: 'Trung tâm hỗ trợ',
+            //   trailing: SvgPicture.asset(AppIcons.right),
+            //   onTap: () => Navigator.pushNamed(context, AppRoutes.help),
+            //),
             AppSettingsListTile(
               label: 'Đánh giá app',
               trailing: SvgPicture.asset(AppIcons.right),
