@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grocery/core/data/sharepre.dart';
 
 import '../../core/components/app_back_button.dart';
 import '../../core/constants/app_defaults.dart';
@@ -65,7 +66,10 @@ class DrawerPage extends StatelessWidget {
             AppSettingsListTile(
               label: 'Đăng xuất',
               trailing: SvgPicture.asset(AppIcons.right),
-              onTap: () => Navigator.pushNamed(context, AppRoutes.introLogin),
+              onTap: () { 
+                logOut(context);
+                // Navigator.pushNamed(context, AppRoutes.introLogin);
+                },
             ),
           ],
         ),

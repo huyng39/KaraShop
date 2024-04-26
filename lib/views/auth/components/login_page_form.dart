@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:grocery/core/data/api.dart';
+import 'package:grocery/core/data/sharepre.dart';
 
 import '../../../core/constants/constants.dart';
 import '../../../core/routes/app_routes.dart';
 import '../../../core/themes/app_themes.dart';
 import '../../../core/utils/validators.dart';
 import 'login_button.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class LoginPageForm extends StatefulWidget {
   const LoginPageForm({
@@ -18,17 +21,56 @@ class LoginPageForm extends StatefulWidget {
 
 class _LoginPageFormState extends State<LoginPageForm> {
   final _key = GlobalKey<FormState>();
-
+  TextEditingController accountController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+  bool idEmpty = false;
+  bool passEmpty = false;
   bool isPasswordShown = false;
+  String token = '';
+
   onPassShowClicked() {
     isPasswordShown = !isPasswordShown;
     setState(() {});
   }
 
-  onLogin() {
-    final bool isFormOkay = _key.currentState?.validate() ?? false;
-    if (isFormOkay) {
-      Navigator.pushNamed(context, AppRoutes.entryPoint);
+  onLogin() async {
+    try {
+      token = await APIRepository()
+          .login(accountController.text, passwordController.text);
+      var user = await APIRepository().current(token);
+      setState(() {
+        isLoading = true;
+      });
+
+      // tải hiệu ứng chờ loading
+      Future.delayed(const Duration(seconds: 2), () {
+        setState(() {
+          isLoading = false;
+        });
+      });
+      // save share
+      saveUser(user, token);
+      //
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: (context) => const Mainpage()));
+      // Navigator.pushNamed(context, AppRoutes.entryPoint);
+      return token;
+    } catch (error) {
+      setState(() {
+        isLoading = false;
+      });
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Đăng nhập không thành công!\nVui lòng kiểm tra lại.',
+            style: TextStyle(
+                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
+          ),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -46,11 +88,13 @@ class _LoginPageFormState extends State<LoginPageForm> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Phone Field
-              const Text("Số điện thoại hoặc email"),
+              const Text("Tên tài khoản"),
               const SizedBox(height: 8),
               TextFormField(
+                controller: accountController,
                 keyboardType: TextInputType.text,
-                validator: Validators.requiredWithFieldName('Nhập số điện thoại hoặc email'),
+                validator: Validators.requiredWithFieldName(
+                    'Vui lòng nhập tên tài khoản'),
                 textInputAction: TextInputAction.next,
               ),
               const SizedBox(height: AppDefaults.padding),
@@ -59,6 +103,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
               const Text("Mật khẩu"),
               const SizedBox(height: 8),
               TextFormField(
+                controller: passwordController,
                 validator: Validators.password,
                 onFieldSubmitted: (v) => onLogin(),
                 textInputAction: TextInputAction.done,
@@ -89,7 +134,40 @@ class _LoginPageFormState extends State<LoginPageForm> {
               ),
 
               // Login labelLarge
-              LoginButton(onPressed: onLogin),
+              LoginButton(
+                onPressed: () async {
+                  if (_key.currentState?.validate() == true) {
+                    if (isLoading)
+                      LoadingAnimationWidget.waveDots(
+                          color: Colors.white, size: 35);
+                    setState(
+                      () => isLoading = true,
+                    );
+                    String response = await onLogin();
+                    if (response == token) {
+                      Navigator.pushNamed(context, AppRoutes.entryPoint);
+                      setState(
+                        () => isLoading = false,
+                      );
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const AlertDialog(
+                              title: Text("Alert"),
+                              content: SingleChildScrollView(
+                                child: Text(
+                                    "Please check your information again!"),
+                              ),
+                            );
+                          });
+                      setState(
+                        () => isLoading = false,
+                      );
+                    }
+                  }
+                },
+              ),
             ],
           ),
         ),

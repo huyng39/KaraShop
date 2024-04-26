@@ -7,9 +7,10 @@ class Validators {
   /// Password Validator
   static final password = MultiValidator([
     RequiredValidator(errorText: 'Không được bỏ trống'),
-    MinLengthValidator(8, errorText: 'Mật khẩu phải ít nhất 8 ký tự trở lên'),
-    PatternValidator(r'(?=.*?[#?!@$%^&*-])',
-        errorText: 'Mật khẩu phải có ít nhất 1 ký tự đặc biệt')
+    //Note: Nếu muốn xài thì bật cái này (LƯU Ý: Nhớ đổi mật khẩu cho hợp lệ với cái này)
+    // MinLengthValidator(8, errorText: 'Mật khẩu phải ít nhất 8 ký tự trở lên'),
+    // PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+    //     errorText: 'Mật khẩu phải có ít nhất 1 ký tự đặc biệt')
   ]);
 
   /// Required Validator with Optional Field Name
