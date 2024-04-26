@@ -4,10 +4,10 @@ import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_defaults.dart';
 
 import '../../../core/components/app_back_button.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class NewAddressPage extends StatelessWidget {
-  static const _position = LatLng(10.77615745855286, 106.66759669033004);
+  // static const _position = LatLng(10.77615745855286, 106.66759669033004);
   const NewAddressPage({Key? key}) : super(key: key);
 
   @override
@@ -132,10 +132,10 @@ class NewAddressPage extends StatelessWidget {
                   //   'https://i.imgur.com/p4HXXVA.png',
                   //   fit: BoxFit.contain,
                   // ),
-                  child: GoogleMap(
-                    initialCameraPosition:
-                        CameraPosition(target: _position, zoom: 17.0),
-                  ),
+                  // child: GoogleMap(
+                  //   initialCameraPosition:
+                  //       CameraPosition(target: _position, zoom: 17.0),
+                  // ),
                 ),
               ),
               const SizedBox(height: AppDefaults.padding),
