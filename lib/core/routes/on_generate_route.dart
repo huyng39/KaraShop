@@ -27,7 +27,7 @@ import '../../views/home/popular_pack_page.dart';
 import '../../views/home/product_details_page.dart';
 import '../../views/home/search_page.dart';
 import '../../views/home/search_result_page.dart';
-import '../../views/menu/category_page.dart';
+import '../../views/category/category_page.dart';
 import '../../views/onboarding/onboarding_page.dart';
 import '../../views/profile/address/address_page.dart';
 import '../../views/profile/address/new_address_page.dart';

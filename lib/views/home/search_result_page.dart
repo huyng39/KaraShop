@@ -54,9 +54,9 @@ class SearchResultPage extends StatelessWidget {
               ),
               itemCount: 1,
               itemBuilder: (context, index) {
-                return ProductTileSquare(
-                  data: Dummy.products.first,
-                );
+                // return ProductTileSquare(
+                //   data: Dummy.products.first,
+                // );
               },
             ),
           ),

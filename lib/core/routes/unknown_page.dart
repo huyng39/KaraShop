@@ -13,7 +13,7 @@ class UnknownPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('Unknown Page'),
+        title: const Text('Lỗi'),
       ),
       body: Column(
         children: [
@@ -36,7 +36,7 @@ class UnknownPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'oppss!! something wrong',
+                  'Không tìm thấy trang mà bạn muốn tìm thấy trang mà bạn muốn tìm',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -48,7 +48,7 @@ class UnknownPage extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: AppDefaults.padding),
                   child: Text(
-                    'Sorry, something went wrong\nplease try again .',
+                    'Vui lòng thử lại',
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -64,7 +64,7 @@ class UnknownPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, AppRoutes.entryPoint);
                 },
-                child: const Text('Try Again'),
+                child: const Text('Thử lại'),
               ),
             ),
           ),

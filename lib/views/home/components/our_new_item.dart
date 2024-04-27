@@ -22,10 +22,10 @@ class OurNewItem extends StatelessWidget {
           padding: const EdgeInsets.only(left: AppDefaults.padding),
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: List.generate(
-              Dummy.products.length,
-              (index) => ProductTileSquare(data: Dummy.products[index]),
-            ),
+            // children: List.generate(
+            //   Dummy.products.length,
+            //   (index) => ProductTileSquare(data: Dummy.products[index]),
+            // ),
           ),
         ),
       ],

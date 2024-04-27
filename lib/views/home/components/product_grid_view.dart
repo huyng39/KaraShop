@@ -20,7 +20,7 @@ class ProductGridView extends StatelessWidget {
         ),
         itemCount: 16,
         itemBuilder: (context, index) {
-          return ProductTileSquare(data: Dummy.products.first);
+          // return ProductTileSquare(data: Dummy.products.first);
         },
       ),
     );

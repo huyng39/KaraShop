@@ -7,7 +7,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_defaults.dart';
 import '../cart/cart_page.dart';
 import '../home/home_page.dart';
-import '../menu/menu_page.dart';
+import '../category/category_list.dart';
 import '../profile/profile_page.dart';
 import '../save/save_page.dart';
 import 'components/app_navigation_bar.dart';
@@ -33,7 +33,7 @@ class _EntryPointUIState extends State<EntryPointUI> {
   /// All the pages
   List<Widget> pages = [
     const HomePage(),
-    const MenuPage(),
+    const CategoryList(),
     const CartPage(isHomePage: true),
     const SavePage(isHomePage: false),
     const ProfilePage(),

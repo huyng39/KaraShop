@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/components/buy_now_row_button.dart';
+import 'package:grocery/core/models/product/product.dart';
 
 import '../constants/constants.dart';
 import '../models/dummy_product_model.dart';
@@ -6,14 +8,19 @@ import '../routes/app_routes.dart';
 import 'package:intl/intl.dart';
 import 'network_image.dart';
 
-class ProductTileSquare extends StatelessWidget {
+class ProductTileSquare extends StatefulWidget {
   const ProductTileSquare({
     Key? key,
     required this.data,
   }) : super(key: key);
 
-  final ProductModel data;
+  final Product data;
 
+  @override
+  State<ProductTileSquare> createState() => _ProductTileSquareState();
+}
+
+class _ProductTileSquareState extends State<ProductTileSquare> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,55 +40,65 @@ class ProductTileSquare extends StatelessWidget {
               borderRadius: AppDefaults.borderRadius,
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(AppDefaults.padding / 2),
                   child: AspectRatio(
                     aspectRatio: 1 / 1,
                     child: NetworkImageWithLoader(
-                      data.cover,
+                      widget.data.imageURL!,
                       fit: BoxFit.contain,
                     ),
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  data.name,
+                  widget.data.nameProduct!,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
                       ?.copyWith(color: Colors.black),
+                  textAlign: TextAlign.center,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                const Spacer(),
-                Text(
-                  data.weight,
+                // const Spacer(),
+                const SizedBox(
+                  height: 16,
                 ),
-                const SizedBox(height: 4),
+                // Text(
+                //   widget.data.weight,
+                // ),
+                // const SizedBox(height: 4),
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      NumberFormat('###,###.###₫').format(data.price.toInt()),
+                      NumberFormat('###,###.###₫').format(widget.data.price),
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
                           ?.copyWith(color: Colors.black),
+                      textAlign: TextAlign.center,
                     ),
                     const SizedBox(
                       width: 4,
                     ),
-                    Text(
-                      NumberFormat('###,###.###₫').format(data.mainPrice),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            decoration: TextDecoration.lineThrough,
-                          ),
-                    ),
+                    // Text(
+                    //   NumberFormat('###,###.###₫').format(widget.data.price),
+                    //   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    //         decoration: TextDecoration.lineThrough,
+                    //       ),
+                    // ),
                   ],
-                )
+                ),
+                BuyNowRow(
+                  onBuyButtonTap: () {
+                    Navigator.pushNamed(context, AppRoutes.cartPage);
+                  },
+                ),
               ],
             ),
           ),
