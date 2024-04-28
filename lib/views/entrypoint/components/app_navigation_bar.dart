@@ -42,7 +42,7 @@ class AppBottomNavigationBar extends StatelessWidget {
 
           BottomAppBarItem(
             name: 'Đã lưu',
-            iconLocation: AppIcons.save,
+            iconLocation: AppIcons.heart,
             isActive: currentIndex == 3,
             onTap: () => onNavTap(3),
           ),

@@ -27,14 +27,17 @@ class EmptySavePage extends StatelessWidget {
             ),
           ),
           Text(
-            'Chưa lưu sản phẩm nào!',
+            'Bạn chưa thêm sản phẩm nào!',
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
                 ?.copyWith(fontWeight: FontWeight.bold, color: Colors.black),
           ),
           const SizedBox(height: 8),
-          const Text('Bạn chưa lưu sản phẩm nào trong danh sách'),
+          const Text(
+            'Danh sách sản phẩm yêu thích ở đây đang rỗng\nHãy thêm sản phẩm vào nhé!',
+            textAlign: TextAlign.center,
+          ),
           const Spacer(),
           SizedBox(
             width: double.infinity,
@@ -44,7 +47,10 @@ class EmptySavePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, AppRoutes.categoryDetails);
                 },
-                child: const Text('Thêm sản phẩm',style: TextStyle(fontSize: 18),),
+                child: const Text(
+                  'Thêm sản phẩm',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
             ),
           ),

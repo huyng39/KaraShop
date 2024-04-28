@@ -45,7 +45,7 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
                 Padding(
                   padding: const EdgeInsets.all(AppDefaults.padding / 2),
                   child: AspectRatio(
-                    aspectRatio: 1 / 1,
+                    aspectRatio: 2 / 1.5,
                     child: NetworkImageWithLoader(
                       widget.data.imageURL!,
                       fit: BoxFit.contain,
@@ -57,7 +57,7 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
                   widget.data.nameProduct!,
                   style: Theme.of(context)
                       .textTheme
-                      .titleMedium
+                      .titleSmall
                       ?.copyWith(color: Colors.black),
                   textAlign: TextAlign.center,
                   maxLines: 2,
@@ -80,7 +80,7 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
-                          ?.copyWith(color: Colors.black),
+                          ?.copyWith(color: Colors.green),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -94,7 +94,7 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
                     // ),
                   ],
                 ),
-                BuyNowRow(
+                BuyNowRowList(
                   onBuyButtonTap: () {
                     Navigator.pushNamed(context, AppRoutes.cartPage);
                   },

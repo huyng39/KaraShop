@@ -65,24 +65,38 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        vertical: AppDefaults.padding,
+        vertical: 18,
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // OutlinedButton(
           //   onPressed: onCartButtonTap,
           //   child: SvgPicture.asset(AppIcons.shoppingCart),
           // ),
           // const SizedBox(width: AppDefaults.padding),
-          Expanded(
-            child: ElevatedButton(
-              onPressed: widget.onBuyButtonTap,
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(AppDefaults.padding * 1.2),
+          ElevatedButton.icon(
+                icon: const Icon(
+                  Icons.add_shopping_cart,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                label: const Text(
+                  'Giỏ hàng',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  // value.add(productModel);
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(20.0),
+                  ),
+                  backgroundColor: Colors.green,
+                ),
               ),
-              child: const Text('Thêm vào giỏ hàng', style: TextStyle(fontSize: 16),),
-            ),
-          ),
         ],
       ),
     );

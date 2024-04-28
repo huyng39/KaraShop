@@ -126,6 +126,10 @@ class APIRepository with ChangeNotifier {
       var pathAll = '/Product/getListAdmin';
 
       var path2 = '/Product/getList?accountID=${user.accountId}';
+      
+      var pathAdmin =  categoryID == null
+          ? '/Product/getList?accountID=20dh111120'
+          : '/Product/getListByCatId?categoryID=${categoryID}&accountID=20dh111120';
       // Xây dựng URL với các tham số query
       // var uri = categoryID == null
       //     ? Uri.parse(path)
@@ -139,7 +143,7 @@ class APIRepository with ChangeNotifier {
 
       // Gửi yêu cầu API
       Response res = await api.sendRequest
-          .get(path.toString(), options: Options(headers: header(token)));
+          .get(pathAdmin.toString(), options: Options(headers: header(token)));
       // Kiểm tra mã phản hồi
       if (res.statusCode == 200) {
         // Xử lý và trả về dữ liệu
@@ -165,6 +169,9 @@ class APIRepository with ChangeNotifier {
       var path = categoryID == null
           ? '/Product/getList?accountID=${user.accountId}'
           : '/Product/getListByCatId?categoryID=${categoryID}&accountID=${user.accountId}';
+      var pathAdmin = categoryID == null
+          ? '/Product/getList?accountID=20dh111120'
+          : '/Product/getListByCatId?categoryID=${categoryID}&accountID=20dh111120';
 
       // Xây dựng URL với các tham số query
       // var uri = categoryID == null
@@ -179,7 +186,7 @@ class APIRepository with ChangeNotifier {
 
       // Gửi yêu cầu API
       Response res = await api.sendRequest
-          .get(path.toString(), options: Options(headers: header(token)));
+          .get(pathAdmin.toString(), options: Options(headers: header(token)));
       // Kiểm tra mã phản hồi
       if (res.statusCode == 200) {
         // Xử lý và trả về dữ liệu
@@ -333,10 +340,13 @@ class APIRepository with ChangeNotifier {
       var uri = Uri.parse(path).replace(queryParameters: {
         'accountID': user.accountId,
       });
+      var uriAdmin = Uri.parse(path).replace(queryParameters: {
+        'accountID': '20dh111120',
+      });
 
       // Gửi yêu cầu API
       Response res = await api.sendRequest
-          .get(uri.toString(), options: Options(headers: header(token)));
+          .get(uriAdmin.toString(), options: Options(headers: header(token)));
       // Kiểm tra mã phản hồi
       if (res.statusCode == 200) {
         // Xử lý và trả về dữ liệu

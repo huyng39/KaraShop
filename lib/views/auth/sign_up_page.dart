@@ -5,9 +5,14 @@ import '../../core/constants/app_defaults.dart';
 import 'components/sign_up_form.dart';
 import 'components/sign_up_page_header.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
 
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

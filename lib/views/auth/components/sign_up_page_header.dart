@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 
 import '../../../core/constants/constants.dart';
 
-class SignUpPageHeader extends StatelessWidget {
+class SignUpPageHeader extends StatefulWidget {
   const SignUpPageHeader({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<SignUpPageHeader> createState() => _SignUpPageHeaderState();
+}
+
+class _SignUpPageHeaderState extends State<SignUpPageHeader> {
   @override
   Widget build(BuildContext context) {
     return Align(
