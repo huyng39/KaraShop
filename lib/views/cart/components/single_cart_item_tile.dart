@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grocery/core/models/product/product.dart';
 
 import '../../../core/components/network_image.dart';
 import '../../../core/constants/constants.dart';
 
-class SingleCartItemTile extends StatelessWidget {
+class SingleCartItemTile extends StatefulWidget {
   const SingleCartItemTile({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<SingleCartItemTile> createState() => _SingleCartItemTileState();
+}
+
+class _SingleCartItemTileState extends State<SingleCartItemTile> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -105,3 +111,5 @@ class SingleCartItemTile extends StatelessWidget {
     );
   }
 }
+
+

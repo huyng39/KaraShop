@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery/core/components/buy_now_row_button.dart';
 import 'package:grocery/core/models/product/product.dart';
+import 'package:grocery/core/models/product/product_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/constants.dart';
 import '../models/dummy_product_model.dart';
@@ -94,10 +96,12 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
                     // ),
                   ],
                 ),
-                BuyNowRowList(
-                  onBuyButtonTap: () {
-                    Navigator.pushNamed(context, AppRoutes.cartPage);
-                  },
+                Consumer<ProductVM>(
+                  builder: (context, value, child) => BuyNowRowList(
+                    onBuyButtonTap: () {
+                      value.add(widget.data);
+                    },
+                  ),
                 ),
               ],
             ),

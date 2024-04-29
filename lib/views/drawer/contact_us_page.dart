@@ -81,7 +81,6 @@ class ContactUsPage extends StatelessWidget {
             Row(
               children: [
                 SvgPicture.asset(AppIcons.contactPhone),
-                
                 const SizedBox(width: AppDefaults.padding),
                 GestureDetector(
                   onTap: () {
@@ -109,32 +108,43 @@ class ContactUsPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: AppDefaults.padding),
-            Row(
-              children: [
-                SvgPicture.asset(AppIcons.contactEmail),
-                const SizedBox(width: AppDefaults.padding),
-                Text(
-                  'kara.nttn@gmail.com',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.black,
-                      ),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                launchEmail('kara.nttn@gmail.com');
+              },
+              child: Row(
+                children: [
+                  SvgPicture.asset(AppIcons.contactEmail),
+                  const SizedBox(width: AppDefaults.padding),
+                  Text(
+                    'kara.nttn@gmail.com',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.black,
+                        ),
+                  ),
+                ],
+              ),
             ),
 
             const SizedBox(height: AppDefaults.padding),
-            Row(
-              children: [
-                SvgPicture.asset(AppIcons.contactMap),
-                const SizedBox(width: AppDefaults.padding),
-                Text(
-                  '828 Sư Vạn Hạnh, phường 12\nquận 10, TP.HCM',
-                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: Colors.black,
-                      ),
-                ),
-              ],
+            GestureDetector(
+              onTap: () {
+                launchMap("828 Sư Vạn Hạnh, phường 12,quận 10, TP.HCM");
+              },
+              child: Row(
+                children: [
+                  SvgPicture.asset(AppIcons.contactMap),
+                  const SizedBox(width: AppDefaults.padding),
+                  Text(
+                    '828 Sư Vạn Hạnh, phường 12\nquận 10, TP.HCM',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Colors.black,
+                        ),
+                  ),
+                ],
+              ),
             ),
+
             const SizedBox(height: AppDefaults.padding),
             SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -158,6 +168,24 @@ class ContactUsPage extends StatelessWidget {
 
   void _launchPhone(String phoneNumber) async {
     Uri url = Uri.parse('tel: $phoneNumber');
+    if (await launchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void launchEmail(String email) async {
+    Uri url = Uri.parse('mailto: $email');
+    if (await launchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void launchMap(String address) async {
+    Uri url = Uri.parse('https://www.google.com/maps/search/$address');
     if (await launchUrl(url)) {
       await launchUrl(url);
     } else {

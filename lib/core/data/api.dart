@@ -78,10 +78,10 @@ class APIRepository with ChangeNotifier {
           options: Options(headers: header('no token')), data: body);
       if (res.statusCode == 200) {
         final tokenData = res.data['data']['token'];
-        print("ok login");
+        print("Đăng nhập thành công");
         return tokenData;
       } else {
-        return "login fail";
+        return "Đăng nhập thất bại";
       }
     }
 

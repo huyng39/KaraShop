@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
                 LoginPageHeader(),
                 LoginPageForm(),
                 SizedBox(height: AppDefaults.padding),
-                //Thêm chữ đăng nhập bằng tại đây
+                Text("Hoặc đăng nhập bằng"),
                 SocialLogins(),
                 DontHaveAccountRow(),
               ],

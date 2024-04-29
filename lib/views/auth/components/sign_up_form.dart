@@ -41,6 +41,22 @@ class _SignUpFormState extends State<SignUpForm> {
   String temp = '';
   bool isLoading = false;
   bool isPasswordShown = false;
+  bool isConfirmPasswordShown = false;
+
+  Future<String> register() async {
+    return await APIRepository().register(Signup(
+        accountID: _accountController.text,
+        birthDay: _birthDayController.text,
+        password: _passwordController.text,
+        confirmPassword: _confirmPasswordController.text,
+        fullName: _fullNameController.text,
+        phoneNumber: _phoneNumberController.text,
+        schoolKey: _schoolKeyController.text,
+        schoolYear: _schoolYearController.text,
+        gender: getGender(),
+        imageUrl: _imageURL.text,
+        numberID: _numberIDController.text));
+  }
 
   signUp() async {
     try {
@@ -102,6 +118,11 @@ class _SignUpFormState extends State<SignUpForm> {
     setState(() {});
   }
 
+  onConfirmPassShowClicked() {
+    isConfirmPasswordShown = !isConfirmPasswordShown;
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -146,14 +167,12 @@ class _SignUpFormState extends State<SignUpForm> {
               validator: Validators.required,
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.visiblePassword,
-              obscureText: true,
+              obscureText: !isPasswordShown,
               decoration: InputDecoration(
                 suffixIcon: Material(
                   color: Colors.transparent,
                   child: IconButton(
-                    onPressed: () {
-                      onPassShowClicked;
-                    },
+                    onPressed: onPassShowClicked,
                     icon: SvgPicture.asset(
                       AppIcons.eye,
                       width: 24,
@@ -171,14 +190,12 @@ class _SignUpFormState extends State<SignUpForm> {
               validator: Validators.required,
               keyboardType: TextInputType.visiblePassword,
               textInputAction: TextInputAction.next,
-              obscureText: true,
+              obscureText: !isConfirmPasswordShown,
               decoration: InputDecoration(
                 suffixIcon: Material(
                   color: Colors.transparent,
                   child: IconButton(
-                    onPressed: () {
-                      onPassShowClicked;
-                    },
+                    onPressed: onConfirmPassShowClicked,
                     icon: SvgPicture.asset(
                       AppIcons.eye,
                       width: 24,
@@ -322,31 +339,9 @@ class _SignUpFormState extends State<SignUpForm> {
                   const Spacer(),
                   ElevatedButton(
                     onPressed: () async {
-                      String respone = await signUp();
+                      String respone = await register();
                       if (_key.currentState!.validate()) {
-                        if (_passwordController != _confirmPasswordController) {
-                          AwesomeDialog(
-                            context: context,
-                            dialogType: DialogType.warning,
-                            animType: AnimType.scale,
-                            title: 'Mật khẩu không trùng khớp',
-                            desc:
-                                'Vui lòng kiểm tra lại mật khẩu mới\nvà nhập lại mật khẩu',
-                            btnOkOnPress: () {},
-                            headerAnimationLoop: false,
-                            btnOkText: "OK",
-                            btnOkColor: Colors.blue,
-                          ).show();
-                          setState(
-                            () => isLoading = false,
-                          );
-                        } else {
-                          if (isLoading) return;
-                          setState(
-                            () => isLoading = true,
-                          );
-
-                          if (respone == "ok") {
+                        if (respone == "ok") {
                             AwesomeDialog(
                               context: context,
                               dialogType: DialogType.success,
@@ -381,7 +376,64 @@ class _SignUpFormState extends State<SignUpForm> {
                               () => isLoading = false,
                             );
                           }
-                        }
+                        // if (_passwordController != _confirmPasswordController) {
+                        //   AwesomeDialog(
+                        //     context: context,
+                        //     dialogType: DialogType.warning,
+                        //     animType: AnimType.scale,
+                        //     title: 'Mật khẩu không trùng khớp',
+                        //     desc:
+                        //         'Vui lòng kiểm tra lại mật khẩu mới\nvà nhập lại mật khẩu',
+                        //     btnOkOnPress: () {},
+                        //     headerAnimationLoop: false,
+                        //     btnOkText: "OK",
+                        //     btnOkColor: Colors.blue,
+                        //   ).show();
+                        //   setState(
+                        //     () => isLoading = false,
+                        //   );
+                        // } else {
+                        //   if (isLoading) return;
+                        //   setState(
+                        //     () => isLoading = true,
+                        //   );
+
+                        //   if (respone == "ok") {
+                        //     AwesomeDialog(
+                        //       context: context,
+                        //       dialogType: DialogType.success,
+                        //       animType: AnimType.scale,
+                        //       title: 'Đăng ký thành công',
+                        //       desc:
+                        //           'Chúc mừng bạn đã đăng ký tài khoản thành công!',
+                        //       btnOkOnPress: () {
+                        //         Navigator.pushNamed(context, AppRoutes.login);
+                        //       },
+                        //       headerAnimationLoop: false,
+                        //       btnOkText: "Đăng nhập",
+                        //       btnOkColor: Colors.green,
+                        //     ).show();
+                        //     setState(
+                        //       () => isLoading = false,
+                        //     );
+                        //   } else {
+                        //     print(respone);
+                        //     AwesomeDialog(
+                        //       context: context,
+                        //       dialogType: DialogType.error,
+                        //       animType: AnimType.scale,
+                        //       title: 'Đã xảy ra lỗi',
+                        //       desc: 'Vui lòng kiểm tra lại thông tin',
+                        //       btnOkOnPress: () {},
+                        //       headerAnimationLoop: false,
+                        //       btnOkText: "OK",
+                        //       btnOkColor: Colors.red,
+                        //     ).show();
+                        //     setState(
+                        //       () => isLoading = false,
+                        //     );
+                        //   }
+                        // }
                       }
                     },
                     style: ElevatedButton.styleFrom(elevation: 1),

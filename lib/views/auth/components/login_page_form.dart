@@ -105,41 +105,9 @@ class _LoginPageFormState extends State<LoginPageForm> {
               TextFormField(
                 controller: passwordController,
                 validator: Validators.password,
-                onFieldSubmitted: (v) => onLogin(),
-                textInputAction: TextInputAction.done,
-                obscureText: !isPasswordShown,
-                decoration: InputDecoration(
-                  suffixIcon: Material(
-                    color: Colors.transparent,
-                    child: IconButton(
-                      onPressed: onPassShowClicked,
-                      icon: SvgPicture.asset(
-                        AppIcons.eye,
-                        width: 24,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
-              // Forget Password labelLarge
-              Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.forgotPassword);
-                  },
-                  child: const Text('Quên mật khẩu?'),
-                ),
-              ),
-
-              // Login labelLarge
-              LoginButton(
-                onPressed: () async {
+                onFieldSubmitted: (value) async {
                   if (_key.currentState?.validate() == true) {
-                    if (isLoading)
-                      LoadingAnimationWidget.waveDots(
-                          color: Colors.white, size: 35);
+                    if (isLoading) return;
                     setState(
                       () => isLoading = true,
                     );
@@ -167,6 +135,72 @@ class _LoginPageFormState extends State<LoginPageForm> {
                     }
                   }
                 },
+                textInputAction: TextInputAction.go,
+                obscureText: !isPasswordShown,
+                decoration: InputDecoration(
+                  suffixIcon: Material(
+                    color: Colors.transparent,
+                    child: IconButton(
+                      onPressed: onPassShowClicked,
+                      icon: SvgPicture.asset(
+                        AppIcons.eye,
+                        width: 24,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              // Forget Password labelLarge
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.passwordReset);
+                  },
+                  child: const Text('Quên mật khẩu?'),
+                ),
+              ),
+
+              // Login labelLarge
+              LoginButton(
+                onPressed: () async {
+                  if (_key.currentState?.validate() == true) {
+                    if (isLoading) return;
+                    setState(
+                      () => isLoading = true,
+                    );
+                    String response = await onLogin();
+                    if (response == token) {
+                      Navigator.pushNamed(context, AppRoutes.entryPoint);
+                      setState(
+                        () => isLoading = false,
+                      );
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const AlertDialog(
+                              title: Text("Alert"),
+                              content: SingleChildScrollView(
+                                child: Text(
+                                    "Please check your information again!"),
+                              ),
+                            );
+                          });
+                      setState(
+                        () => isLoading = false,
+                      );
+                    }
+                  }
+                },
+                child: isLoading
+                    ? LoadingAnimationWidget.waveDots(
+                        color: Colors.white, size: 35)
+                    : const Text(
+                        'Đăng nhập',
+                        style: TextStyle(fontSize: 20),
+                      ),
               ),
             ],
           ),

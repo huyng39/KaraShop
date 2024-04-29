@@ -5,9 +5,14 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_defaults.dart';
 import '../../core/routes/app_routes.dart';
 
-class ForgetPasswordPage extends StatelessWidget {
+class ForgetPasswordPage extends StatefulWidget {
   const ForgetPasswordPage({Key? key}) : super(key: key);
 
+  @override
+  State<ForgetPasswordPage> createState() => _ForgetPasswordPageState();
+}
+
+class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,10 +49,10 @@ class ForgetPasswordPage extends StatelessWidget {
                     ),
                     const SizedBox(height: AppDefaults.padding),
                     const Text(
-                      'Vui lòng nhập số điện thoại của bạn để chúng tôi xác minh bạn',
+                      'Vui lòng nhập tên tài khoản để chúng tôi xác minh tài khoản',
                     ),
                     const SizedBox(height: AppDefaults.padding * 3),
-                    const Text("Số điện thoại"),
+                    const Text("Tên tài khoản"),
                     const SizedBox(height: 8),
                     TextFormField(
                       autofocus: true,

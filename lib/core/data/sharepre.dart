@@ -20,7 +20,7 @@ Future<bool> saveUser(User objUser,String token) async {
     String strUser = jsonEncode(objUser);
     prefs.setString('user', strUser);
     prefs.setString('authToken', token);
-    print("Luu thanh cong: $strUser");
+    print("Lưu phiên login thành công: $strUser");
     return true;
   } catch (e) {
     print(e);
