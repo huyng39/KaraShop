@@ -206,7 +206,7 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
             const SizedBox(height: AppDefaults.padding),
             const Text(
-              "Mã số",
+              "ID tài khoản",
               style: TextStyle(color: Colors.black),
             ),
             const SizedBox(height: 8),
@@ -339,43 +339,75 @@ class _SignUpFormState extends State<SignUpForm> {
                   const Spacer(),
                   ElevatedButton(
                     onPressed: () async {
-                      String respone = await register();
-                      if (_key.currentState!.validate()) {
+                      if (_phoneNumberController.text.length < 10 || _phoneNumberController.text.length > 10) {
+                        AwesomeDialog(
+                          context: context,
+                          dialogType: DialogType.warning,
+                          animType: AnimType.scale,
+                          title: 'Lỗi',
+                          desc: 'Số điện thoại phải đúng 10 ký tự',
+                          btnOkOnPress: () {},
+                          headerAnimationLoop: false,
+                          btnOkText: "OK",
+                          btnOkColor: Colors.green,
+                        ).show();
+                        setState(
+                          () => isLoading = false,
+                        );
+                      } else if (_key.currentState!.validate()) {
+                        String respone = await register();
                         if (respone == "ok") {
-                            AwesomeDialog(
-                              context: context,
-                              dialogType: DialogType.success,
-                              animType: AnimType.scale,
-                              title: 'Đăng ký thành công',
-                              desc:
-                                  'Chúc mừng bạn đã đăng ký tài khoản thành công!',
-                              btnOkOnPress: () {
-                                Navigator.pushNamed(context, AppRoutes.login);
-                              },
-                              headerAnimationLoop: false,
-                              btnOkText: "Đăng nhập",
-                              btnOkColor: Colors.green,
-                            ).show();
-                            setState(
-                              () => isLoading = false,
-                            );
-                          } else {
-                            print(respone);
-                            AwesomeDialog(
-                              context: context,
-                              dialogType: DialogType.error,
-                              animType: AnimType.scale,
-                              title: 'Đã xảy ra lỗi',
-                              desc: 'Vui lòng kiểm tra lại thông tin',
-                              btnOkOnPress: () {},
-                              headerAnimationLoop: false,
-                              btnOkText: "OK",
-                              btnOkColor: Colors.red,
-                            ).show();
-                            setState(
-                              () => isLoading = false,
-                            );
-                          }
+                          AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.success,
+                            animType: AnimType.scale,
+                            title: 'Đăng ký thành công',
+                            desc:
+                                'Chúc mừng bạn đã đăng ký tài khoản thành công!',
+                            btnOkOnPress: () {
+                              Navigator.pushNamed(context, AppRoutes.login);
+                            },
+                            headerAnimationLoop: false,
+                            btnOkText: "Đăng nhập",
+                            btnOkColor: Colors.green,
+                          ).show();
+                          setState(
+                            () => isLoading = false,
+                          );
+                        } else if (respone == "error duplicate") {
+                          print(respone);
+                          AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.error,
+                            animType: AnimType.scale,
+                            title: 'Lỗi tồn tại thông tin',
+                            desc:
+                                'Vui lòng kiểm tra lại thông tin\nTên tài khoản, ID tài khoản, số điện thoại',
+                            btnOkOnPress: () {},
+                            headerAnimationLoop: false,
+                            btnOkText: "OK",
+                            btnOkColor: Colors.red,
+                          ).show();
+                          setState(
+                            () => isLoading = false,
+                          );
+                        } else {
+                          print(respone);
+                          AwesomeDialog(
+                            context: context,
+                            dialogType: DialogType.error,
+                            animType: AnimType.scale,
+                            title: 'Đã xảy ra lỗi',
+                            desc: 'Vui lòng kiểm tra lại thông tin',
+                            btnOkOnPress: () {},
+                            headerAnimationLoop: false,
+                            btnOkText: "OK",
+                            btnOkColor: Colors.red,
+                          ).show();
+                          setState(
+                            () => isLoading = false,
+                          );
+                        }
                         // if (_passwordController != _confirmPasswordController) {
                         //   AwesomeDialog(
                         //     context: context,

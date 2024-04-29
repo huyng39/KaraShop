@@ -11,7 +11,6 @@ import 'package:grocery/core/models/product/product.dart';
 import 'package:grocery/core/models/user/register.dart';
 import 'package:grocery/core/models/user/user.dart';
 
-
 class API {
   final Dio _dio = Dio();
   String baseUrl = "https://huflit.id.vn:4321";
@@ -55,9 +54,15 @@ class APIRepository with ChangeNotifier {
       Response res = await api.sendRequest.post('/Student/signUp',
           options: Options(headers: header('no token')), data: body);
       if (res.statusCode == 200) {
-        print("ok");
-        return "ok";
-      } else if (res.statusCode == 401) {
+        if (res.data["Đăng ký thành công"] != null) {
+          print("ok");
+          return "ok";
+        }
+        else{
+          print("Lỗi đăng ký: ${res.data}");
+          return "error duplicate";
+        }
+      } else if (res.statusCode == 400) {
         print("Error data");
         return "Error data";
       } else {
@@ -65,7 +70,7 @@ class APIRepository with ChangeNotifier {
         return "signup fail";
       }
     } catch (ex) {
-      print(ex);
+      print(ex); 
       rethrow;
     }
   }
@@ -126,8 +131,8 @@ class APIRepository with ChangeNotifier {
       var pathAll = '/Product/getListAdmin';
 
       var path2 = '/Product/getList?accountID=${user.accountId}';
-      
-      var pathAdmin =  categoryID == null
+
+      var pathAdmin = categoryID == null
           ? '/Product/getList?accountID=20dh111120'
           : '/Product/getListByCatId?categoryID=${categoryID}&accountID=20dh111120';
       // Xây dựng URL với các tham số query

@@ -1,8 +1,11 @@
+import 'dart:math';
+
 import 'package:form_field_validator/form_field_validator.dart';
 
 class Validators {
   /// Email Validator
   static final email = EmailValidator(errorText: 'Vui lòng nhập đúng định dạng email');
+  static final phone = RangeValidator(min:10,max:10, errorText: 'Số điện thoại tối thiểu phải từ 10 số trở lên');
 
   /// Password Validator
   static final password = MultiValidator([
