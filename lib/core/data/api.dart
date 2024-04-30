@@ -53,15 +53,9 @@ class APIRepository with ChangeNotifier {
       });
       Response res = await api.sendRequest.post('/Student/signUp',
           options: Options(headers: header('no token')), data: body);
-      if (res.statusCode == 200) {
-        if (res.data["Đăng ký thành công"] != null) {
-          print("ok");
-          return "ok";
-        }
-        else{
-          print("Lỗi đăng ký: ${res.data}");
-          return "error duplicate";
-        }
+      if (res.statusCode == 200 && res.statusMessage == "ok") {
+        print("ok");
+        return "ok";
       } else if (res.statusCode == 400) {
         print("Error data");
         return "Error data";
@@ -70,7 +64,7 @@ class APIRepository with ChangeNotifier {
         return "signup fail";
       }
     } catch (ex) {
-      print(ex); 
+      print(ex);
       rethrow;
     }
   }

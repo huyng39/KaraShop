@@ -150,6 +150,17 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
             const SizedBox(height: AppDefaults.padding),
             const Text(
+              "ID tài khoản",
+              style: TextStyle(color: Colors.black),
+            ),
+            const SizedBox(height: 8),
+            TextFormField(
+              controller: _numberIDController,
+              validator: Validators.required,
+              textInputAction: TextInputAction.next,
+            ),
+            const SizedBox(height: AppDefaults.padding),
+            const Text(
               "Họ và tên",
               style: TextStyle(color: Colors.black),
             ),
@@ -204,17 +215,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 ),
               ),
             ),
-            const SizedBox(height: AppDefaults.padding),
-            const Text(
-              "ID tài khoản",
-              style: TextStyle(color: Colors.black),
-            ),
-            const SizedBox(height: 8),
-            TextFormField(
-              controller: _numberIDController,
-              validator: Validators.required,
-              textInputAction: TextInputAction.next,
-            ),
+            
             const SizedBox(height: AppDefaults.padding),
             const Text("Số điện thoại", style: TextStyle(color: Colors.black)),
             const SizedBox(height: 8),

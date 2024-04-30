@@ -53,14 +53,14 @@ class _CartPageState extends State<CartPage> {
         child: Consumer<ProductVM>(
           builder: (context, value, child) => Scaffold(
             body: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
+              child: Scaffold(
+                body: Column(
                   children: [
                     ListView.builder(
                       itemCount: value.lst.length,
-                      itemBuilder: (context, index) {
+                      itemBuilder: ((context,index){
                         return singleCartItem(value.lst[index]);
-                      },
+                      })
                     ),
                     // const SingleCartItemTile(),
                     // const SingleCartItemTile(),
