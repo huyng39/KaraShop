@@ -40,7 +40,10 @@ class _BuyNowRowState extends State<BuyNowRow> {
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.all(AppDefaults.padding * 1.2),
               ),
-              child: const Text('Thêm vào giỏ hàng', style: TextStyle(fontSize: 16),),
+              child: const Text(
+                'Thêm vào giỏ hàng',
+                style: TextStyle(fontSize: 16),
+              ),
             ),
           ),
         ],
@@ -73,79 +76,102 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           Consumer<ProductVM>(
+          Consumer<ProductVM>(
             builder: (context, value, child) => ElevatedButton.icon(
-                icon: const Icon(
-                  Icons.add_shopping_cart,
+              icon: const Icon(
+                Icons.add_shopping_cart,
+                color: Colors.white,
+                size: 20,
+              ),
+              label: const Text(
+                'Giỏ hàng',
+                style: TextStyle(
                   color: Colors.white,
-                  size: 20,
                 ),
-                label: const Text(
-                  'Giỏ hàng',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+              ),
+              onPressed: () {
+                // value.add();
+              },
+              style: ElevatedButton.styleFrom(
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(20.0),
                 ),
-                onPressed: () {
-                  // value.add();
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(20.0),
-                  ),
-                  backgroundColor: Colors.green,
-                ),
-              ),),
+                backgroundColor: Colors.green,
+              ),
+            ),
+          ),
           // OutlinedButton(
           //   onPressed: onCartButtonTap,
           //   child: SvgPicture.asset(AppIcons.shoppingCart),
           // ),
           // const SizedBox(width: AppDefaults.padding),
-          
         ],
       ),
     );
   }
 }
 
-Widget addToCartBtn(Product productModel,BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        vertical: 11,
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-           Consumer<ProductVM>(
-            builder: (context, value, child) => ElevatedButton.icon(
-                icon: const Icon(
-                  Icons.add_shopping_cart,
-                  color: Colors.white,
-                  size: 20,
-                ),
-                label: const Text(
-                  'Giỏ hàng',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-                onPressed: () {
-                  value.add(productModel);
-                },
-                style: ElevatedButton.styleFrom(
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(20.0),
-                  ),
+Widget addToCartBtn(Product productModel, BuildContext context) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(
+      vertical: 11,
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Consumer<ProductVM>(
+          builder: (context, value, child) => ElevatedButton.icon(
+            icon: const Icon(
+              Icons.add_shopping_cart,
+              color: Colors.white,
+              size: 20,
+            ),
+            label: const Text(
+              'Giỏ hàng',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onPressed: () {
+              bool check = value.add(productModel);
+              if (check == true) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  behavior: SnackBarBehavior.floating,
                   backgroundColor: Colors.green,
-                ),
-              ),),
-          // OutlinedButton(
-          //   onPressed: onCartButtonTap,
-          //   child: SvgPicture.asset(AppIcons.shoppingCart),
-          // ),
-          // const SizedBox(width: AppDefaults.padding),
-          
-        ],
-      ),
-    );
-  }
+                  content: Text(
+                    'Đã thêm sản phẩm ${productModel.nameProduct} vào giỏ hàng!',
+                    style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                    maxLines: 2,
+                  ),
+                  duration: Duration(seconds: 2),
+                ));
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                  behavior: SnackBarBehavior.floating,
+                  backgroundColor: Colors.red,
+                  content: Text(
+                    'Sản phẩm ${productModel.nameProduct} thêm vào giỏ hàng thất bại!',
+                    style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                    maxLines: 2,
+                  ),
+                  duration: const Duration(seconds: 2),
+                ));
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              shape: new RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(20.0),
+              ),
+              backgroundColor: Colors.green,
+            ),
+          ),
+        ),
+        // OutlinedButton(
+        //   onPressed: onCartButtonTap,
+        //   child: SvgPicture.asset(AppIcons.shoppingCart),
+        // ),
+        // const SizedBox(width: AppDefaults.padding),
+      ],
+    ),
+  );
+}

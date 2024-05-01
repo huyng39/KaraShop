@@ -243,14 +243,43 @@ class _CartPageState extends State<CartPage> {
                 ),
                 const Spacer(),
 
-                /// Price and Delete labelLarge
+                /// Hiển thị giá sản phẩm và nút xóa sản phẩm
                 Column(
                   children: [
                     Consumer<ProductVM>(
                       builder: (context, value, child) => IconButton(
                         constraints: const BoxConstraints(),
                         onPressed: () {
-                          value.removeTrash(productModel);
+                          bool check = value.removeTrash(productModel);
+                          if (check == true) {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                              behavior: SnackBarBehavior.floating,
+                              backgroundColor: Colors.red,
+                              content: Text(
+                                'Sản phẩm ${productModel.nameProduct} đã xóa thành công khỏi giỏ hàng!',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                                    maxLines: 2,
+                              ),
+                              duration: Duration(seconds: 2),
+                            ));
+                          } else {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(SnackBar(
+                              behavior: SnackBarBehavior.floating,
+                              backgroundColor: Colors.red,
+                              content: Text(
+                                'Sản phẩm ${productModel.nameProduct} đã xóa thành công khỏi giỏ hàng!',
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                                    maxLines: 2,
+                              ),
+                              duration: const Duration(seconds: 2),
+                            ));
+                          }
                         },
                         icon: SvgPicture.asset(AppIcons.delete),
                       ),

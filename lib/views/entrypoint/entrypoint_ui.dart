@@ -75,8 +75,8 @@ class _EntryPointUIState extends State<EntryPointUI> {
               builder: (context, value, child) {
                 if (value.lst.length > 0) {
                   return Positioned(
-                    top: 0,
-                    left: 5,
+                    bottom: 6,
+                    left: 6,
                     child: Consumer<ProductVM>(
                       builder: (context, value, child) => CartCounter(
                         count: value.lst.length.toString(),

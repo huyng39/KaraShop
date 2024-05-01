@@ -33,7 +33,7 @@ class ProductVM with ChangeNotifier {
   }
 
   // thêm 1 item vào danh sách
-  add(Product pro) {
+  bool add(Product pro) {
     // Check if the product already exists in the cart
     final existingProductIndex =
         lst.indexWhere((product) => product.id == pro.id);
@@ -41,12 +41,14 @@ class ProductVM with ChangeNotifier {
     if (existingProductIndex != -1) {
       // If product already exists, update its quantity
       lst[existingProductIndex].quantity =
-          lst[existingProductIndex].quantity! + 1;
+          lst[existingProductIndex].quantity! + 1;  
+          return true; 
     } else {
       // If product doesn't exist, add it to the cart
       lst.add(pro);
     }
     notifyListeners();
+    return true;
   }
 
   //xóa vị trí
@@ -75,7 +77,7 @@ class ProductVM with ChangeNotifier {
   }
 
   // hàm xóa nếu người dùng bấm vào nút thùng rác trong giỏ hàng
-  removeTrash(Product pro) {
+  bool removeTrash(Product pro) {
     // Check if the product exists in the cart
     final existingProductIndex =
         lst.indexWhere((product) => product.id == pro.id);
@@ -84,7 +86,9 @@ class ProductVM with ChangeNotifier {
       // If quantity is already 1, remove the product from the cart
       lst.removeAt(existingProductIndex);
       notifyListeners();
+      return true;
     }
+    return false;
   }
 
 // Function to calculate total quantity of products in the cart
