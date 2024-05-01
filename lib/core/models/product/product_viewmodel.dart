@@ -6,7 +6,7 @@ class ProductVM with ChangeNotifier {
   List<Product> lst = [];
   List<Product> lstFavorite = [];
 
-   // Hàm thêm sản phẩm vào danh sách yêu thích
+  // Hàm thêm sản phẩm vào danh sách yêu thích
   void addOrRemoveFavorites(Product product) {
     // Kiểm tra xem sản phẩm đã tồn tại trong danh sách yêu thích chưa
     bool isExisting = lstFavorite.any((element) => element.id == product.id);
@@ -31,6 +31,7 @@ class ProductVM with ChangeNotifier {
       notifyListeners();
     }
   }
+
   // thêm 1 item vào danh sách
   add(Product pro) {
     // Check if the product already exists in the cart
@@ -69,6 +70,19 @@ class ProductVM with ChangeNotifier {
         // If quantity is already 1, remove the product from the cart
         lst.removeAt(existingProductIndex);
       }
+      notifyListeners();
+    }
+  }
+
+  // hàm xóa nếu người dùng bấm vào nút thùng rác trong giỏ hàng
+  removeTrash(Product pro) {
+    // Check if the product exists in the cart
+    final existingProductIndex =
+        lst.indexWhere((product) => product.id == pro.id);
+
+    if (existingProductIndex != -1) {
+      // If quantity is already 1, remove the product from the cart
+      lst.removeAt(existingProductIndex);
       notifyListeners();
     }
   }

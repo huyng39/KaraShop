@@ -5,7 +5,8 @@ import 'package:form_field_validator/form_field_validator.dart';
 class Validators {
   /// Email Validator
   static final email = EmailValidator(errorText: 'Vui lòng nhập đúng định dạng email');
-  static final phone = RangeValidator(min:10,max:10, errorText: 'Số điện thoại tối thiểu phải từ 10 số trở lên');
+  // static final phone = RangeValidator(min:10,max:10, errorText: 'Số điện thoại tối thiểu phải từ 10 số trở lên');
+  static final phone2 = MultiValidator([RequiredValidator(errorText: 'Không được bỏ trống'),RangeValidator(min:10,max:10, errorText: 'Số điện thoại phải đủ 10 số')]);
 
   /// Password Validator
   static final password = MultiValidator([

@@ -36,7 +36,7 @@ class UnknownPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Không tìm thấy trang mà bạn muốn tìm thấy trang mà bạn muốn tìm',
+                  'Không tìm thấy trang!',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
@@ -48,7 +48,7 @@ class UnknownPage extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: AppDefaults.padding),
                   child: Text(
-                    'Vui lòng thử lại',
+                    'Không tìm thấy trang mà bạn muốn mà bạn muốn truy cập',
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -64,7 +64,7 @@ class UnknownPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, AppRoutes.entryPoint);
                 },
-                child: const Text('Thử lại'),
+                child: const Text('Quay lại trang chủ'),
               ),
             ),
           ),

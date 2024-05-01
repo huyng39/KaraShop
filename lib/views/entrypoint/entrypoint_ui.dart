@@ -2,6 +2,9 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery/core/constants/app_icons.dart';
+import 'package:grocery/core/models/product/cartcounter.dart';
+import 'package:grocery/core/models/product/product_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_defaults.dart';
@@ -60,7 +63,35 @@ class _EntryPointUIState extends State<EntryPointUI> {
           onBottomNavigationTap(2);
         },
         backgroundColor: AppColors.primary,
-        child: SvgPicture.asset(AppIcons.cart),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            //icon
+            Positioned(
+              child: SvgPicture.asset(AppIcons.shoppingCartWhite),
+            ),
+            //hiển thị số lượng sản phẩm trong giỏ hàng
+            Consumer<ProductVM>(
+              builder: (context, value, child) {
+                if (value.lst.length > 0) {
+                  return Positioned(
+                    top: 0,
+                    left: 5,
+                    child: Consumer<ProductVM>(
+                      builder: (context, value, child) => CartCounter(
+                        count: value.lst.length.toString(),
+                      ),
+                    ),
+                  );
+                } else {
+                  return Positioned(
+                    child: SvgPicture.asset(AppIcons.shoppingCartWhite),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AppBottomNavigationBar(

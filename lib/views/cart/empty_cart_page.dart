@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/routes/app_routes.dart';
 
 import '../../core/components/network_image.dart';
 import '../../core/constants/app_defaults.dart';
@@ -34,18 +35,20 @@ class EmptyCartPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text('Giỏ hàng của bạn hiện tại đang rỗng!'),
-          const Spacer(),
-          SizedBox(
-            width: double.infinity,
-            child: Padding(
-              padding: const EdgeInsets.all(AppDefaults.padding * 2),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Quay lại'),
-              ),
-            ),
-          ),
-          const Spacer(),
+          // const Spacer(),
+          // SizedBox(
+          //   width: double.infinity,
+          //   child: Padding(
+          //     padding: const EdgeInsets.all(AppDefaults.padding * 2),
+          //     child: ElevatedButton(
+          //       onPressed: () {
+          //         Navigator.pushNamed(context, AppRoutes.category);
+          //       },
+          //       child: const Text('Quay lại trang chủ'),
+          //     ),
+          //   ),
+          // ),
+          // const Spacer(),
         ],
       ),
     );

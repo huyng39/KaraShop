@@ -1,9 +1,12 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery/core/components/network_image.dart';
 import 'package:grocery/core/constants/app_icons.dart';
+import 'package:grocery/core/data/api.dart';
 import 'package:grocery/core/models/product/product.dart';
 import 'package:grocery/core/models/product/product_viewmodel.dart';
+import 'package:grocery/views/cart/empty_cart_page.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -36,63 +39,131 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       // automaticallyImplyLeading: false,
+  //       title: const Text('Giỏ hàng'),
+  //     ),
+  //     body: Column(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children: [
+  //         Row(
+  //           crossAxisAlignment: CrossAxisAlignment.center,
+  //           mainAxisAlignment: MainAxisAlignment.center,
+  //           children: [
+  //             Expanded(
+  //               child: Consumer<ProductVM>(
+  //                 builder: (context, value, child) => Scaffold(
+  //                   body: SafeArea(
+  //                     child: Scaffold(
+  //                       body: value.lst.isEmpty
+  //                           ? const EmptyCartPage()
+  //                           : ListView.builder(
+  //                               itemCount: value.lst.length,
+  //                               itemBuilder: ((context, index) {
+  //                                 return singleCartItem(value.lst[index]);
+  //                               })),
+  //                     ),
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //             SizedBox(height: 20),
+  //             Consumer<ProductVM>(
+  //               builder: (context, value, child) {
+  //                 return Column(
+  //                   children: [
+  //                     CouponCodeField(),
+  //                     ItemTotalsAndPrice(),
+  //                   ],
+  //                 );
+  //               },
+  //             ),
+  //           ],
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
+
+  // test giỏ hàng giao diện bài thực hành
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: isHomePage
-          ? null
-          : AppBar(
-              // automaticallyImplyLeading: false,
-              title: const Text('Giỏ hàng'),
-            ),
-      // appBar: AppBar(
-      //   title: const Text('Giỏ hàng'),
-      //   if(isHomePage)
-      // ),
-      body: Expanded(
-        child: Consumer<ProductVM>(
-          builder: (context, value, child) => Scaffold(
-            body: SafeArea(
-              child: Scaffold(
-                body: Column(
-                  children: [
-                    ListView.builder(
-                      itemCount: value.lst.length,
-                      itemBuilder: ((context,index){
-                        return singleCartItem(value.lst[index]);
-                      })
-                    ),
-                    // const SingleCartItemTile(),
-                    // const SingleCartItemTile(),
-                    const CouponCodeField(),
-                    const ItemTotalsAndPrice(),
-                    SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                        padding: const EdgeInsets.all(AppDefaults.padding),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Navigator.pushNamed(context, AppRoutes.orderSuccessfull);
-                            Navigator.pushNamed(
-                                context, AppRoutes.checkoutPage);
-                          },
-                          child: const Text(
-                            'Thanh toán',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+      appBar: AppBar(
+        title: const Text('Giỏ hàng'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Consumer<ProductVM>(
+              builder: (context, value, child) => Scaffold(
+                body: SafeArea(
+                  child: Scaffold(
+                    //nếu giỏ hàng rỗng -> trả về trang thông báo giỏ hàng rỗng ngược lại trả về danh sách
+                    body: value.lst.isEmpty
+                        ? const EmptyCartPage()
+                        : ListView.builder(
+                            itemCount: value.lst.length,
+                            itemBuilder: ((context, index) {
+                              return singleCartItem(value.lst[index]);
+                            })),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
+          SizedBox(height: 20), // Add some space between list and total
+          Consumer<ProductVM>(
+            builder: (context, value, child) {
+              final totalQuantity = value.getTotalQuantity();
+              final totalPrice = value.getTotalPrice();
+              return Column(
+                children: [
+                  //ẩn thông tin giỏ hàng & nút thanh toán nếu giỏ hàng rỗng
+                  value.lst.isEmpty
+                      ? const Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(height: 150),
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            ItemTotalsAndPrice(),
+                            SizedBox(
+                              width: double.infinity,
+                              child: Padding(
+                                padding: const EdgeInsets.all(20),
+                                child: ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pushNamed(
+                                        context, AppRoutes.checkoutPage);
+                                  },
+                                  child: const Text('Thanh toán',
+                                      style: TextStyle(fontSize: 17.5)),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+
+                  SizedBox(
+                    height: 10,
+                  )
+                ],
+              );
+            },
+          ),
+        ],
       ),
     );
   }
 
+  //
   Widget singleCartItem(Product productModel) {
     return Container(
       child: Padding(
@@ -111,24 +182,9 @@ class _CartPageState extends State<CartPage> {
                   errorBuilder: (context, error, stackTrace) =>
                       const Icon(Icons.image),
                 ),
-                // SizedBox(
-                //   width: 30,
-                // ),
-
-                // /// Thumbnail
-                // const SizedBox(
-                //   width: 70,
-                //   child: AspectRatio(
-                //     aspectRatio: 1 / 1,
-                //     child: NetworkImageWithLoader(
-                //       productModel.imageURL!,
-                //       fit: BoxFit.contain,
-                //     ),
-                //   ),
-                // ),
                 const SizedBox(width: 8),
 
-                /// Quantity and Name
+                /// Hiển thị tên sản phẩm & nút chỉnh số lượng
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -144,10 +200,6 @@ class _CartPageState extends State<CartPage> {
                                 .bodySmall
                                 ?.copyWith(color: Colors.black),
                           ),
-                          // Text(
-                          //   '1.8kg',
-                          //   style: Theme.of(context).textTheme.bodySmall,
-                          // ),
                         ],
                       ),
                     ),
@@ -194,16 +246,20 @@ class _CartPageState extends State<CartPage> {
                 /// Price and Delete labelLarge
                 Column(
                   children: [
-                    IconButton(
-                      constraints: const BoxConstraints(),
-                      onPressed: () {},
-                      icon: SvgPicture.asset(AppIcons.delete),
+                    Consumer<ProductVM>(
+                      builder: (context, value, child) => IconButton(
+                        constraints: const BoxConstraints(),
+                        onPressed: () {
+                          value.removeTrash(productModel);
+                        },
+                        icon: SvgPicture.asset(AppIcons.delete),
+                      ),
                     ),
                     const SizedBox(height: 16),
                     Text(
                       NumberFormat('###,###.### ₫').format(productModel.price),
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.red),
+                          fontWeight: FontWeight.bold, color: Colors.green),
                     ),
                   ],
                 )

@@ -2,6 +2,7 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:grocery/core/data/api.dart';
 import 'package:grocery/core/models/user/register.dart';
 import 'package:grocery/core/routes/app_routes.dart';
@@ -198,7 +199,7 @@ class _SignUpFormState extends State<SignUpForm> {
             const SizedBox(height: 8),
             TextFormField(
               controller: _confirmPasswordController,
-              validator: Validators.required,
+              validator: (v) => MatchValidator(errorText: 'Mật khẩu không trùng khớp').validateMatch(v as String, _passwordController.text),
               keyboardType: TextInputType.visiblePassword,
               textInputAction: TextInputAction.next,
               obscureText: !isConfirmPasswordShown,
@@ -222,7 +223,7 @@ class _SignUpFormState extends State<SignUpForm> {
             TextFormField(
               controller: _phoneNumberController,
               textInputAction: TextInputAction.next,
-              validator: Validators.required,
+              validator: Validators.phone2,
               keyboardType: TextInputType.phone,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             ),
@@ -340,22 +341,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   const Spacer(),
                   ElevatedButton(
                     onPressed: () async {
-                      if (_phoneNumberController.text.length < 10 || _phoneNumberController.text.length > 10) {
-                        AwesomeDialog(
-                          context: context,
-                          dialogType: DialogType.warning,
-                          animType: AnimType.scale,
-                          title: 'Lỗi',
-                          desc: 'Số điện thoại phải đúng 10 ký tự',
-                          btnOkOnPress: () {},
-                          headerAnimationLoop: false,
-                          btnOkText: "OK",
-                          btnOkColor: Colors.green,
-                        ).show();
-                        setState(
-                          () => isLoading = false,
-                        );
-                      } else if (_key.currentState!.validate()) {
+                      if (_key.currentState!.validate()) {
                         String respone = await register();
                         if (respone == "ok") {
                           AwesomeDialog(

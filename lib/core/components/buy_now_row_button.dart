@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grocery/core/models/product/product.dart';
+import 'package:grocery/core/models/product/product_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 import '../constants/constants.dart';
 
@@ -70,12 +73,8 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // OutlinedButton(
-          //   onPressed: onCartButtonTap,
-          //   child: SvgPicture.asset(AppIcons.shoppingCart),
-          // ),
-          // const SizedBox(width: AppDefaults.padding),
-          ElevatedButton.icon(
+           Consumer<ProductVM>(
+            builder: (context, value, child) => ElevatedButton.icon(
                 icon: const Icon(
                   Icons.add_shopping_cart,
                   color: Colors.white,
@@ -88,7 +87,7 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
                   ),
                 ),
                 onPressed: () {
-                  // value.add(productModel);
+                  // value.add();
                 },
                 style: ElevatedButton.styleFrom(
                   shape: new RoundedRectangleBorder(
@@ -96,9 +95,57 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
                   ),
                   backgroundColor: Colors.green,
                 ),
-              ),
+              ),),
+          // OutlinedButton(
+          //   onPressed: onCartButtonTap,
+          //   child: SvgPicture.asset(AppIcons.shoppingCart),
+          // ),
+          // const SizedBox(width: AppDefaults.padding),
+          
         ],
       ),
     );
   }
 }
+
+Widget addToCartBtn(Product productModel,BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: 11,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+           Consumer<ProductVM>(
+            builder: (context, value, child) => ElevatedButton.icon(
+                icon: const Icon(
+                  Icons.add_shopping_cart,
+                  color: Colors.white,
+                  size: 20,
+                ),
+                label: const Text(
+                  'Giỏ hàng',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  value.add(productModel);
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(20.0),
+                  ),
+                  backgroundColor: Colors.green,
+                ),
+              ),),
+          // OutlinedButton(
+          //   onPressed: onCartButtonTap,
+          //   child: SvgPicture.asset(AppIcons.shoppingCart),
+          // ),
+          // const SizedBox(width: AppDefaults.padding),
+          
+        ],
+      ),
+    );
+  }
