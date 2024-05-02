@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/constants.dart';
-import '../models/dummy_bundle_model.dart';
+import '../data/dummy_data/dummy_bundle_model.dart';
 import '../routes/app_routes.dart';
 import 'package:intl/intl.dart';
 import 'network_image.dart';

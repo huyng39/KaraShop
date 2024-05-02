@@ -206,7 +206,7 @@ Widget productDetailPage(Product productModel, BuildContext context) {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  productModel.description,
+                  productModel.description!,
                 ),
               ],
             ),

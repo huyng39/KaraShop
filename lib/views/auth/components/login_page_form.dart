@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery/core/data/api.dart';
 import 'package:grocery/core/data/sharepre.dart';
@@ -163,44 +164,47 @@ class _LoginPageFormState extends State<LoginPageForm> {
               ),
 
               // Login labelLarge
-              LoginButton(
-                onPressed: () async {
-                  if (_key.currentState?.validate() == true) {
-                    if (isLoading) return;
-                    setState(
-                      () => isLoading = true,
-                    );
-                    String response = await onLogin();
-                    if (response == token) {
-                      Navigator.pushNamed(context, AppRoutes.entryPoint);
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    if (_key.currentState?.validate() == true) {
+                      if (isLoading) return;
                       setState(
-                        () => isLoading = false,
+                        () => isLoading = true,
                       );
-                    } else {
-                      showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const AlertDialog(
-                              title: Text("Alert"),
-                              content: SingleChildScrollView(
-                                child: Text(
-                                    "Please check your information again!"),
-                              ),
-                            );
-                          });
-                      setState(
-                        () => isLoading = false,
-                      );
+                      String response = await onLogin();
+                      if (response == token) {
+                        Navigator.pushNamed(context, AppRoutes.entryPoint);
+                        setState(
+                          () => isLoading = false,
+                        );
+                      } else {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const AlertDialog(
+                                title: Text("Alert"),
+                                content: SingleChildScrollView(
+                                  child: Text(
+                                      "Please check your information again!"),
+                                ),
+                              );
+                            });
+                        setState(
+                          () => isLoading = false,
+                        );
+                      }
                     }
-                  }
-                },
-                child: isLoading
-                    ? LoadingAnimationWidget.waveDots(
-                        color: Colors.white, size: 35)
-                    : const Text(
-                        'Đăng nhập',
-                        style: TextStyle(fontSize: 20),
-                      ),
+                  },
+                  child: isLoading
+                      ? LoadingAnimationWidget.waveDots(
+                          color: Colors.white, size: 25)
+                      : const Text(
+                          'Đăng nhập',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                ),
               ),
             ],
           ),

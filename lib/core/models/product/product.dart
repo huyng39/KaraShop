@@ -4,7 +4,7 @@ import 'dart:io';
 class Product {
   int? id;
   String? nameProduct;
-  String description;
+  String? description;
   String? imageURL;
   int? price;
   int? categoryID;
@@ -15,7 +15,7 @@ class Product {
   Product(
       {this.id,
       this.nameProduct,
-      required this.description,
+      this.description,
       this.imageURL,
       this.price,
       this.categoryID,

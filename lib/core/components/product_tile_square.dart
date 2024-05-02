@@ -6,7 +6,7 @@ import 'package:grocery/views/home/product_details_page.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/constants.dart';
-import '../models/dummy_product_model.dart';
+import '../data/dummy_data/dummy_product_model.dart';
 import '../routes/app_routes.dart';
 import 'package:intl/intl.dart';
 import 'network_image.dart';

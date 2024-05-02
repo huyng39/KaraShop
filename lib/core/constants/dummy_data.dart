@@ -1,5 +1,5 @@
-import '../models/dummy_bundle_model.dart';
-import '../models/dummy_product_model.dart';
+import '../data/dummy_data/dummy_bundle_model.dart';
+import '../data/dummy_data/dummy_product_model.dart';
 
 class Dummy {
   /// List Of Dummy Products

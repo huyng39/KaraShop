@@ -18,22 +18,13 @@ class AllOrderPage extends StatelessWidget {
         appBar: AppBar(
           leading: const AppBackButton(),
           title: const Text('Đơn hàng của tôi'),
-          bottom: const TabBar(
-            physics: NeverScrollableScrollPhysics(),
-            tabs: [
-              CustomTabLabel(label: 'Tất cả', value: '(1)'),
-              CustomTabLabel(label: 'Đang giao', value: '(1)'),
-              CustomTabLabel(label: 'Đã giao', value: '(0)'),
-            ],
-          ),
         ),
         body: Container(
           color: AppColors.cardColor,
           child: const TabBarView(
             children: [
+              //hiển thị list đơn hàng
               AllTab(),
-              RunningTab(),
-              CompletedTab(),
             ],
           ),
         ),

@@ -45,7 +45,7 @@ class OrderSuccessfullPage extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: AppDefaults.padding),
                   child: Text(
-                    'Cảm ơn bạn đã mua hàng tại Kara Shop.Chúng tôi sẽ liên hệ với bạn sớm nhất để xác nhận đơn hàng.',
+                    'Cảm ơn bạn đã mua hàng tại Kara Shop\nChúng tôi sẽ liên hệ bạn trong thời gian sớm để xác nhận đơn hàng.',
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -80,7 +80,9 @@ class OrderSuccessfullPage extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, AppRoutes.myOrder);
+                      },
                       child: const Text('Theo dõi đơn hàng',style: TextStyle(fontSize: 15),),
                     ),
                   ),

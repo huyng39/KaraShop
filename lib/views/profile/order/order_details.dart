@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/models/order/order.dart';
 
 import '../../../core/components/app_back_button.dart';
 import '../../../core/constants/app_colors.dart';
@@ -7,9 +8,14 @@ import 'components/order_details_statuses.dart';
 import 'components/order_details_total_amount_and_paid.dart';
 import 'components/order_details_total_order_product_details.dart';
 
-class OrderDetailsPage extends StatelessWidget {
-  const OrderDetailsPage({Key? key}) : super(key: key);
+class OrderDetailsPage extends StatefulWidget {
+const OrderDetailsPage({Key? key}) : super(key: key);
 
+  @override
+  State<OrderDetailsPage> createState() => _OrderDetailsPageState();
+}
+
+class _OrderDetailsPageState extends State<OrderDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +44,7 @@ class OrderDetailsPage extends StatelessWidget {
               ),
               const SizedBox(height: AppDefaults.padding),
               const OrderStatusColumn(),
-              const TotalOrderProductDetails(),
+              // const TotalOrderProductDetails(),
               const TotalAmountAndPaidData(),
             ],
           ),

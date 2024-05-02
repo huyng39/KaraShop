@@ -39,56 +39,6 @@ class _CartPageState extends State<CartPage> {
     super.initState();
   }
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       // automaticallyImplyLeading: false,
-  //       title: const Text('Giỏ hàng'),
-  //     ),
-  //     body: Column(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children: [
-  //         Row(
-  //           crossAxisAlignment: CrossAxisAlignment.center,
-  //           mainAxisAlignment: MainAxisAlignment.center,
-  //           children: [
-  //             Expanded(
-  //               child: Consumer<ProductVM>(
-  //                 builder: (context, value, child) => Scaffold(
-  //                   body: SafeArea(
-  //                     child: Scaffold(
-  //                       body: value.lst.isEmpty
-  //                           ? const EmptyCartPage()
-  //                           : ListView.builder(
-  //                               itemCount: value.lst.length,
-  //                               itemBuilder: ((context, index) {
-  //                                 return singleCartItem(value.lst[index]);
-  //                               })),
-  //                     ),
-  //                   ),
-  //                 ),
-  //               ),
-  //             ),
-  //             SizedBox(height: 20),
-  //             Consumer<ProductVM>(
-  //               builder: (context, value, child) {
-  //                 return Column(
-  //                   children: [
-  //                     CouponCodeField(),
-  //                     ItemTotalsAndPrice(),
-  //                   ],
-  //                 );
-  //               },
-  //             ),
-  //           ],
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
-
-  // test giỏ hàng giao diện bài thực hành
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -209,7 +159,22 @@ class _CartPageState extends State<CartPage> {
                           builder: (context, value, child) => IconButton(
                             onPressed: () {
                               if (productModel.quantity == 1) {
+                                //xóa sản phẩm khỏi giỏ hàng
                                 value.del(productModel.id!);
+                                //thông báo đã xóa thành công sp
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
+                                  behavior: SnackBarBehavior.floating,
+                                  backgroundColor: Colors.red,
+                                  content: Text(
+                                    'Sản phẩm ${productModel.nameProduct} đã xóa thành công khỏi giỏ hàng!',
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                    maxLines: 2,
+                                  ),
+                                  duration: Duration(seconds: 2),
+                                ));
                               }
                               value.remove(productModel);
                             },
@@ -252,8 +217,7 @@ class _CartPageState extends State<CartPage> {
                         onPressed: () {
                           bool check = value.removeTrash(productModel);
                           if (check == true) {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               behavior: SnackBarBehavior.floating,
                               backgroundColor: Colors.red,
                               content: Text(
@@ -261,21 +225,20 @@ class _CartPageState extends State<CartPage> {
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold),
-                                    maxLines: 2,
+                                maxLines: 2,
                               ),
                               duration: Duration(seconds: 2),
                             ));
                           } else {
-                            ScaffoldMessenger.of(context)
-                                .showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               behavior: SnackBarBehavior.floating,
                               backgroundColor: Colors.red,
                               content: Text(
-                                'Sản phẩm ${productModel.nameProduct} đã xóa thành công khỏi giỏ hàng!',
+                                'Sản phẩm ${productModel.nameProduct} không thể xóa khỏi giỏ hàng.Vui lòng thử lại!',
                                 style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold),
-                                    maxLines: 2,
+                                maxLines: 2,
                               ),
                               duration: const Duration(seconds: 2),
                             ));
