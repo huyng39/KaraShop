@@ -1,4 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery/core/constants/app_defaults.dart';
 import 'package:grocery/core/data/api.dart';
@@ -97,7 +98,7 @@ class _AllTabState extends State<AllTab> {
                 print('Bạn vừa chọn hóa đơn ${order.id}');
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
+                  CupertinoPageRoute(
                       builder: (context) => OrderDetails(
                             orderModel: order,
                           )),

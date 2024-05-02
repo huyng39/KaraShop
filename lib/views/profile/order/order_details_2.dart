@@ -119,12 +119,39 @@ class _OrderDetailsState extends State<OrderDetails> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Mã đơn hàng\n#${widget.orderModel.id.length > 30 ? widget.orderModel.id.substring(0, 30) + '' : widget.orderModel.id}",
+                  "Mã đơn hàng",
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       fontWeight: FontWeight.bold, color: Colors.black),
                 ),
               ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "#${widget.orderModel.id.length > 30 ? widget.orderModel.id.substring(0, 30) + '' : widget.orderModel.id}",
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.black54),
+                ),
+              ),
+              const Divider(),
               const SizedBox(height: AppDefaults.padding),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Ngày đặt",
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.black),
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  widget.orderModel.dateCreated,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.black54),
+                ),
+              ),
+              const SizedBox(height: AppDefaults.padding),
+              const Divider(),
               _buildOrderList(context),
             ],
           ),

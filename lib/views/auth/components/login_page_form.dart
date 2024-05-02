@@ -64,11 +64,13 @@ class _LoginPageFormState extends State<LoginPageForm> {
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
+          behavior: SnackBarBehavior.floating,
           content: Text(
             'Đăng nhập không thành công!\nVui lòng kiểm tra lại.',
             style: TextStyle(
-                fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
+                fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white),
           ),
+          duration: Duration(seconds: 2),
           backgroundColor: Colors.red,
         ),
       );
