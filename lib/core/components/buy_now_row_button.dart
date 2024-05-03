@@ -111,7 +111,7 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
   }
 }
 
-Widget addToCartBtn(Product productModel, BuildContext context) {
+Widget addToCartBtn(Product productModel) {
   return Padding(
     padding: const EdgeInsets.symmetric(
       vertical: 11,
@@ -139,7 +139,7 @@ Widget addToCartBtn(Product productModel, BuildContext context) {
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: Colors.green,
                   content: Text(
-                    'Đã thêm sản phẩm ${productModel.nameProduct} vào giỏ hàng!',
+                    'Đã thêm ${productModel.nameProduct} vào giỏ hàng!',
                     style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                     maxLines: 2,
                   ),
@@ -150,7 +150,7 @@ Widget addToCartBtn(Product productModel, BuildContext context) {
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: Colors.red,
                   content: Text(
-                    'Sản phẩm ${productModel.nameProduct} thêm vào giỏ hàng thất bại!',
+                    '${productModel.nameProduct} thêm vào giỏ hàng thất bại!',
                     style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                     maxLines: 2,
                   ),

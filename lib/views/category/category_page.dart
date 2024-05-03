@@ -3,6 +3,7 @@ import 'package:grocery/core/components/buy_now_row_button.dart';
 import 'package:grocery/core/components/network_image.dart';
 import 'package:grocery/core/data/api.dart';
 import 'package:grocery/core/models/category/category_product.dart';
+import 'package:grocery/core/models/product/cartcounter.dart';
 import 'package:grocery/core/models/product/product.dart';
 import 'package:grocery/core/models/product/product_viewmodel.dart';
 import 'package:grocery/core/routes/app_routes.dart';
@@ -52,6 +53,7 @@ class _CategoryProductPageState extends State<CategoryProductPage> {
       appBar: AppBar(
         title: Text('${widget.objCat?.name.toString()}'),
         leading: const AppBackButton(),
+
       ),
       body: FutureBuilder<List<Product>>(
         future: getDataProById(widget.objCat!.id as int),
@@ -78,7 +80,7 @@ class _CategoryProductPageState extends State<CategoryProductPage> {
               ),
               itemBuilder: (context, index) {
                 final itemPro = snapshot.data![index];
-                return productItemSquare(itemPro,context);
+                return productItemSquare(itemPro, context);
               },
             );
           }

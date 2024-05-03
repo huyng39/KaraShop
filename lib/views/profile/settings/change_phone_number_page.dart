@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../../../core/components/app_back_button.dart';
 import '../../../core/constants/constants.dart';
 
-class ChangePhoneNumberPage extends StatelessWidget {
+class ChangePhoneNumberPage extends StatefulWidget {
   const ChangePhoneNumberPage({Key? key}) : super(key: key);
 
+  @override
+  State<ChangePhoneNumberPage> createState() => _ChangePhoneNumberPageState();
+}
+
+class _ChangePhoneNumberPageState extends State<ChangePhoneNumberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

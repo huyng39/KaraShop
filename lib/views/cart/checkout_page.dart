@@ -3,6 +3,7 @@ import 'package:grocery/core/data/api.dart';
 import 'package:grocery/core/models/product/product_viewmodel.dart';
 import 'package:grocery/views/cart/components/item_checking.dart';
 import 'package:grocery/views/cart/components/items_totals_price.dart';
+import 'package:grocery/views/cart/components/items_totals_price_checkout.dart';
 import 'package:grocery/views/cart/components/single_cart_item_tile.dart';
 import 'package:grocery/views/cart/empty_cart_page.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -24,24 +25,56 @@ class CheckoutPage extends StatefulWidget {
 class _CheckoutPageState extends State<CheckoutPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Thanh toán'),
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: axisDirectionToAxis(AxisDirection.down),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AddressSelector(),
-            SizedBox(height: 10),
-            PaymentSystem(),
-            SizedBox(height: 10),
-            ItemChecking(),
-            SizedBox(height: 10),
-            PayNowButton(),
-            SizedBox(height: 16),
-          ],
+    return Consumer<ProductVM>(
+      builder: (context, value, child) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Thanh toán'),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              AddressSelector(),
+              SizedBox(height: 10),
+              PaymentSystem(),
+              SizedBox(height: 10),
+              // ItemChecking(),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppDefaults.padding,
+                  vertical: AppDefaults.padding / 2,
+                ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Thông tin đơn hàng',
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.bold, color: Colors.black),
+                  ),
+                ),
+              ),
+              SizedBox(
+                child: SafeArea(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: value.lst.map((item) => singleCartItemCheckout(item, context)).toList(),
+                  ),
+                ),
+              ),
+              // const CouponCodeField(),
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 5,
+                  vertical: 5,
+                ),
+                child: ItemTotalsAndPriceCheckOut(),
+              ),
+              SizedBox(height: 10),
+              PayNowButton(),
+              SizedBox(height: 16),
+            ],
+          ),
         ),
       ),
     );

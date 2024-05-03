@@ -42,7 +42,7 @@ class AppBottomNavigationBar extends StatelessWidget {
           /* Tên file chứa cart button: entrypoint_ui.dart*/
 
           BottomAppBarItem(
-            name: 'Đã lưu',
+            name: 'Yêu thích',
             iconLocation: AppIcons.heart,
             isActive: currentIndex == 3,
             onTap: () => onNavTap(3),

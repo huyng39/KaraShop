@@ -83,7 +83,7 @@ class OrderSuccessfullPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, AppRoutes.myOrder);
                       },
-                      child: const Text('Theo dõi đơn hàng',style: TextStyle(fontSize: 15),),
+                      child: const Text('Đơn hàng của tôi',style: TextStyle(fontSize: 15),),
                     ),
                   ),
                 ),

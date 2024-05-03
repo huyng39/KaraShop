@@ -4,8 +4,8 @@ import 'package:grocery/core/routes/app_routes.dart';
 import '../../core/components/network_image.dart';
 import '../../core/constants/app_defaults.dart';
 
-class EmptySavePage extends StatelessWidget {
-  const EmptySavePage({Key? key}) : super(key: key);
+class UnderConstructionPage extends StatelessWidget {
+  const UnderConstructionPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +22,12 @@ class EmptySavePage extends StatelessWidget {
               child: AspectRatio(
                 aspectRatio: 1 / 1,
                 child:
-                    NetworkImageWithLoader('https://i.imgur.com/mbjap7k.png'),
+                    NetworkImageWithLoader('https://i.imgur.com/rWCg7Ew.png'),
               ),
             ),
           ),
           Text(
-            'Bạn chưa thêm sản phẩm nào!',
+            'Chức năng đang phát triển!',
             style: Theme.of(context)
                 .textTheme
                 .titleLarge
@@ -35,25 +35,12 @@ class EmptySavePage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text(
-            'Danh sách sản phẩm yêu thích ở đây đang rỗng\nHãy thêm sản phẩm vào nhé!',
+            'Chức năng này đang trong quá trình phát triển\nBạn hãy quay lại sau nhé!',
             textAlign: TextAlign.center,
           ),
           const Spacer(),
-          // SizedBox(
-          //   width: double.infinity,
-          //   child: Padding(
-          //     padding: const EdgeInsets.all(AppDefaults.padding * 2),
-          //     child: ElevatedButton(
-          //       onPressed: () {
-          //         Navigator.pushNamed(context, AppRoutes.category);
-          //       },
-          //       child: const Text(
-          //         'Thêm sản phẩm',
-          //         style: TextStyle(fontSize: 18),
-          //       ),
-          //     ),
-          //   ),
-          // ),
+          const Spacer(),
+          const Spacer(),
           const Spacer(),
         ],
       ),

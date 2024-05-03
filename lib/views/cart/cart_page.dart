@@ -8,6 +8,7 @@ import 'package:grocery/core/models/product/product.dart';
 import 'package:grocery/core/models/product/product_viewmodel.dart';
 import 'package:grocery/views/cart/empty_cart_page.dart';
 import 'package:intl/intl.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:provider/provider.dart';
 
 // import '../../core/components/app_back_button.dart';
@@ -33,6 +34,7 @@ class _CartPageState extends State<CartPage> {
   bool isHomePage = false;
   var lstProStr = "";
   List<Product> itemsList = [];
+  bool _isLoading = false;
 
   @override
   void initState() {
@@ -45,28 +47,99 @@ class _CartPageState extends State<CartPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: const Text('Giỏ hàng'),
+        //các nút hành động
+        actions: [
+          //nút refresh lại trang giỏ hàng
+          IconButton(
+            icon: const Icon(
+              Icons.refresh,
+              color: Colors.black,
+            ), // Icon làm mới
+            onPressed: () {
+              // Xử lý sự kiện khi người dùng nhấn vào nút làm mới
+              // Đặt logic làm mới danh sách đơn hàng ở đây
+              setState(() {});
+            },
+          ),
+
+          //nút xóa tất cả sản phẩm trong giỏ hàng
+          // Consumer<ProductVM>(
+          //   builder: (context, value, child) => InkWell(
+          //     onTap: () {
+          //       //Hiển thị hộp thông báo xác nhận
+          //       AwesomeDialog(
+          //         context: context,
+          //         dialogType: DialogType.warning,
+          //         animType: AnimType.scale,
+          //         title: 'Xóa tất cả',
+          //         desc:
+          //             'Bạn có chắc chắn xóa hết tất cả sản phẩm trong giỏ hàng?',
+          //         btnOkOnPress: () {
+          //           value.deleteAll();
+          //           print('Bạn vừa nhấn nút xóa hết');
+          //         },
+          //         btnCancelText: "Quay lại",
+          //         btnOkText: "Xóa",
+          //         btnCancelColor: Colors.blue,
+          //         btnOkColor: Colors.red,
+          //         btnCancelOnPress: () {},
+          //         headerAnimationLoop: false,
+          //       ).show();
+
+          //       //Hiển thị thông báo nếu đã xóa thành công
+          //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          //         behavior: SnackBarBehavior.floating,
+          //         backgroundColor: Colors.green,
+          //         content: Text(
+          //           'Đã xóa tất cả sản phẩm ra khỏi giỏ hàng!',
+          //           style: const TextStyle(
+          //               color: Colors.white, fontWeight: FontWeight.bold),
+          //           maxLines: 2,
+          //         ),
+          //         duration: Duration(seconds: 2),
+          //       ));
+          //     },
+          //     child: IconButton(
+          //       // ignore: deprecated_member_use
+          //       icon: SvgPicture.asset(
+          //         AppIcons.delete,
+          //         color: Colors.red,
+          //       ),
+          //       // Icon xóa tất cả sản phẩm
+          //       onPressed: () {
+          //         // Xử lý sự kiện khi người dùng nhấn vào nút làm mới
+          //         // Đặt logic làm mới danh sách đơn hàng ở đây
+          //         setState(() {});
+          //       },
+          //     ),
+          //   ),
+          // ),
+        ],
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Consumer<ProductVM>(
-              builder: (context, value, child) => Scaffold(
-                body: SafeArea(
-                  child: Scaffold(
-                    //nếu giỏ hàng rỗng -> trả về trang thông báo giỏ hàng rỗng ngược lại trả về danh sách
-                    body: value.lst.isEmpty
-                        ? const EmptyCartPage()
-                        : ListView.builder(
-                            itemCount: value.lst.length,
-                            itemBuilder: ((context, index) {
-                              return singleCartItem(value.lst[index]);
-                            })),
+          _isLoading
+              ? LoadingAnimationWidget.discreteCircle(
+                  color: Colors.green, size: 35)
+              : Expanded(
+                  child: Consumer<ProductVM>(
+                    builder: (context, value, child) => Scaffold(
+                      body: SafeArea(
+                        child: Scaffold(
+                          //nếu giỏ hàng rỗng -> trả về trang thông báo giỏ hàng rỗng ngược lại trả về danh sách
+                          body: value.lst.isEmpty
+                              ? const EmptyCartPage()
+                              : ListView.builder(
+                                  itemCount: value.lst.length,
+                                  itemBuilder: ((context, index) {
+                                    return singleCartItem(value.lst[index]);
+                                  })),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
           SizedBox(height: 20), // Add some space between list and total
           Consumer<ProductVM>(
             builder: (context, value, child) {

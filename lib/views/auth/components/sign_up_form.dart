@@ -395,69 +395,12 @@ class _SignUpFormState extends State<SignUpForm> {
                             () => isLoading = false,
                           );
                         }
-                        // if (_passwordController != _confirmPasswordController) {
-                        //   AwesomeDialog(
-                        //     context: context,
-                        //     dialogType: DialogType.warning,
-                        //     animType: AnimType.scale,
-                        //     title: 'Mật khẩu không trùng khớp',
-                        //     desc:
-                        //         'Vui lòng kiểm tra lại mật khẩu mới\nvà nhập lại mật khẩu',
-                        //     btnOkOnPress: () {},
-                        //     headerAnimationLoop: false,
-                        //     btnOkText: "OK",
-                        //     btnOkColor: Colors.blue,
-                        //   ).show();
-                        //   setState(
-                        //     () => isLoading = false,
-                        //   );
-                        // } else {
-                        //   if (isLoading) return;
-                        //   setState(
-                        //     () => isLoading = true,
-                        //   );
-
-                        //   if (respone == "ok") {
-                        //     AwesomeDialog(
-                        //       context: context,
-                        //       dialogType: DialogType.success,
-                        //       animType: AnimType.scale,
-                        //       title: 'Đăng ký thành công',
-                        //       desc:
-                        //           'Chúc mừng bạn đã đăng ký tài khoản thành công!',
-                        //       btnOkOnPress: () {
-                        //         Navigator.pushNamed(context, AppRoutes.login);
-                        //       },
-                        //       headerAnimationLoop: false,
-                        //       btnOkText: "Đăng nhập",
-                        //       btnOkColor: Colors.green,
-                        //     ).show();
-                        //     setState(
-                        //       () => isLoading = false,
-                        //     );
-                        //   } else {
-                        //     print(respone);
-                        //     AwesomeDialog(
-                        //       context: context,
-                        //       dialogType: DialogType.error,
-                        //       animType: AnimType.scale,
-                        //       title: 'Đã xảy ra lỗi',
-                        //       desc: 'Vui lòng kiểm tra lại thông tin',
-                        //       btnOkOnPress: () {},
-                        //       headerAnimationLoop: false,
-                        //       btnOkText: "OK",
-                        //       btnOkColor: Colors.red,
-                        //     ).show();
-                        //     setState(
-                        //       () => isLoading = false,
-                        //     );
-                        //   }
-                        // }
                       }
                     },
                     style: ElevatedButton.styleFrom(elevation: 1),
                     child: SvgPicture.asset(
                       AppIcons.arrowForward,
+                      // ignore: deprecated_member_use
                       color: Colors.white,
                     ),
                   ),

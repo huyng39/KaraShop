@@ -150,7 +150,7 @@ Widget productDetailPage(Product productModel, BuildContext context) {
         padding: const EdgeInsets.symmetric(horizontal: AppDefaults.padding),
         child: Consumer<ProductVM>(
             builder: (context, value, child) =>
-                addToCartBtn(productModel, context)),
+                addToCartBtn(productModel)),
       ),
     ),
     body: SingleChildScrollView(
