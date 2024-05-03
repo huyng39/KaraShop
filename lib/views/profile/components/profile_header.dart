@@ -84,8 +84,10 @@ class _UserDataState extends State<_UserData> {
     return Padding(
       padding: const EdgeInsets.all(AppDefaults.padding),
       child: strUser.isEmpty
-          ? LoadingAnimationWidget.threeArchedCircle(
-              color: Colors.white, size: 50)
+          ? Center(
+              child: LoadingAnimationWidget.threeArchedCircle(
+                  color: Colors.white, size: 50),
+            )
           : Row(
               children: [
                 const SizedBox(width: AppDefaults.padding),

@@ -31,9 +31,12 @@ class _CateogoriesGridState extends State<CateogoriesGrid> {
       future: _getCategorys(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
-              child: LoadingAnimationWidget.threeArchedCircle(
-                  color: Colors.green, size: 50));
+          return Padding(
+            padding: const EdgeInsets.only(top: 200),
+            child: Center(
+                child: LoadingAnimationWidget.threeArchedCircle(
+                    color: Colors.green, size: 50)),
+          );
         } else {
           return Expanded(
             child: GridView.builder(
