@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:grocery/views/onboarding/onboarding_page.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 //import 'package:page_transition/page_transition.dart';
+import '../../views/auth/intro_login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
