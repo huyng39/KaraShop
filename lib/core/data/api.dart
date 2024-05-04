@@ -8,6 +8,7 @@ import 'package:grocery/core/models/category/category_product.dart';
 import 'package:grocery/core/models/order/order.dart';
 import 'package:grocery/core/models/order/orderDetaile.dart';
 import 'package:grocery/core/models/product/product.dart';
+import 'package:grocery/core/models/user/changeInfoUser.dart';
 import 'package:grocery/core/models/user/register.dart';
 import 'package:grocery/core/models/user/user.dart';
 
@@ -107,6 +108,38 @@ class APIRepository with ChangeNotifier {
           .get('/Auth/current', options: Options(headers: header(token)));
       return User.fromJson(res.data);
     } catch (ex) {
+      rethrow;
+    }
+  }
+
+  Future<String> changeInfo(ChangeInfoUser user) async {
+    try {
+      String token = await getToken();
+      final body = FormData.fromMap({
+        "numberID": user.numberID,
+        "fullName": user.fullName,
+        "phoneNumber": user.phoneNumber,
+        "gender": user.gender,
+        "birthDay": user.birthDay,
+        "schoolYear": user.schoolYear,
+        "schoolKey": user.schoolKey,
+        "imageURL": user.imageUrl
+      });
+      Response res = await api.sendRequest.put('/Auth/updateProfile',
+          options: Options(headers: header(token)), data: body);
+      if (res.statusCode == 200) {
+        print(res.data);
+        print("ok");
+        return "ok";
+      } else if (res.statusCode == 400) {
+        print("Error data");
+        return "Error data";
+      } else {
+        print("fail");
+        return "change fail";
+      }
+    } catch (ex) {
+      print(ex);
       rethrow;
     }
   }
