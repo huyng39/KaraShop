@@ -235,7 +235,7 @@ class APIRepository with ChangeNotifier {
   }
 
   // Lấy product đơn lẻ theo category
-  Future<Product?> getSingleProduct(
+  Future<Product> getSingleProduct(
       int? categoryID, int? productId) async {
     try {
       User user =

@@ -70,9 +70,9 @@ class _PriceAndQuantityRowState extends State<PriceAndQuantityRow> {
         /* <---- Quantity -----> */
         Row(
           children: [
-            IconButton(
-              onPressed: onQuantityIncrease,
-              icon: SvgPicture.asset(AppIcons.addQuantity),
+             IconButton(
+              onPressed: onQuantityDecrease,
+              icon: SvgPicture.asset(AppIcons.removeQuantity),
               constraints: const BoxConstraints(),
             ),
             Padding(
@@ -85,9 +85,10 @@ class _PriceAndQuantityRowState extends State<PriceAndQuantityRow> {
                     ),
               ),
             ),
+           
             IconButton(
-              onPressed: onQuantityDecrease,
-              icon: SvgPicture.asset(AppIcons.removeQuantity),
+              onPressed: onQuantityIncrease,
+              icon: SvgPicture.asset(AppIcons.addQuantity),
               constraints: const BoxConstraints(),
             ),
           ],

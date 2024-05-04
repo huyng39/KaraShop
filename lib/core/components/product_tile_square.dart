@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery/core/components/buy_now_row_button.dart';
 import 'package:grocery/core/models/product/product.dart';
 import 'package:grocery/core/models/product/product_viewmodel.dart';
-import 'package:grocery/views/home/product_details_page.dart';
+import 'package:grocery/views/home/product_details_page_2.dart';
 import 'package:provider/provider.dart';
 
 import '../constants/constants.dart';
@@ -33,7 +33,16 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
         color: AppColors.scaffoldBackground,
         child: InkWell(
           borderRadius: AppDefaults.borderRadius,
-          onTap: () => Navigator.pushNamed(context, AppRoutes.productDetails),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailsPage(
+                  objPro: widget.data,
+                ),
+              ),
+            );
+          },
           child: Container(
             width: 176,
             height: 296,
@@ -118,7 +127,16 @@ Widget productItemSquare(Product productmodel, BuildContext context) {
       child: Container(
         child: InkWell(
           borderRadius: AppDefaults.borderRadius,
-          onTap: () => productDetailPage(productmodel, context),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductDetailsPage(
+                  objPro: productmodel,
+                ),
+              ),
+            );
+          },
           child: Container(
             width: 176,
             height: 296,
