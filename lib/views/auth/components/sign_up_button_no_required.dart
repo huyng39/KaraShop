@@ -4,12 +4,16 @@ import 'package:flutter_svg/svg.dart';
 import '../../../core/constants/constants.dart';
 import '../../../core/routes/app_routes.dart';
 
-class SignUpButtonNoRequired extends StatelessWidget {
+class SignUpButtonNoRequired extends StatefulWidget {
   const SignUpButtonNoRequired({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<SignUpButtonNoRequired> createState() => _SignUpButtonNoRequiredState();
+}
 
+class _SignUpButtonNoRequiredState extends State<SignUpButtonNoRequired> {
   @override
   Widget build(BuildContext context) {
     return Padding(

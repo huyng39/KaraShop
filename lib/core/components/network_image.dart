@@ -36,7 +36,7 @@ class NetworkImageWithLoader extends StatelessWidget {
           ),
         ),
         placeholder: (context, url) => const Skeleton(),
-        errorWidget: (context, url, error) => const Icon(Icons.error),
+        errorWidget: (context, error, stackTrace) => const Icon(Icons.error),
       ),
     );
   }

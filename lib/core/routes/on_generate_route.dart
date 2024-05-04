@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:grocery/views/auth/splash.dart';
+import 'package:grocery/views/auth/under_construction_page.dart';
+import 'package:grocery/views/drawer/instruction_page.dart';
 import '../../views/auth/forget_password_page.dart';
 import '../../views/auth/intro_login_page.dart';
 import '../../views/auth/login_or_signup_page.dart';
@@ -27,7 +29,7 @@ import '../../views/home/popular_pack_page.dart';
 import '../../views/home/product_details_page.dart';
 import '../../views/home/search_page.dart';
 import '../../views/home/search_result_page.dart';
-import '../../views/menu/category_page.dart';
+import '../../views/category/category_page.dart';
 import '../../views/onboarding/onboarding_page.dart';
 import '../../views/profile/address/address_page.dart';
 import '../../views/profile/address/new_address_page.dart';
@@ -201,6 +203,9 @@ class RouteGenerator {
 
       case AppRoutes.paymentCardAdd:
         return CupertinoPageRoute(builder: (_) => const AddNewCardPage());
+
+      case AppRoutes.instruction:
+        return CupertinoPageRoute(builder: (_) => const InstructionPage());
 
       default:
         return errorRoute();

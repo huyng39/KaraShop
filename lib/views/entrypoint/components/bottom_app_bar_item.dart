@@ -22,7 +22,8 @@ class BottomAppBarItem extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Column(
-        // mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SvgPicture.asset(
             iconLocation,
@@ -32,7 +33,7 @@ class BottomAppBarItem extends StatelessWidget {
             name,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: isActive ? AppColors.primary : AppColors.placeholder,
-                  fontSize: 13,
+                  fontSize: 13.5,
                 ),
           ),
         ],

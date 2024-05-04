@@ -50,12 +50,12 @@ class SettingsPage extends StatelessWidget {
               onTap: () =>
                   Navigator.pushNamed(context, AppRoutes.changePassword),
             ),
-            AppSettingsListTile(
-              label: 'Đổi số điện thoại',
-              trailing: SvgPicture.asset(AppIcons.right),
-              onTap: () =>
-                  Navigator.pushNamed(context, AppRoutes.changePhoneNumber),
-            ),
+            // AppSettingsListTile(
+            //   label: 'Đổi số điện thoại',
+            //   trailing: SvgPicture.asset(AppIcons.right),
+            //   onTap: () =>
+            //       Navigator.pushNamed(context, AppRoutes.changePhoneNumber),
+            // ),
             AppSettingsListTile(
               label: 'Đổi địa chỉ giao hàng',
               trailing: SvgPicture.asset(AppIcons.right),
@@ -67,11 +67,11 @@ class SettingsPage extends StatelessWidget {
             //   trailing: SvgPicture.asset(AppIcons.right),
             //   onTap: () {},
             // ),
-            AppSettingsListTile(
-              label: 'Thay đổi thông tin cá nhân',
-              trailing: SvgPicture.asset(AppIcons.right),
-              onTap: () => Navigator.pushNamed(context, AppRoutes.profileEdit),
-            ),
+            // AppSettingsListTile(
+            //   label: 'Thay đổi thông tin cá nhân',
+            //   trailing: SvgPicture.asset(AppIcons.right),
+            //   onTap: () => Navigator.pushNamed(context, AppRoutes.profileEdit),
+            // ),
             AppSettingsListTile(
               label: 'Xóa tài khoản',
               trailing: SvgPicture.asset(AppIcons.right),

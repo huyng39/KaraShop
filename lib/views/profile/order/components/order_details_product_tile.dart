@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/components/network_image.dart';
-import '../../../../core/models/dummy_product_model.dart';
+import '../../../../core/data/dummy_data/dummy_product_model.dart';
 import 'package:intl/intl.dart';
 
 class OrderDetailsProductTile extends StatelessWidget {

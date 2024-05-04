@@ -70,6 +70,8 @@ class AppRoutes {
   static const termsAndConditions = '/termsAndConditions';
   static const help = '/help';
   static const contactUs = '/contactUs';
+  static const underConstruction = '/underConstruction';
+  static const instruction = '/instruction';
 
   /* <---- Payment Method -----> */
   static const paymentMethod = '/paymentMethod';

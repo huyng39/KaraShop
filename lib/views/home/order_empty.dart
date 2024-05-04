@@ -29,7 +29,7 @@ class OrderEmpty extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'No Orders Yet',
+                'Không có đơn hàng',
                 style: Theme.of(context).textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
@@ -40,7 +40,7 @@ class OrderEmpty extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: AppDefaults.padding),
                 child: Text(
-                  'Sorry you n\'t haven\'t placed\nany order yet.',
+                  'Hiện tại bạn chưa có đơn hàng nào xuất hiện ở đây',
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -48,35 +48,37 @@ class OrderEmpty extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Padding(
-          padding: const EdgeInsets.all(AppDefaults.padding),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(AppDefaults.padding),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text('Continue'),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppDefaults.padding,
-                ),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: const Text('Track Order'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.all(AppDefaults.padding),
+        //   child: Column(
+        //     children: [
+        //       Padding(
+        //         padding: const EdgeInsets.all(AppDefaults.padding),
+        //         child: SizedBox(
+        //           width: double.infinity,
+        //           child: ElevatedButton(
+        //             onPressed: () {},
+        //             child: const Text('Continue'),
+        //           ),
+        //         ),
+        //       ),
+        //       Padding(
+        //         padding: const EdgeInsets.symmetric(
+        //           horizontal: AppDefaults.padding,
+        //         ),
+        //         child: SizedBox(
+        //           width: double.infinity,
+        //           child: TextButton(
+        //             onPressed: () {},
+        //             child: const Text('Track Order'),
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+        const Spacer(),
+        const Spacer(),
         const Spacer(),
       ],
     );

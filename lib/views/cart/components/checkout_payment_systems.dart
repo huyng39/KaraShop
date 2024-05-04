@@ -34,7 +34,7 @@ class PaymentSystem extends StatelessWidget {
           child: Row(
             children: [  
               PaymentCardTile(
-                label: 'Thanh toán khi nhận hàng',
+                label: 'Thanh toán\nkhi nhận hàng',
                 icon: AppIcons.cashOnDelivery,
                 onTap: () {},
                 isActive: true,

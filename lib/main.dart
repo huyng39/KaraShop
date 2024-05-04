@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:grocery/core/models/product/product_viewmodel.dart';
 import 'package:grocery/views/auth/splash.dart';
+import 'package:provider/provider.dart';
 
 import 'core/routes/app_routes.dart';
 import 'core/routes/on_generate_route.dart';
@@ -14,13 +16,20 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'eGrocery',
-      theme: AppTheme.defaultTheme,
-      onGenerateRoute: RouteGenerator.onGenerate,
-      initialRoute: AppRoutes.introScreen,
-      home: const SplashScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => ProductVM(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'eGrocery',
+        theme: AppTheme.defaultTheme,
+        onGenerateRoute: RouteGenerator.onGenerate,
+        initialRoute: AppRoutes.introScreen,
+        home: const SplashScreen(),
+      ),
     );
   }
 }

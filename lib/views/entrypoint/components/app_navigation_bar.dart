@@ -38,11 +38,12 @@ class AppBottomNavigationBar extends StatelessWidget {
             padding: EdgeInsets.all(AppDefaults.padding * 2),
             child: SizedBox(width: AppDefaults.margin),
           ),
-          /* <---- We have to leave this 3rd index (2) for the cart item -----> */
+          /* <---- Phần trống này chừa ra để hiển thị nút giỏ hàng ở giữa -----> */
+          /* Tên file chứa cart button: entrypoint_ui.dart*/
 
           BottomAppBarItem(
-            name: 'Đã lưu',
-            iconLocation: AppIcons.save,
+            name: 'Yêu thích',
+            iconLocation: AppIcons.heart,
             isActive: currentIndex == 3,
             onTap: () => onNavTap(3),
           ),

@@ -30,6 +30,7 @@ class AppIcons {
   static const addQuantity = 'assets/icons/add_quantity.svg';
   static const removeQuantity = 'assets/icons/remove_quantity.svg';
   static const shoppingCart = 'assets/icons/shopping_cart.svg';
+  static const shoppingCartWhite = 'assets/icons/shopping_cart_white.svg';
   static const delete = 'assets/icons/delete.svg';
   static const paypal = 'assets/icons/paypal.svg';
   static const momo = 'assets/icons/momo_square_pinkbg.svg';

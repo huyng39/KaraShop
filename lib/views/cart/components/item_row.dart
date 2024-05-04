@@ -8,7 +8,7 @@ class ItemRow extends StatelessWidget {
   }) : super(key: key);
 
   final String title;
-  final String value;
+  final value;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class ItemRow extends StatelessWidget {
           ),
           const Spacer(),
           Text(
-            value,
+            value.toString(),
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,

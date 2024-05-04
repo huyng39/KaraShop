@@ -29,7 +29,7 @@ class PopularPacks extends StatelessWidget {
               (index) => Padding(
                 padding: const EdgeInsets.only(right: AppDefaults.padding),
                 // child: BundleTileSquare(data: Dummy.bundles[index]),
-                child: ProductTileSquare(data: Dummy.products[index]),
+                // child: ProductTileSquare(data: Dummy.products[index]),
               ),
             ),
           ),

@@ -46,7 +46,7 @@ class IntroPageBodyArea extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () =>
                         Navigator.pushNamed(context, AppRoutes.login),
-                    child: const Text('Tiếp tục bằng số điện thoại hoặc Email'),
+                    child: const Text('Đăng nhập bằng tài khoản của bạn'),
                   ),
                 ),
                 const SizedBox(height: AppDefaults.padding),
