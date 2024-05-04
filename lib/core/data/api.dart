@@ -234,43 +234,42 @@ class APIRepository with ChangeNotifier {
     }
   }
 
-  // // Lấy product đơn lẻ theo category
-  // Future<Product?> getSingleProduct(
-  //     int? categoryID, int? productId) async {
-  //   try {
-  //     User user =
-  //         await getUser(); // Kiểm tra và tải thông tin người dùng từ bộ nhớ đệm
+  // Lấy product đơn lẻ theo category
+  Future<Product?> getSingleProduct(
+      int? categoryID, int? productId) async {
+    try {
+      User user =
+          await getUser(); // Kiểm tra và tải thông tin người dùng từ bộ nhớ đệm
 
-  //     String token = await getToken();
-  //     var pathAdmin = categoryID == null
-  //         ? '/Product/getList?accountID=20dh111120'
-  //         : '/Product/getListByCatId?categoryID=${categoryID}&accountID=20dh111120';
+      String token = await getToken();
+      var pathAdmin = categoryID == null
+          ? '/Product/getList?accountID=20dh111120'
+          : '/Product/getListByCatId?categoryID=${categoryID}&accountID=20dh111120';
 
-  //     // Gửi yêu cầu API
-  //     Response res = await api.sendRequest
-  //         .get(pathAdmin.toString(), options: Options(headers: header(token)));
+      // Gửi yêu cầu API
+      Response res = await api.sendRequest
+          .get(pathAdmin.toString(), options: Options(headers: header(token)));
 
-  //     // Kiểm tra mã phản hồi
-  //     if (res.statusCode == 200) {
-  //       Product? product = null;
-  //       // Xử lý và trả về dữ liệu
-  //       List<Product> productList =
-  //           List<Product>.from(res.data.map((item) => Product.fromJson(item)));
-  //       // Tìm sản phẩm từ danh sách sản phẩm trả về
-  //       product = productList.firstWhere(
-  //         (product) => product.id == productId,
-  //         orElse: () => null, // Return null if no matching product is found
-  //       );
-  //       return product;
-  //     } else {
-  //       // Nếu có lỗi, ném ra ngoại lệ
-  //       throw Exception('Failed to load products: ${res.statusCode}');
-  //     }
-  //   } catch (ex) {
-  //     print(ex);
-  //     rethrow;
-  //   }
-  // }
+      // Kiểm tra mã phản hồi
+      if (res.statusCode == 200) {
+        // Xử lý và trả về dữ liệu
+        List<Product> productList =
+            List<Product>.from(res.data.map((item) => Product.fromJson(item)));
+        // Tìm sản phẩm từ danh sách sản phẩm trả về
+        Product? product = productList.firstWhere(
+          (product) => product.id == productId,
+          orElse: () => Product(id: -1, nameProduct: "Not Found", price: 0), // Return null if no matching product is found
+        );
+        return product;
+      } else {
+        // Nếu có lỗi, ném ra ngoại lệ
+        throw Exception('Failed to load products: ${res.statusCode}');
+      }
+    } catch (ex) {
+      print(ex);
+      rethrow;
+    }
+  }
 
 // Thêm danh sách hóa đơn
   Future<bool> addBill(List<Product> lstPro) async {
