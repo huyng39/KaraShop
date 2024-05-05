@@ -8,9 +8,14 @@ import 'components/ad_space.dart';
 import 'components/our_new_item.dart';
 import 'components/popular_packs.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +64,9 @@ class HomePage extends StatelessWidget {
             const SliverToBoxAdapter(
               child: AdSpace(),
             ),
-            // const SliverToBoxAdapter(
-            //   child: PopularPacks(),
-            // ),
+            const SliverToBoxAdapter(
+              child: PopularPacks(),
+            ),
             const SliverPadding(
               padding: EdgeInsets.symmetric(vertical: AppDefaults.padding),
               sliver: SliverToBoxAdapter(

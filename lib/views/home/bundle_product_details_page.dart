@@ -22,13 +22,13 @@ class BundleProductDetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const ProductImagesSlider(
-              images: [
-                'https://i.imgur.com/NOuZzbe.png',
-                'https://i.imgur.com/NOuZzbe.png',
-                'https://i.imgur.com/NOuZzbe.png',
-              ],
-            ),
+            // const ProductImagesSlider(
+            //   images: [
+            //     'https://i.imgur.com/NOuZzbe.png',
+            //     'https://i.imgur.com/NOuZzbe.png',
+            //     'https://i.imgur.com/NOuZzbe.png',
+            //   ],
+            // ),
             /* <---- Product Data -----> */
             Padding(
               padding: const EdgeInsets.all(AppDefaults.padding),

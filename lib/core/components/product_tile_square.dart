@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery/core/components/buy_now_row_button.dart';
 import 'package:grocery/core/models/product/product.dart';
@@ -108,7 +109,7 @@ class _ProductTileSquareState extends State<ProductTileSquare> {
                 ),
                 Consumer<ProductVM>(
                     builder: (context, value, child) =>
-                        addToCartBtn(widget.data)),
+                        addToCartBtnList(widget.data)),
               ],
             ),
           ),
@@ -130,7 +131,7 @@ Widget productItemSquare(Product productmodel, BuildContext context) {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(
+              CupertinoPageRoute(
                 builder: (context) => ProductDetailsPage(
                   objPro: productmodel,
                 ),
@@ -152,45 +153,55 @@ Widget productItemSquare(Product productmodel, BuildContext context) {
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    //nút thêm vào danh sách yêu thích
-                    Stack(
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsets.all(AppDefaults.padding / 2),
-                          child: AspectRatio(
-                            aspectRatio: 2 / 1.5,
-                            child: NetworkImageWithLoader(
-                              productmodel.imageURL!,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.all(AppDefaults.padding / 2),
+                      child: AspectRatio(
+                        aspectRatio: 2 / 1.5,
+                        child: NetworkImageWithLoader(
+                          productmodel.imageURL!,
+                          fit: BoxFit.contain,
                         ),
-                        Positioned(
-                          right: 0,
-                          child: IconButton(
-                            onPressed: () {
-                              print('Bạn vừa nhấn nút thả tim');
-                              value.addOrRemoveFavorites(productmodel);
-                            },
-                            icon: Container(
-                              padding: const EdgeInsets.all(10),
-                              decoration: const BoxDecoration(
-                                color: Colors.white54,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Icon(
-                                isLiked
-                                    ? Icons.favorite
-                                    : Icons.favorite_border,
-                                color: isLiked ? Colors.red : null,
-                                size: 20,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
+                    //nút thêm vào danh sách yêu thích
+                    // Stack(
+                    //   children: [
+                    //     Padding(
+                    //       padding:
+                    //           const EdgeInsets.all(AppDefaults.padding / 2),
+                    //       child: AspectRatio(
+                    //         aspectRatio: 2 / 1.5,
+                    //         child: NetworkImageWithLoader(
+                    //           productmodel.imageURL!,
+                    //           fit: BoxFit.contain,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     Positioned(
+                    //       right: 0,
+                    //       child: IconButton(
+                    //         onPressed: () {
+                    //           print('Bạn vừa nhấn nút thả tim');
+                    //           value.addOrRemoveFavorites(productmodel);
+                    //         },
+                    //         icon: Container(
+                    //           padding: const EdgeInsets.all(10),
+                    //           decoration: const BoxDecoration(
+                    //             color: Colors.white54,
+                    //             shape: BoxShape.circle,
+                    //           ),
+                    //           child: Icon(
+                    //             isLiked
+                    //                 ? Icons.favorite
+                    //                 : Icons.favorite_border,
+                    //             color: isLiked ? Colors.red : null,
+                    //             size: 20,
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     ),
+                    //   ],
+                    // ),
 
                     const SizedBox(height: 8),
                     Text(
@@ -233,7 +244,7 @@ Widget productItemSquare(Product productmodel, BuildContext context) {
                     //nút giỏ hàng
                     Consumer<ProductVM>(
                         builder: (context, value, child) =>
-                            addToCartBtn(productmodel)),
+                            addToCartBtnList(productmodel)),
                   ],
                 );
               },

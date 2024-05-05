@@ -111,7 +111,7 @@ class _BuyNowRowListState extends State<BuyNowRowList> {
   }
 }
 
-Widget addToCartBtn(Product productModel) {
+Widget addToCartBtnList(Product productModel) {
   return Padding(
     padding: const EdgeInsets.symmetric(
       vertical: 11,
@@ -140,7 +140,8 @@ Widget addToCartBtn(Product productModel) {
                   backgroundColor: Colors.green,
                   content: Text(
                     'Đã thêm ${productModel.nameProduct} vào giỏ hàng!',
-                    style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                     maxLines: 2,
                   ),
                   duration: Duration(seconds: 2),
@@ -151,7 +152,8 @@ Widget addToCartBtn(Product productModel) {
                   backgroundColor: Colors.red,
                   content: Text(
                     '${productModel.nameProduct} thêm vào giỏ hàng thất bại!',
-                    style: const TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                     maxLines: 2,
                   ),
                   duration: const Duration(seconds: 2),
@@ -171,6 +173,59 @@ Widget addToCartBtn(Product productModel) {
         //   child: SvgPicture.asset(AppIcons.shoppingCart),
         // ),
         // const SizedBox(width: AppDefaults.padding),
+      ],
+    ),
+  );
+}
+
+Widget addToCartBtn(Product productModel) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(
+      vertical: AppDefaults.padding,
+    ),
+    child: Row(
+      children: [
+        Expanded(
+          child: Consumer<ProductVM>(
+            builder: (context, value, child) => ElevatedButton(
+              onPressed: () {
+                bool check = value.add(productModel);
+                if (check == true) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.green,
+                    content: Text(
+                      'Đã thêm ${productModel.nameProduct} vào giỏ hàng!',
+                      style: const TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                      maxLines: 2,
+                    ),
+                    duration: Duration(seconds: 2),
+                  ));
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.red,
+                    content: Text(
+                      '${productModel.nameProduct} thêm vào giỏ hàng thất bại!',
+                      style: const TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                      maxLines: 2,
+                    ),
+                    duration: const Duration(seconds: 2),
+                  ));
+                }
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(AppDefaults.padding * 1.2),
+              ),
+              child: const Text(
+                'Thêm vào giỏ hàng',
+                style: TextStyle(fontSize: 16),
+              ),
+            ),
+          ),
+        ),
       ],
     ),
   );

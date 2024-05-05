@@ -1,13 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grocery/core/components/product_tile_square.dart';
+import 'package:grocery/core/data/api.dart';
+import 'package:grocery/core/models/product/product.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../core/components/app_back_button.dart';
 import '../../core/components/bundle_tile_square.dart';
 import '../../core/constants/constants.dart';
 import '../../core/routes/app_routes.dart';
 
-class PopularPackPage extends StatelessWidget {
-  const PopularPackPage({Key? key}) : super(key: key);
+class PopularPackPage extends StatefulWidget {
+  final int? brandId;
+  const PopularPackPage({super.key, this.brandId});
+
+  @override
+  State<PopularPackPage> createState() => _PopularPackPageState();
+}
+
+class _PopularPackPageState extends State<PopularPackPage> {
+  Future<List<Product>> getDataPro() async {
+    if (widget.brandId != null) {
+      // Lấy thông tin product từ API
+      return await APIRepository().getProduct(widget.brandId);
+    }
+
+    // Lấy thông tin product từ API
+    return await APIRepository().getProduct(widget.brandId);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,54 +36,43 @@ class PopularPackPage extends StatelessWidget {
         title: const Text('Sản phẩm nổi bật'),
         leading: const AppBackButton(),
       ),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: AppDefaults.padding),
-              child: GridView.builder(
-                padding: const EdgeInsets.only(top: AppDefaults.padding),
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  maxCrossAxisExtent: 200,
-                  childAspectRatio: 0.73,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                ),
-                itemCount: 8,
-                itemBuilder: (context, index) {
-                  return BundleTileSquare(
-                    data: Dummy.bundles.first,
-                  );
-                },
+      body: FutureBuilder<List<Product>>(
+        future: getDataPro(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+                child: LoadingAnimationWidget.threeArchedCircle(
+                    color: Colors.green, size: 45));
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text(
+                'Error: ${snapshot.error}',
+                style: const TextStyle(color: Colors.red, fontSize: 20),
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: Container(
-                padding: const EdgeInsets.all(AppDefaults.padding * 2),
-                decoration: const BoxDecoration(
-                  color: Colors.white60,
-                ),
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, AppRoutes.createMyPack);
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(AppIcons.shoppingBag),
-                      const SizedBox(width: AppDefaults.padding),
-                      const Text('Create Own Pack'),
-                    ],
-                  ),
-                ),
+            );
+          } else {
+            //trả về danh sách sản phẩm theo id lẻ
+            final evenItems = snapshot.data!
+                .asMap()
+                .entries
+                .where((entry) => entry.key % 2 != 0)
+                .map((entry) => entry.value)
+                .toList();
+            return GridView.builder(
+              itemCount: snapshot.data!.length,
+              padding: const EdgeInsets.only(top: AppDefaults.padding),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 16,
+                childAspectRatio: 0.65,
               ),
-            )
-          ],
-        ),
+              itemBuilder: (context, index) {
+                final itemPro = evenItems[index];
+                return productItemSquare(itemPro, context);
+              },
+            );
+          }
+        },
       ),
     );
   }

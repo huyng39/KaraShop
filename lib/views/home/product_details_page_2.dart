@@ -4,6 +4,7 @@ import 'package:grocery/core/data/api.dart';
 import 'package:grocery/core/models/category/category_product.dart';
 import 'package:grocery/core/models/product/product.dart';
 import 'package:grocery/core/models/product/product_viewmodel.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/components/app_back_button.dart';
@@ -51,12 +52,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           child: Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: AppDefaults.padding),
-            child: BuyNowRow(
-              onBuyButtonTap: () {
-                Navigator.pushNamed(context, AppRoutes.cartPage);
-              },
-              // onCartButtonTap: () {},
-            ),
+            child: Consumer<ProductVM>(
+                        builder: (context, value, child) =>
+                            addToCartBtn(widget.objPro)),
           ),
         ),
         body: productDetailPage(widget.objPro, context));
@@ -66,8 +64,9 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
 Widget productDetailPage(Product productModel, BuildContext context) {
   return SingleChildScrollView(
     child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ProductImagesSlider(images: [productModel.imageURL.toString()]),
+        ProductImagesSlider(images: [productModel.imageURL.toString()],data: productModel),
         SizedBox(
           width: double.infinity,
           child: Padding(
@@ -102,7 +101,8 @@ Widget productDetailPage(Product productModel, BuildContext context) {
               // ),
               // const SizedBox(width: AppDefaults.padding),
               Text(
-                productModel.price.toString(),
+                 NumberFormat('###,###.###₫')
+                              .format(productModel.price!),
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     color: AppColors.primary, fontWeight: FontWeight.bold),
               ),
@@ -141,7 +141,7 @@ Widget productDetailPage(Product productModel, BuildContext context) {
 
         /// Product Details
         Padding(
-          padding: const EdgeInsets.all(AppDefaults.padding),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -151,10 +151,12 @@ Widget productDetailPage(Product productModel, BuildContext context) {
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
+                    textAlign: TextAlign.left,
               ),
               const SizedBox(height: 8),
               Text(
                 productModel.description!,
+                textAlign: TextAlign.left,
               ),
             ],
           ),

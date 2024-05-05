@@ -80,6 +80,7 @@ class _CategoryProductPageState extends State<CategoryProductPage> {
               ),
               itemBuilder: (context, index) {
                 final itemPro = snapshot.data![index];
+                //hiển thị productbody
                 return productItemSquare(itemPro, context);
               },
             );
